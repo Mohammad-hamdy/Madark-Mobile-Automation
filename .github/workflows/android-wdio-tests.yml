@@ -186,6 +186,16 @@ jobs:
           path: allure-html/allure-report-${{ github.run_number }}.html
           if-no-files-found: ignore
 
+      - name: Notify Telegram
+        if: always()
+        timeout-minutes: 2
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_NOTIFY_ON_SUCCESS: ${{ vars.TELEGRAM_NOTIFY_ON_SUCCESS || 'true' }}
+          TELEGRAM_MAX_SCREENSHOTS: ${{ vars.TELEGRAM_MAX_SCREENSHOTS || '10' }}
+        run: npm run notify:telegram
+
       - name: Upload raw results and logs
         if: always()
         uses: actions/upload-artifact@v4
