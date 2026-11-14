@@ -1,0 +1,61 @@
+export const ModuleTags = {
+  "completeInstitutionRequest": "completeInstitutionRequest",
+  "myRequests": "myRequests",
+  "payWithDiscount": "payWithDiscount",
+  "onboarding": "onboarding",
+  "guestMode": "guestMode",
+  "registration": "registration",
+  "signIn": "signIn",
+  "home": "home",
+  "institutions": "institutions",
+  "submitRequest": "submitRequest",
+  "requestValidation": "requestValidation",
+  "kYC": "kYC",
+  "contractActivation": "contractActivation",
+  "cancelRequest": "cancelRequest",
+  "payment": "payment",
+  "earlySettlement": "earlySettlement",
+  "withdrawal": "withdrawal",
+  "notifications": "notifications",
+  "profile": "profile",
+  "moreSupport": "moreSupport",
+  "appStates": "appStates",
+  "themeLanguage": "themeLanguage"
+} as const;
+
+export const FeatureTags = {
+  "authFeature": "AuthFeature",
+  "baseBnb": "base_bnb",
+  "changePassword": "change_password",
+  "checkInternet": "check_internet",
+  "closeAccount": "close_account",
+  "complaint": "complaint",
+  "dev": "dev",
+  "editEmail": "edit_email",
+  "editPhoneNumber": "edit_phone_number",
+  "editProfile": "edit_profile",
+  "educationalInstitution": "educational_institution",
+  "forceUpdate": "force_update",
+  "guest": "guest",
+  "home": "home",
+  "kycQuestions": "kyc_questions",
+  "maintenance": "maintenance",
+  "more": "more",
+  "myPayments": "my_payments",
+  "myRequests": "my_requests",
+  "notifications": "notifications",
+  "onBoarding": "onBoarding",
+  "payment": "payment",
+  "studentFinanceRequest": "student_finance_request",
+  "withdraw": "withdraw"
+} as const;
+
+export const TypeTags = {
+  "functional": "functional",
+  "ui": "ui",
+  "security": "security",
+  "integration": "integration",
+  "regression": "regression",
+  "boundary": "boundary",
+  "validation": "validation"
+} as const;

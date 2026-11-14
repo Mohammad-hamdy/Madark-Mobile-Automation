@@ -1,0 +1,8 @@
+[
+  {
+    "screen": "OtpPage",
+    "element": "otpField",
+    "status": "structural-only",
+    "reason": "PinCodeTextField in base_otp_widget.dart has no key/Semantics/label; it is the only input on LoginOtpScreen"
+  }
+]

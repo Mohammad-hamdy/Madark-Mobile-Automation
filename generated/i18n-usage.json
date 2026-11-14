@@ -1,0 +1,2648 @@
+{
+  "biometric_error_not_available": [
+    "lib/common/helper/biometric_auth_helper.dart"
+  ],
+  "biometric_error_key_invalidated": [
+    "lib/common/helper/biometric_auth_helper.dart"
+  ],
+  "biometric_error_general": [
+    "lib/common/helper/biometric_auth_helper.dart"
+  ],
+  "biometric_auth_message_title": [
+    "lib/common/helper/biometric_auth_helper.dart"
+  ],
+  "biometric_error_not_enrolled": [
+    "lib/common/helper/biometric_auth_helper.dart"
+  ],
+  "biometric_error_locked_out": [
+    "lib/common/helper/biometric_auth_helper.dart"
+  ],
+  "location_service_disabled_title": [
+    "lib/common/helper/location_helper.dart"
+  ],
+  "location_permission_denied_title": [
+    "lib/common/helper/location_helper.dart"
+  ],
+  "cancel": [
+    "lib/common/helper/location_helper.dart",
+    "lib/common/widgets/Dialogs/base_Dialog.dart",
+    "lib/common/widgets/Dialogs/dialog_alert_delete_account.dart",
+    "lib/common/widgets/Dialogs/dialog_alert_log_out.dart",
+    "lib/features/base_bnb/presentation/controllers/base_bnb_controller.dart",
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart",
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart",
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart",
+    "lib/features/payment/domain/services/alinma_pay_redirect.dart",
+    "lib/features/payment/presentation/screens/alinma_pay_web_view_screen.dart",
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "got_to_setting_title": [
+    "lib/common/helper/location_helper.dart"
+  ],
+  "location_service_disabled_ios_info_title": [
+    "lib/common/helper/location_helper.dart"
+  ],
+  "too_many_requests_error": [
+    "lib/common/network/api_client.dart"
+  ],
+  "no_internet_connection_title": [
+    "lib/common/network/api_client.dart",
+    "lib/features/check_internet/presentation/screens/no_internet_screen.dart"
+  ],
+  "otp_rate_limit_exceeded": [
+    "lib/common/network/api_http_client.dart"
+  ],
+  "passcode": [
+    "lib/common/security_setting.dart",
+    "lib/core/config/models/threats_config.dart"
+  ],
+  "cert_pin_failed_instructions": [
+    "lib/common/security_setting.dart"
+  ],
+  "sorry_title": [
+    "lib/common/security_setting.dart",
+    "lib/features/AuthFeature/Presentation/components/biometric_error_dialog.dart"
+  ],
+  "ok": [
+    "lib/common/security_setting.dart",
+    "lib/features/my_requests/presentation/components/expired_request_dialog.dart"
+  ],
+  "skip_firestore_check_button": [
+    "lib/common/security_setting.dart"
+  ],
+  "security_issues_subtitle": [
+    "lib/common/security_setting.dart"
+  ],
+  "security_check_unavailable_subtitle": [
+    "lib/common/security_setting.dart"
+  ],
+  "id": [
+    "lib/common/Services/deep_link_handler.dart",
+    "lib/features/complaint/data/mock/complaint_mock_data.dart",
+    "lib/features/complaint/domain/entities/complaint_entity.dart",
+    "lib/features/educational_institution/domain/entities/branches.dart",
+    "lib/features/educational_institution/domain/entities/cities_entity.dart",
+    "lib/features/educational_institution/domain/entities/educational_institutions_entity.dart",
+    "lib/features/educational_institution/domain/entities/educational_institution_details_entity.dart",
+    "lib/features/educational_institution/domain/entities/education_category_types_entity.dart",
+    "lib/features/home/domain/entities/education_types_entity.dart",
+    "lib/features/kyc_questions/domain/entities/kyc_category_model.dart",
+    "lib/features/kyc_questions/domain/entities/risk_question_model.dart",
+    "lib/features/kyc_questions/domain/entities/simah_authorization_disclosure_entity.dart",
+    "lib/features/kyc_questions/domain/entities/simah_template_entity.dart",
+    "lib/features/kyc_questions/domain/entities/terms_and_conditions_model.dart",
+    "lib/features/more/domain/entities/faq_system_entity.dart",
+    "lib/features/my_requests/domain/entities/create_reschedule_sanad_entity.dart",
+    "lib/features/my_requests/domain/entities/educational_loan_requests_entity.dart",
+    "lib/features/my_requests/domain/entities/my_rescheduled_requests_entity.dart",
+    "lib/features/my_requests/domain/entities/paid_tuition_fee_entity.dart",
+    "lib/features/notifications/domain/entities/notifications_entity.dart",
+    "lib/features/payment/domain/entities/checkout_entity.dart",
+    "lib/features/student_finance_request/domain/entities/educational_institution_students_entity.dart",
+    "lib/features/student_finance_request/domain/entities/installment_durations_entity.dart",
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart",
+    "lib/features/withdraw/domain/entities/withdrawal_entity.dart",
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "theme_mode_light": [
+    "lib/common/Services/Theme/theme_mode_picker_sheet.dart"
+  ],
+  "theme_mode_dark": [
+    "lib/common/Services/Theme/theme_mode_picker_sheet.dart"
+  ],
+  "theme_mode_system": [
+    "lib/common/Services/Theme/theme_mode_picker_sheet.dart"
+  ],
+  "theme_mode_sheet_title": [
+    "lib/common/Services/Theme/theme_mode_picker_sheet.dart"
+  ],
+  "theme_mode_sheet_subtitle": [
+    "lib/common/Services/Theme/theme_mode_picker_sheet.dart"
+  ],
+  "login_security_notice": [
+    "lib/common/widgets/app/app_security_note.dart"
+  ],
+  "otp_security_notice": [
+    "lib/common/widgets/app/app_security_note.dart"
+  ],
+  "success_downloading_file_title": [
+    "lib/common/widgets/base/app_pdf_controller.dart",
+    "lib/common/widgets/base/syncfusion_pdf_controller.dart"
+  ],
+  "error_loading_file_title": [
+    "lib/common/widgets/base/app_pdf_controller.dart",
+    "lib/common/widgets/base/base_pdf_screen.dart",
+    "lib/common/widgets/base/base_pdf_widget.dart",
+    "lib/common/widgets/base/syncfusion_pdf_controller.dart",
+    "lib/common/widgets/base/syncfusion_pdf_screen.dart"
+  ],
+  "bottom_sheet_button_title": [
+    "lib/common/widgets/base/base_bottom_sheet.dart",
+    "lib/features/AuthFeature/Presentation/components/biometric_error_dialog.dart",
+    "lib/features/close_account/presentation/screens/close_account_success_screen.dart"
+  ],
+  "session_expired_title": [
+    "lib/common/widgets/base/session_expired_screen.dart"
+  ],
+  "session_expired_hint": [
+    "lib/common/widgets/base/session_expired_screen.dart"
+  ],
+  "login_account_title": [
+    "lib/common/widgets/base/session_expired_screen.dart",
+    "lib/features/AuthFeature/Presentation/components/base_auth_widget.dart",
+    "lib/features/AuthFeature/Presentation/components/forget_password_success_widget.dart",
+    "lib/features/AuthFeature/Presentation/controller/forget_pass_new_pass_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart",
+    "lib/features/change_password/presentation/components/change_password_success_widget.dart",
+    "lib/features/change_password/presentation/controllers/change_password_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_success_screen.dart",
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "error_screen_99_title": [
+    "lib/common/widgets/base/sorry_for_inconvenience_screen.dart"
+  ],
+  "error_screen_99_btn": [
+    "lib/common/widgets/base/sorry_for_inconvenience_screen.dart"
+  ],
+  "error_screen_99_btn2": [
+    "lib/common/widgets/base/sorry_for_inconvenience_screen.dart"
+  ],
+  "and_label": [
+    "lib/features/AuthFeature/Presentation/components/base_auth_check_box_widget.dart"
+  ],
+  "login_face_id_button_title": [
+    "lib/features/AuthFeature/Presentation/components/base_auth_widget.dart",
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart"
+  ],
+  "no_have_account_title": [
+    "lib/features/AuthFeature/Presentation/components/base_auth_widget.dart"
+  ],
+  "create_account_title": [
+    "lib/features/AuthFeature/Presentation/components/base_auth_widget.dart",
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "have_account_title": [
+    "lib/features/AuthFeature/Presentation/components/base_auth_widget.dart"
+  ],
+  "otp_send_sms_title": [
+    "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart"
+  ],
+  "otp_send_verification_code_title": [
+    "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart"
+  ],
+  "otp_enter_code_label": [
+    "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart"
+  ],
+  "otp_verify": [
+    "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart"
+  ],
+  "otp_blocked_wait": [
+    "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart"
+  ],
+  "otp_not_receive_code_title": [
+    "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart"
+  ],
+  "otp_resend_title": [
+    "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart"
+  ],
+  "deActive_account_error_title": [
+    "lib/features/AuthFeature/Presentation/components/deactive_account_widget.dart"
+  ],
+  "deActive_account_error_sub_title": [
+    "lib/features/AuthFeature/Presentation/components/deactive_account_widget.dart"
+  ],
+  "deActive_account_button_title": [
+    "lib/features/AuthFeature/Presentation/components/deactive_account_widget.dart"
+  ],
+  "enable_biometric_title": [
+    "lib/features/AuthFeature/Presentation/components/enable_biometric_widget.dart"
+  ],
+  "enable_biometric_sub_title": [
+    "lib/features/AuthFeature/Presentation/components/enable_biometric_widget.dart"
+  ],
+  "enable_biometric_use_button_title": [
+    "lib/features/AuthFeature/Presentation/components/enable_biometric_widget.dart"
+  ],
+  "alert_voting_dialog_btn2": [
+    "lib/features/AuthFeature/Presentation/components/enable_biometric_widget.dart",
+    "lib/features/kyc_questions/presentation/components/custom_alert_widget.dart",
+    "lib/features/kyc_questions/presentation/components/eligibility_error_widget.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/my_requests/presentation/controllers/nafith_controller.dart",
+    "lib/features/my_requests/presentation/controllers/yaster_call_controller.dart"
+  ],
+  "forget_password_success_title": [
+    "lib/features/AuthFeature/Presentation/components/forget_password_success_widget.dart",
+    "lib/features/AuthFeature/Presentation/controller/forget_pass_new_pass_controller.dart"
+  ],
+  "forget_password_success_sub_title": [
+    "lib/features/AuthFeature/Presentation/components/forget_password_success_widget.dart",
+    "lib/features/AuthFeature/Presentation/controller/forget_pass_new_pass_controller.dart"
+  ],
+  "locked_account_title": [
+    "lib/features/AuthFeature/Presentation/components/lock_account_widget.dart"
+  ],
+  "locked_account_sub_title": [
+    "lib/features/AuthFeature/Presentation/components/lock_account_widget.dart"
+  ],
+  "trusted_device_title": [
+    "lib/features/AuthFeature/Presentation/components/trusted_device_popup.dart"
+  ],
+  "trusted_device_message": [
+    "lib/features/AuthFeature/Presentation/components/trusted_device_popup.dart"
+  ],
+  "allow": [
+    "lib/features/AuthFeature/Presentation/components/trusted_device_popup.dart"
+  ],
+  "not_allow": [
+    "lib/features/AuthFeature/Presentation/components/trusted_device_popup.dart"
+  ],
+  "biometric_error_message_new_password_hint": [
+    "lib/features/AuthFeature/Presentation/controller/biometric_auth_controller.dart"
+  ],
+  "biometric_error_message_first_time_hint": [
+    "lib/features/AuthFeature/Presentation/controller/biometric_auth_controller.dart"
+  ],
+  "generic_field_validation_error": [
+    "lib/features/AuthFeature/Presentation/controller/change_phone_number_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart"
+  ],
+  "connection_error": [
+    "lib/features/AuthFeature/Presentation/controller/change_phone_number_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/login_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/nafath_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/nafath_profile_refresh_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signUp/signup_otp_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/educational_institution/presentation/controllers/educational_institution_controller.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart",
+    "lib/features/my_requests/presentation/controllers/nafith_controller.dart",
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "change_pn_tahakok_validation_max_attempts_title": [
+    "lib/features/AuthFeature/Presentation/controller/change_phone_number_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_otp_controller.dart"
+  ],
+  "change_pn_tahakok_validation_max_attempts_sub_title": [
+    "lib/features/AuthFeature/Presentation/controller/change_phone_number_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_otp_controller.dart"
+  ],
+  "aml_error_button_title": [
+    "lib/features/AuthFeature/Presentation/controller/change_phone_number_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/AuthFeature/Presentation/Screens/aml/aml_error_screen.dart"
+  ],
+  "nafath_error_try_again": [
+    "lib/features/AuthFeature/Presentation/controller/nafath_controller.dart"
+  ],
+  "change_pn_tahakok_validation_not_match_title": [
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_otp_controller.dart"
+  ],
+  "change_pn_tahakok_validation_not_match_sub_title": [
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_otp_controller.dart"
+  ],
+  "nafath_error_button_title": [
+    "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart",
+    "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/tahakok_error_screen.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_otp_controller.dart"
+  ],
+  "aml_error_title": [
+    "lib/features/AuthFeature/Presentation/Screens/aml/aml_error_screen.dart"
+  ],
+  "aml_error_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/aml/aml_error_screen.dart"
+  ],
+  "change_mobile_title": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart"
+  ],
+  "change_mobile_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart"
+  ],
+  "signUp_national_id_label": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart",
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart"
+  ],
+  "national_id_hint": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart"
+  ],
+  "invalid_saudi_id_number": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart"
+  ],
+  "login_phoneNumber_label": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_phone_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart"
+  ],
+  "phoneNumber_hint": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_phone_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart",
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_screen.dart"
+  ],
+  "invalid_saudi_number": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart",
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart",
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_screen.dart"
+  ],
+  "confirm": [
+    "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_screen.dart",
+    "lib/features/base_bnb/presentation/controllers/base_bnb_controller.dart",
+    "lib/features/edit_email/presentation/screens/edit_email_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart",
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart",
+    "lib/features/payment/presentation/screens/alinma_pay_web_view_screen.dart"
+  ],
+  "forget_password_set_new_password_title": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart"
+  ],
+  "set_new_password_new_password_label": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "password_hint": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_less_numbers_title": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_less_numbers_title2": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_upper_case_title": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_upper_case_title3": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_upper_case_title2": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_number_title": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_number_title2": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_number_title3": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_symbol_title1": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_symbol_title2": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "validation_password_symbol_title3": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "set_new_password_confirmation_password_label": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "change_password_not_match": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "set_new_password_confirm_title": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "forget_password_title": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_phone_screen.dart"
+  ],
+  "forget_password_desc": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_phone_screen.dart"
+  ],
+  "login_phoneNumber_validation_error": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_phone_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart"
+  ],
+  "send_button_title": [
+    "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_phone_screen.dart"
+  ],
+  "login_Title_label": [
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart"
+  ],
+  "login_sub_title_label": [
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart"
+  ],
+  "change_mobile_number_button": [
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart",
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "login_otp_notice": [
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart"
+  ],
+  "or_label": [
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart"
+  ],
+  "login_create_account_title": [
+    "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart"
+  ],
+  "nafath_change_phone_number_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_screen.dart",
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_screen.dart"
+  ],
+  "nafath_change_phone_number_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_screen.dart"
+  ],
+  "nafath_cancel_back_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_cancel_back_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_cancel_back_confirm_button": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_cancel_back_dismiss_button": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_verify_account_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_verify_account_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_resend_code_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "sec_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_resend_code_button_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart"
+  ],
+  "nafath_profile_refresh_success_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_success_screen.dart"
+  ],
+  "nafath_profile_refresh_success_message": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_success_screen.dart"
+  ],
+  "kyc_status_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_success_screen.dart"
+  ],
+  "nafath_success_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_success_screen.dart"
+  ],
+  "nafath_success_button_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_success_screen.dart"
+  ],
+  "nafath_error_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/tahakok_error_screen.dart"
+  ],
+  "nafath_error_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/tahakok_error_screen.dart"
+  ],
+  "skip": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/verify_email_otp_widget.dart",
+    "lib/features/onBoarding/presentation/screens/new_onboarding_screen.dart",
+    "lib/features/onBoarding/presentation/screens/onboarding_screen.dart"
+  ],
+  "activate_email_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/verify_email_otp_widget.dart"
+  ],
+  "activate_email_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/verify_email_otp_widget.dart"
+  ],
+  "activate_email_sub_title2": [
+    "lib/features/AuthFeature/Presentation/Screens/nafath/verify_email_otp_widget.dart"
+  ],
+  "signUp_Title_label": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart"
+  ],
+  "signup_sub_title_label": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart"
+  ],
+  "next_button_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart"
+  ],
+  "signup_form_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_sub_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_id_label": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_id_hint": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_email_label": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_email_hint": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "invalid_email": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart",
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart",
+    "lib/features/edit_email/presentation/screens/edit_email_screen.dart"
+  ],
+  "signup_form_terms_prefix": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_terms_link": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_and": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_form_privacy_link": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "signup_agree_verify_sema_prefix": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "simah_consent_link": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart"
+  ],
+  "simah_consent_s1_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s1_body": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s2_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s2_body": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s3_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s3_body": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s4_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s4_body": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s5_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s5_body": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s6_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s6_body": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s7_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_s7_body": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_title": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_agree_button": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_heading": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "simah_consent_intro": [
+    "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart"
+  ],
+  "bnb_home_title": [
+    "lib/features/base_bnb/domain/entities/base_bnb_model.dart"
+  ],
+  "bnb_my_requests_title": [
+    "lib/features/base_bnb/domain/entities/base_bnb_model.dart",
+    "lib/features/withdraw/presentation/screens/active_loans.dart"
+  ],
+  "bnb_my_payments_title": [
+    "lib/features/base_bnb/domain/entities/base_bnb_model.dart"
+  ],
+  "bnb_more_title": [
+    "lib/features/base_bnb/domain/entities/base_bnb_model.dart"
+  ],
+  "Are_you_sure_you_want_to_Exit": [
+    "lib/features/base_bnb/presentation/controllers/base_bnb_controller.dart"
+  ],
+  "change_password_confirmation_title": [
+    "lib/features/change_password/presentation/components/change_password_confirmation_widget.dart"
+  ],
+  "change_password_confirmation_sub_title": [
+    "lib/features/change_password/presentation/components/change_password_confirmation_widget.dart"
+  ],
+  "yes": [
+    "lib/features/change_password/presentation/components/change_password_confirmation_widget.dart",
+    "lib/features/kyc_questions/presentation/controller/request_eligibility_controller.dart",
+    "lib/features/more/presentation/components/custom_logout_bottomsheet_widget.dart"
+  ],
+  "no": [
+    "lib/features/change_password/presentation/components/change_password_confirmation_widget.dart",
+    "lib/features/kyc_questions/presentation/controller/request_eligibility_controller.dart",
+    "lib/features/more/presentation/components/custom_logout_bottomsheet_widget.dart"
+  ],
+  "change_password_success_title": [
+    "lib/features/change_password/presentation/components/change_password_success_widget.dart",
+    "lib/features/change_password/presentation/controllers/change_password_controller.dart"
+  ],
+  "change_password_success_sub_title": [
+    "lib/features/change_password/presentation/components/change_password_success_widget.dart",
+    "lib/features/change_password/presentation/controllers/change_password_controller.dart"
+  ],
+  "change_password_title": [
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "current_password_label": [
+    "lib/features/change_password/presentation/screens/change_password_screen.dart"
+  ],
+  "no_internet_connection_subtitle": [
+    "lib/features/check_internet/presentation/screens/no_internet_screen.dart"
+  ],
+  "try_again": [
+    "lib/features/check_internet/presentation/screens/no_internet_screen.dart",
+    "lib/features/educational_institution/presentation/components/educational_institution_list.dart",
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "back_to_manage_profile_title": [
+    "lib/features/close_account/presentation/controllers/close_account_controller.dart"
+  ],
+  "early_settlement_title": [
+    "lib/features/close_account/presentation/controllers/close_account_controller.dart"
+  ],
+  "close_account_success_title": [
+    "lib/features/close_account/presentation/screens/close_account_success_screen.dart"
+  ],
+  "close_account_success_sub_title": [
+    "lib/features/close_account/presentation/screens/close_account_success_screen.dart"
+  ],
+  "attachments_optional": [
+    "lib/features/complaint/presentation/components/attachments_section_widget.dart",
+    "lib/features/withdraw/presentation/screens/components/attachments_section_widget.dart"
+  ],
+  "attachments_hint": [
+    "lib/features/complaint/presentation/components/attachments_section_widget.dart",
+    "lib/features/withdraw/presentation/screens/components/attachments_section_widget.dart"
+  ],
+  "add_image": [
+    "lib/features/complaint/presentation/components/attachments_section_widget.dart",
+    "lib/features/withdraw/presentation/screens/components/attachments_section_widget.dart"
+  ],
+  "failed_to_load_categories": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart"
+  ],
+  "failed_to_load_subcategories": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart"
+  ],
+  "max_attachments_reached": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "file_size_too_large": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "failed_to_pick_images": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "select_category_error": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart"
+  ],
+  "description_required_error": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart",
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "complaint_submitted_successfully": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart"
+  ],
+  "failed_to_submit_complaint": [
+    "lib/features/complaint/presentation/controllers/complaint_controller.dart"
+  ],
+  "submit_complaint_title": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "complaint_info_message": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "customer_information": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "customer_name": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart",
+    "lib/features/withdraw/presentation/screens/active_loans.dart"
+  ],
+  "mobile_number": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "email_optional": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "email_hint": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart",
+    "lib/features/edit_email/presentation/screens/edit_email_screen.dart"
+  ],
+  "complaint_details": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "complaint_category": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "select_category": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "complaint_subcategory": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "select_subcategory": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "complaint_description": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "complaint_description_hint": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "description_too_short": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "submit_complaint": [
+    "lib/features/complaint/presentation/screens/submit_complaint_screen.dart"
+  ],
+  "change_email_success_title": [
+    "lib/features/edit_email/presentation/controllers/edit_email_otp_controller.dart"
+  ],
+  "change_email_success_sub_title": [
+    "lib/features/edit_email/presentation/controllers/edit_email_otp_controller.dart"
+  ],
+  "verify_email_success_title": [
+    "lib/features/edit_email/presentation/controllers/edit_email_otp_controller.dart"
+  ],
+  "verify_email_success_sub_title": [
+    "lib/features/edit_email/presentation/controllers/edit_email_otp_controller.dart"
+  ],
+  "change_email_title": [
+    "lib/features/edit_email/presentation/screens/edit_email_screen.dart"
+  ],
+  "change_email_sub_title": [
+    "lib/features/edit_email/presentation/screens/edit_email_screen.dart"
+  ],
+  "current_email_label": [
+    "lib/features/edit_email/presentation/screens/edit_email_screen.dart"
+  ],
+  "new_email_label": [
+    "lib/features/edit_email/presentation/screens/edit_email_screen.dart"
+  ],
+  "back_to_my_profile_title": [
+    "lib/features/edit_email/presentation/screens/edit_email_success_screen.dart"
+  ],
+  "back_to_home_title": [
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_otp_controller.dart"
+  ],
+  "back_to_profile_title": [
+    "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart",
+    "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "change_pn_verified_title": [
+    "lib/features/edit_phone_number/presentation/screens/change_pn_success_screen.dart"
+  ],
+  "change_pn_verified_sub_title": [
+    "lib/features/edit_phone_number/presentation/screens/change_pn_success_screen.dart"
+  ],
+  "change_pn_new_number_label": [
+    "lib/features/edit_phone_number/presentation/screens/change_pn_success_screen.dart"
+  ],
+  "current_phoneNumber_label": [
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_screen.dart"
+  ],
+  "new_phoneNumber_label": [
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_screen.dart"
+  ],
+  "nafath_change_phone_number_button_title": [
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_screen.dart"
+  ],
+  "change_phone_number_success_title": [
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_success_screen.dart"
+  ],
+  "change_phone_number_success_sub_title": [
+    "lib/features/edit_phone_number/presentation/screens/edit_phone_number_success_screen.dart"
+  ],
+  "not_eligible_support_note": [
+    "lib/features/edit_phone_number/presentation/screens/edit_pn_tahakok_validation_screen.dart"
+  ],
+  "set_biometric_login_title": [
+    "lib/features/edit_profile/presentation/components/set_biometric_login_section.dart"
+  ],
+  "verify_email_title": [
+    "lib/features/edit_profile/presentation/components/verify_email_section.dart"
+  ],
+  "verify_email_sub_title": [
+    "lib/features/edit_profile/presentation/components/verify_email_section.dart"
+  ],
+  "verify_email_button_title": [
+    "lib/features/edit_profile/presentation/components/verify_email_section.dart"
+  ],
+  "edit_profile_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart",
+    "lib/features/more/presentation/components/more_profile_header.dart"
+  ],
+  "edit_profile_national_id_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "edit_profile_phone_number_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "edit_profile_email_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "edit_profile_email_verified_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "edit_profile_email_not_verified_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "close_account_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "close_account_desc": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "close_account_proceed_title": [
+    "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart"
+  ],
+  "address": [
+    "lib/features/educational_institution/domain/entities/branches.dart",
+    "lib/features/educational_institution/domain/entities/educational_institutions_entity.dart",
+    "lib/features/educational_institution/domain/entities/educational_institution_details_entity.dart",
+    "lib/features/student_finance_request/domain/entities/educational_institution_students_entity.dart"
+  ],
+  "city_label": [
+    "lib/features/educational_institution/presentation/components/custom_city_dropdown_widget.dart",
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "choose_city_hint": [
+    "lib/features/educational_institution/presentation/components/custom_city_dropdown_widget.dart"
+  ],
+  "educational_institution_filter_sheet_title": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "educational_institution_filter_reset_all": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "filter_search_by_name_label": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "filter_search_by_name_hint": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "educational_institution_filter_all_cities": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "educational_institution_filter_apply_button": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "educational_institution_filter_type_all": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "educational_institution_filter_type_girls": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "educational_institution_filter_type_boys": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_bottom_sheet.dart"
+  ],
+  "educational_institution_filter_button_title": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_widget.dart"
+  ],
+  "educational_institution_reset_filter_button_title": [
+    "lib/features/educational_institution/presentation/components/educational_institution_filter_widget.dart"
+  ],
+  "institutions_load_failed_title": [
+    "lib/features/educational_institution/presentation/components/educational_institution_list.dart"
+  ],
+  "institutions_load_failed_sub_title": [
+    "lib/features/educational_institution/presentation/components/educational_institution_list.dart"
+  ],
+  "educational_details_financing_request_button": [
+    "lib/features/educational_institution/presentation/components/educational_institution_widget.dart",
+    "lib/features/educational_institution/presentation/screens/educational_institution_details_screen.dart",
+    "lib/features/home/presentation/components/home_recommended_institution_card.dart",
+    "lib/features/home/presentation/components/special_educational_institution_widget.dart"
+  ],
+  "educational_institution_featured_title": [
+    "lib/features/educational_institution/presentation/components/educational_institution_widget.dart",
+    "lib/features/home/presentation/components/special_educational_institution_widget.dart"
+  ],
+  "refresh_button_title": [
+    "lib/features/educational_institution/presentation/components/empty_institutions_widget.dart"
+  ],
+  "empty_institutions_title": [
+    "lib/features/educational_institution/presentation/components/empty_institutions_widget.dart"
+  ],
+  "empty_institutions_title_suffix": [
+    "lib/features/educational_institution/presentation/components/empty_institutions_widget.dart"
+  ],
+  "empty_institutions_sub_title": [
+    "lib/features/educational_institution/presentation/components/empty_institutions_widget.dart"
+  ],
+  "empty_institutions_browse_all_button": [
+    "lib/features/educational_institution/presentation/components/empty_institutions_widget.dart"
+  ],
+  "empty_search_institutions_title": [
+    "lib/features/educational_institution/presentation/components/empty_search_institutions_widget.dart"
+  ],
+  "empty_search_institutions_sub_title": [
+    "lib/features/educational_institution/presentation/components/empty_search_institutions_widget.dart"
+  ],
+  "search_institution_hint": [
+    "lib/features/educational_institution/presentation/components/search_and_filter_dropdown.dart"
+  ],
+  "clear_search_institution_title": [
+    "lib/features/educational_institution/presentation/components/search_and_filter_dropdown.dart"
+  ],
+  "departments_title": [
+    "lib/features/educational_institution/presentation/components/university_college_list_widget.dart"
+  ],
+  "force_update_optional_title": [
+    "lib/features/force_update/presentation/screens/force_update_alert_dialog.dart"
+  ],
+  "force_update_dismiss_button_title": [
+    "lib/features/force_update/presentation/screens/force_update_alert_dialog.dart"
+  ],
+  "force_update_button_optional_title": [
+    "lib/features/force_update/presentation/screens/force_update_alert_dialog.dart"
+  ],
+  "force_update_title": [
+    "lib/features/force_update/presentation/screens/force_update_alert_screen.dart"
+  ],
+  "force_update_button_title": [
+    "lib/features/force_update/presentation/screens/force_update_alert_screen.dart"
+  ],
+  "guest_home_eligibility_title": [
+    "lib/features/guest/presentation/components/guest_eligibility_card.dart"
+  ],
+  "guest_home_eligibility_desc": [
+    "lib/features/guest/presentation/components/guest_eligibility_card.dart"
+  ],
+  "guest_home_get_started": [
+    "lib/features/guest/presentation/components/guest_eligibility_card.dart"
+  ],
+  "guest_mode_bottom_sheet_title": [
+    "lib/features/guest/presentation/components/guest_mode_dialog.dart",
+    "lib/features/guest/presentation/components/guest_mode_widget.dart"
+  ],
+  "guest_mode_bottom_sheet_benefit_installments": [
+    "lib/features/guest/presentation/components/guest_mode_dialog.dart"
+  ],
+  "guest_mode_bottom_sheet_benefit_receipts": [
+    "lib/features/guest/presentation/components/guest_mode_dialog.dart"
+  ],
+  "guest_mode_bottom_sheet_benefit_history": [
+    "lib/features/guest/presentation/components/guest_mode_dialog.dart"
+  ],
+  "guest_mode_bottom_sheet_button_title": [
+    "lib/features/guest/presentation/components/guest_mode_dialog.dart"
+  ],
+  "why_madark_flexible_financing": [
+    "lib/features/guest/presentation/components/why_madark_section.dart"
+  ],
+  "why_madark_no_hidden_fees": [
+    "lib/features/guest/presentation/components/why_madark_section.dart"
+  ],
+  "why_madark_title": [
+    "lib/features/guest/presentation/components/why_madark_section.dart"
+  ],
+  "complete_your_data": [
+    "lib/features/home/presentation/components/complete_your_data.dart"
+  ],
+  "complete_your_data_message": [
+    "lib/features/home/presentation/components/complete_your_data.dart"
+  ],
+  "follow_approved_request_title": [
+    "lib/features/home/presentation/components/follow_financing_request.dart"
+  ],
+  "home_hero_subtitle": [
+    "lib/features/home/presentation/components/home_hero_header.dart"
+  ],
+  "home_hello_title": [
+    "lib/features/home/presentation/components/home_hero_header.dart"
+  ],
+  "pay_your_next_installment_title": [
+    "lib/features/home/presentation/components/home_loan_summary_card.dart"
+  ],
+  "home_total_requested_label": [
+    "lib/features/home/presentation/components/home_loan_summary_card.dart"
+  ],
+  "home_paid_label": [
+    "lib/features/home/presentation/components/home_loan_summary_card.dart"
+  ],
+  "home_remaining_label": [
+    "lib/features/home/presentation/components/home_loan_summary_card.dart"
+  ],
+  "home_overdue_payment_label": [
+    "lib/features/home/presentation/components/home_loan_summary_card.dart"
+  ],
+  "go_to_payments_button": [
+    "lib/features/home/presentation/components/home_loan_summary_card.dart"
+  ],
+  "home_what_looking_for_title": [
+    "lib/features/home/presentation/components/home_search_categories_section.dart",
+    "lib/features/home/presentation/screens/education_types_screen.dart"
+  ],
+  "not_found_education_types": [
+    "lib/features/home/presentation/components/home_search_categories_section.dart"
+  ],
+  "see_all_label": [
+    "lib/features/home/presentation/components/home_section_header.dart"
+  ],
+  "home_recommended_title": [
+    "lib/features/home/presentation/components/special_institutions_widget.dart"
+  ],
+  "early_settlement_failure_title": [
+    "lib/features/home/presentation/screens/home_screen.dart",
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart",
+    "lib/features/my_payments/presentation/screens/pay_now_screen.dart"
+  ],
+  "early_settlement_failure_sub_title": [
+    "lib/features/home/presentation/screens/home_screen.dart",
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart",
+    "lib/features/my_payments/presentation/screens/pay_now_screen.dart"
+  ],
+  "retry_settlement_title": [
+    "lib/features/home/presentation/screens/home_screen.dart",
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart",
+    "lib/features/my_payments/presentation/screens/pay_now_screen.dart"
+  ],
+  "back_to_my_payments_title": [
+    "lib/features/home/presentation/screens/home_screen.dart",
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart",
+    "lib/features/my_payments/presentation/screens/early_settlement_success_screen.dart",
+    "lib/features/my_payments/presentation/screens/pay_now_screen.dart",
+    "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart"
+  ],
+  "amount": [
+    "lib/features/kyc_questions/domain/params/kyc_final_answer_param.dart",
+    "lib/features/my_payments/domain/entities/loan_first_installment_entity.dart",
+    "lib/features/my_payments/domain/entities/loan_installments_entity.dart",
+    "lib/features/my_requests/domain/entities/educational_loan_requests_entity.dart",
+    "lib/features/my_requests/domain/entities/payment_schedule_entity.dart",
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart",
+    "lib/features/my_requests/presentation/components/pending_educational_requests_widget.dart",
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart",
+    "lib/features/payment/domain/entities/checkout_entity.dart",
+    "lib/features/payment/domain/entities/payment_entity.dart",
+    "lib/features/payment/domain/entities/payment_error_entity.dart",
+    "lib/features/payment/domain/params/checkout_params.dart",
+    "lib/features/payment/domain/params/proceed_payment_params.dart",
+    "lib/features/payment/presentation/controller/payment_controller.dart",
+    "lib/features/payment/presentation/screens/apple_pay_native_demo_screen.dart",
+    "lib/features/student_finance_request/data/repositories/student_finance_request_repo_impl.dart",
+    "lib/features/student_finance_request/domain/entities/discount_preview_entity.dart",
+    "lib/features/student_finance_request/domain/entities/educational_institution_students_entity.dart",
+    "lib/features/withdraw/presentation/screens/components/withdraw_ui.dart"
+  ],
+  "eligibility_error_title": [
+    "lib/features/kyc_questions/presentation/components/custom_alert_widget.dart",
+    "lib/features/kyc_questions/presentation/components/eligibility_error_widget.dart",
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "RegisterPage_DateOfBirth_hint": [
+    "lib/features/kyc_questions/presentation/components/date_question_widget.dart"
+  ],
+  "KYC_INFORMATION_QUESTION_HINT": [
+    "lib/features/kyc_questions/presentation/components/information_question_widget.dart"
+  ],
+  "UPLOAD_FILE_BUTTON_TITLE": [
+    "lib/features/kyc_questions/presentation/components/information_question_widget.dart"
+  ],
+  "KYCFAQPage_Section3Title_Hint": [
+    "lib/features/kyc_questions/presentation/components/kyc_confirmation_tab.dart"
+  ],
+  "kyc_simah_verification_text": [
+    "lib/features/kyc_questions/presentation/components/kyc_confirmation_tab.dart"
+  ],
+  "kyc_enter_your_answer": [
+    "lib/features/kyc_questions/presentation/components/kyc_input_text_question_widget.dart"
+  ],
+  "kyc_single_choice_hint": [
+    "lib/features/kyc_questions/presentation/components/single_choice_question_widget.dart"
+  ],
+  "select_date": [
+    "lib/features/kyc_questions/presentation/controller/date_question_controller.dart"
+  ],
+  "UPGRADE_INVESTMENT_error_2": [
+    "lib/features/kyc_questions/presentation/controller/information_question_helper.dart"
+  ],
+  "upload_file_error_4": [
+    "lib/features/kyc_questions/presentation/controller/information_question_helper.dart"
+  ],
+  "kyc_must_answer_all_questions": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "msg_template_saved_successfully": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "tenor_cap_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "tenor_cap_change_button": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "ok_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "all_students_blocked_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "some_students_blocked_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "id_expired_popup_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "id_expired_popup_message": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "id_expired_refresh_button": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "nafath_profile_refresh_continue_button": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "cancel_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart",
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "id_still_expired_popup_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "id_still_expired_popup_message": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "id_still_expired_go_to_profile_button": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "incomplete_application_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "continue_application_title": [
+    "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart"
+  ],
+  "are_you_registered": [
+    "lib/features/kyc_questions/presentation/controller/request_eligibility_controller.dart"
+  ],
+  "registration_required": [
+    "lib/features/kyc_questions/presentation/controller/request_eligibility_controller.dart"
+  ],
+  "active_request_exists": [
+    "lib/features/kyc_questions/presentation/controller/request_eligibility_controller.dart"
+  ],
+  "kyc_confirm_button_title": [
+    "lib/features/kyc_questions/presentation/screens/kyc_questions_screen.dart"
+  ],
+  "kyc_next_button_title": [
+    "lib/features/kyc_questions/presentation/screens/kyc_questions_screen.dart"
+  ],
+  "kyc_success_title": [
+    "lib/features/kyc_questions/presentation/screens/kyc_success_screen.dart"
+  ],
+  "kyc_success_sub_title": [
+    "lib/features/kyc_questions/presentation/screens/kyc_success_screen.dart"
+  ],
+  "kyc_success_back_to_my_requests": [
+    "lib/features/kyc_questions/presentation/screens/kyc_success_screen.dart"
+  ],
+  "logout_title": [
+    "lib/features/more/presentation/components/custom_logout_bottomsheet_widget.dart",
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "logout_subtitle": [
+    "lib/features/more/presentation/components/custom_logout_bottomsheet_widget.dart"
+  ],
+  "more_section_logout": [
+    "lib/features/more/presentation/controllers/more_controller.dart",
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "national_id_already_updated_message": [
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "done_title": [
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "edit_pn_validation_max_attempts_title": [
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "contact_support_title": [
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "edit_pn_validation_max_attempts_sub_title": [
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "edit_pn_validation_max_attempts_sub_title2": [
+    "lib/features/more/presentation/controllers/more_controller.dart"
+  ],
+  "more_section_about_madark": [
+    "lib/features/more/presentation/screens/about_madark_screen.dart"
+  ],
+  "more_section_compliance_with_islamic_law": [
+    "lib/features/more/presentation/screens/compliance_with_islamic_law_screen.dart",
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_section_contact_us": [
+    "lib/features/more/presentation/screens/contact_us_screen.dart",
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "submit_complaint_button": [
+    "lib/features/more/presentation/screens/contact_us_screen.dart"
+  ],
+  "or_contact_us_via": [
+    "lib/features/more/presentation/screens/contact_us_screen.dart"
+  ],
+  "follow_us_on": [
+    "lib/features/more/presentation/screens/contact_us_screen.dart"
+  ],
+  "more_section_q_&_a_title": [
+    "lib/features/more/presentation/screens/faq_screen.dart"
+  ],
+  "more_section_q_&_a_not_found": [
+    "lib/features/more/presentation/screens/faq_screen.dart"
+  ],
+  "settings_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "settings_subtitle": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_account_section_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_personal_info_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_personal_info_subtitle": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_change_phone_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_change_phone_subtitle": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "edit_your_data": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "update_national_id_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "withdraw_requests": [
+    "lib/features/more/presentation/screens/more_screen.dart",
+    "lib/features/withdraw/presentation/screens/active_loans.dart",
+    "lib/features/withdraw/presentation/screens/withdraw_requests.dart"
+  ],
+  "more_preferences_section_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "notification_title": [
+    "lib/features/more/presentation/screens/more_screen.dart",
+    "lib/features/notifications/pesentation/screens/notifications_screen.dart"
+  ],
+  "more_notifications_subtitle": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_section_theme": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_language_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_language_subtitle": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_section_language_type": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_section_legal_and_policy_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_section_privacy_policy": [
+    "lib/features/more/presentation/screens/more_screen.dart",
+    "lib/features/more/presentation/screens/privacy_policy_screen.dart"
+  ],
+  "more_section_terms_of_use": [
+    "lib/features/more/presentation/screens/more_screen.dart",
+    "lib/features/more/presentation/screens/terms_of_use_screen.dart"
+  ],
+  "more_section_terms_and_conditions": [
+    "lib/features/more/presentation/screens/more_screen.dart",
+    "lib/features/more/presentation/screens/terms_and_conditions_screen.dart"
+  ],
+  "more_section_help_and_support_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_help_faq_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_help_faq_subtitle": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_about_app_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_about_app_subtitle": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "share_app": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "more_section_language": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "guest_register_now_title": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "version": [
+    "lib/features/more/presentation/screens/more_screen.dart"
+  ],
+  "choose_loan_title": [
+    "lib/features/my_payments/presentation/components/choose_loan_dropdown.dart"
+  ],
+  "tap_to_view_details_title": [
+    "lib/features/my_payments/presentation/components/choose_loan_dropdown.dart"
+  ],
+  "failed_retrieve_data_title": [
+    "lib/features/my_payments/presentation/components/failed_retrieve_data_dialog.dart"
+  ],
+  "failed_retrieve_data_desc": [
+    "lib/features/my_payments/presentation/components/failed_retrieve_data_dialog.dart"
+  ],
+  "back_and_try_again_title": [
+    "lib/features/my_payments/presentation/components/failed_retrieve_data_dialog.dart"
+  ],
+  "all_installments_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart"
+  ],
+  "no_payments_available_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart",
+    "lib/features/my_payments/presentation/components/no_payments_widget.dart"
+  ],
+  "show_less_installments_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart"
+  ],
+  "view_all_installments_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart"
+  ],
+  "pay_early_multiple_button_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart"
+  ],
+  "filter_all_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart"
+  ],
+  "filter_paid_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "filter_upcoming_title": [
+    "lib/features/my_payments/presentation/components/installments_section.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "loan_installment_paid_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_requests/presentation/components/installment_schedule_section.dart"
+  ],
+  "loan_installment_overdue_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_requests/presentation/components/installment_schedule_section.dart"
+  ],
+  "loan_installment_on_hold_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart"
+  ],
+  "payment_success_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "payment_share_view_receipt_button_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "payment_failure_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "payment_failure_sub_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "retry_payment_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "loan_installment_pay_now_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/components/pay_now_button.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart",
+    "lib/features/payment/presentation/components/choose_payment_method_widget.dart"
+  ],
+  "loan_installment_up_next_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart"
+  ],
+  "loan_installment_upcoming_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart"
+  ],
+  "loan_installment_invoice_title": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "payment_success_sub_title1": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "payment_success_sub_title2": [
+    "lib/features/my_payments/presentation/components/installment_item.dart",
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart",
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart",
+    "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "overdue_badge_title": [
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "due_today_badge_title": [
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "overdue_by_days_title": [
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "due_in_days_title": [
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "pay_early_button_title": [
+    "lib/features/my_payments/presentation/components/installment_mini_card.dart"
+  ],
+  "loan_total_financing_title": [
+    "lib/features/my_payments/presentation/components/loan_details_widget.dart"
+  ],
+  "loan_paid_percent_label": [
+    "lib/features/my_payments/presentation/components/loan_details_widget.dart"
+  ],
+  "loan_remaining_balance_title": [
+    "lib/features/my_payments/presentation/components/loan_details_widget.dart"
+  ],
+  "next_payment_title": [
+    "lib/features/my_payments/presentation/components/loan_details_widget.dart"
+  ],
+  "loan_total_amount_title": [
+    "lib/features/my_payments/presentation/components/loan_dropdown_item.dart"
+  ],
+  "loan_start_date_title": [
+    "lib/features/my_payments/presentation/components/loan_dropdown_item.dart"
+  ],
+  "loan_request_order_date_title": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "loan_request_installment_start_date_title": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "loan_request_installment_end_date_title": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "loan_request_installment_total_title": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "loan_request_installment_per_month_title": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "loan_request_number_of_installment_title": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "verify_debt": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "beneficiary_id": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart",
+    "lib/features/my_requests/presentation/components/beneficiary_section.dart",
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart"
+  ],
+  "tuition_fees": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart",
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart",
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart",
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "student_financing_amount": [
+    "lib/features/my_payments/presentation/components/loan_request_details_widget.dart"
+  ],
+  "overdue_installments_one": [
+    "lib/features/my_payments/presentation/components/overdue_installments_banner.dart"
+  ],
+  "overdue_installments_two": [
+    "lib/features/my_payments/presentation/components/overdue_installments_banner.dart"
+  ],
+  "overdue_installments_few": [
+    "lib/features/my_payments/presentation/components/overdue_installments_banner.dart"
+  ],
+  "overdue_installments_many": [
+    "lib/features/my_payments/presentation/components/overdue_installments_banner.dart"
+  ],
+  "overdue_installments_sub_title": [
+    "lib/features/my_payments/presentation/components/overdue_installments_banner.dart"
+  ],
+  "loan_full_settlement_button": [
+    "lib/features/my_payments/presentation/components/payment_summary_card.dart"
+  ],
+  "payment_total_due_title": [
+    "lib/features/my_payments/presentation/components/payment_summary_card.dart"
+  ],
+  "payment_overdue_title": [
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart"
+  ],
+  "remind_me_later_title": [
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart"
+  ],
+  "payment_overdue_sub_title": [
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart"
+  ],
+  "payment_overdue_sub_title2": [
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart"
+  ],
+  "payment_overdue_sub_title3": [
+    "lib/features/my_payments/presentation/controllers/my_payments_controller.dart"
+  ],
+  "loan_early_settlement_title": [
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart"
+  ],
+  "loan_remaining_installments_title": [
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart"
+  ],
+  "loan_amount_per_each_title": [
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart"
+  ],
+  "loan_early_settlement_payment_date": [
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart"
+  ],
+  "total_remaining_installments_title": [
+    "lib/features/my_payments/presentation/screens/early_settlement_screen.dart"
+  ],
+  "early_settlement_success_title": [
+    "lib/features/my_payments/presentation/screens/early_settlement_success_screen.dart"
+  ],
+  "view_settlement_receipt_button_title": [
+    "lib/features/my_payments/presentation/screens/early_settlement_success_screen.dart"
+  ],
+  "early_settlement_success_sub_title1": [
+    "lib/features/my_payments/presentation/screens/early_settlement_success_screen.dart"
+  ],
+  "early_settlement_success_sub_title2": [
+    "lib/features/my_payments/presentation/screens/early_settlement_success_screen.dart"
+  ],
+  "my_payments_page_title": [
+    "lib/features/my_payments/presentation/screens/my_payments_screen.dart"
+  ],
+  "my_payments_subtitle": [
+    "lib/features/my_payments/presentation/screens/my_payments_screen.dart"
+  ],
+  "pay_early_installments_title": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "pay_early_installments_subtitle": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "upcoming_installments_title": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "deselect_all_title": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "select_all_title": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "selected_installments_count_title": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "total_payment_title": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "pay_early_installments_hint": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "pay_selected_amount_button_title": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "installment_due_date_prefix": [
+    "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart"
+  ],
+  "installment_amount_title": [
+    "lib/features/my_payments/presentation/screens/pay_now_screen.dart"
+  ],
+  "installment_payment_due_date_title": [
+    "lib/features/my_payments/presentation/screens/pay_now_screen.dart"
+  ],
+  "pending": [
+    "lib/features/my_requests/domain/entities/callback_status_entities.dart",
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/pending_educational_requests_widget.dart"
+  ],
+  "branch": [
+    "lib/features/my_requests/domain/entities/educational_loan_requests_entity.dart",
+    "lib/features/student_finance_request/domain/entities/discount_preview_entity.dart",
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "students": [
+    "lib/features/my_requests/domain/entities/educational_loan_requests_entity.dart",
+    "lib/features/my_requests/domain/entities/paid_tuition_fee_entity.dart",
+    "lib/features/student_finance_request/domain/entities/discount_preview_entity.dart",
+    "lib/features/withdraw/domain/entities/submit.dart",
+    "lib/features/withdraw/domain/entities/withdrawal_entity.dart",
+    "lib/features/withdraw/domain/entities/withdraw_data_entity.dart",
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "beneficiary": [
+    "lib/features/my_requests/presentation/components/beneficiary_section.dart",
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart"
+  ],
+  "beneficiary_name": [
+    "lib/features/my_requests/presentation/components/beneficiary_section.dart",
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart"
+  ],
+  "approved_amount_label": [
+    "lib/features/my_requests/presentation/components/beneficiary_section.dart",
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart"
+  ],
+  "cancel_request_confirmation_title": [
+    "lib/features/my_requests/presentation/components/cancel_request_confirmation_dialog.dart"
+  ],
+  "cancel_request_confirmation_message": [
+    "lib/features/my_requests/presentation/components/cancel_request_confirmation_dialog.dart"
+  ],
+  "confirm_cancel_request": [
+    "lib/features/my_requests/presentation/components/cancel_request_confirmation_dialog.dart"
+  ],
+  "cancel_request_back": [
+    "lib/features/my_requests/presentation/components/cancel_request_confirmation_dialog.dart"
+  ],
+  "empty_requests_title": [
+    "lib/features/my_requests/presentation/components/empty_requests_widget.dart"
+  ],
+  "empty_requests_sub_title": [
+    "lib/features/my_requests/presentation/components/empty_requests_widget.dart"
+  ],
+  "expired_request_title": [
+    "lib/features/my_requests/presentation/components/expired_request_dialog.dart"
+  ],
+  "expired_request_message": [
+    "lib/features/my_requests/presentation/components/expired_request_dialog.dart"
+  ],
+  "proceed_to_yaster": [
+    "lib/features/my_requests/presentation/components/financing_procedures_list.dart",
+    "lib/features/my_requests/presentation/components/financing_step_tile.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "requested_amount_label": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart"
+  ],
+  "financing_limit_title": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/screens/scheduled_request_completion_screen.dart"
+  ],
+  "approval_amount_disclaimer": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart"
+  ],
+  "total_finance_amount_label": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "payment_breakdown_no_of_installments": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "payment_breakdown_installment_per_month": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "payment_breakdown_total_first_installment": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "first_installment_includes_deposit": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "payment_breakdown_installments_start_date": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "payment_breakdown_installments_end_date": [
+    "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "loan_installment_schedule_title": [
+    "lib/features/my_requests/presentation/components/installment_schedule_section.dart"
+  ],
+  "due_date_label": [
+    "lib/features/my_requests/presentation/components/installment_schedule_section.dart"
+  ],
+  "amount_label": [
+    "lib/features/my_requests/presentation/components/installment_schedule_section.dart"
+  ],
+  "first_installment_ordinal": [
+    "lib/features/my_requests/presentation/components/installment_schedule_section.dart"
+  ],
+  "my_request_status_in_progress": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "my_request_status_expired": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "my_request_status_cancelled": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "pending_card_institution_name": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "pending_card_branch_name": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "pending_card_student_name": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "pending_card_requested_amount": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "pending_card_submission_date": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "continue_kyc": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/pending_educational_requests_widget.dart",
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart"
+  ],
+  "cancel_request": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart"
+  ],
+  "pending_request_inactive_message": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "remaining_amount": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/screens/scheduled_request_completion_screen.dart"
+  ],
+  "previous_installments": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "remaining_installments": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "new_installments": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "remaining_new_installments": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "my_request_proceed_title": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/my_request_widget.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "sar": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart",
+    "lib/features/my_requests/presentation/components/pending_educational_requests_widget.dart",
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart",
+    "lib/features/withdraw/presentation/screens/components/withdraw_ui.dart",
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart",
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "and_n_others": [
+    "lib/features/my_requests/presentation/components/my_requests_list.dart"
+  ],
+  "pending_requests": [
+    "lib/features/my_requests/presentation/components/my_request_status_widget.dart",
+    "lib/features/my_requests/presentation/components/pending_educational_requests_widget.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "my_requests_under_review_title": [
+    "lib/features/my_requests/presentation/components/my_request_status_widget.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "my_requests_approved_title": [
+    "lib/features/my_requests/presentation/components/my_request_status_widget.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "my_requests_rejected_title": [
+    "lib/features/my_requests/presentation/components/my_request_status_widget.dart",
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "my_requests_pending_title": [
+    "lib/features/my_requests/presentation/components/my_request_status_widget.dart"
+  ],
+  "my_request_name_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "my_request_request_number_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart",
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart",
+    "lib/features/withdraw/presentation/screens/withdraw_requests.dart"
+  ],
+  "my_request_institution_name_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "my_request_first_installment_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "my_request_submission_date_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "my_request_amount_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "my_request_view_details_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "my_request_check_cancel_reasons_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "my_request_check_reject_reasons_title": [
+    "lib/features/my_requests/presentation/components/my_request_widget.dart"
+  ],
+  "amount_paid_label": [
+    "lib/features/my_requests/presentation/components/paid_tuition_fee_card.dart"
+  ],
+  "student_count_label": [
+    "lib/features/my_requests/presentation/components/paid_tuition_fee_card.dart"
+  ],
+  "payment_date_label": [
+    "lib/features/my_requests/presentation/components/paid_tuition_fee_card.dart",
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "view_details_and_receipt_label": [
+    "lib/features/my_requests/presentation/components/paid_tuition_fee_card.dart",
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "paid_status_label": [
+    "lib/features/my_requests/presentation/components/paid_tuition_fee_card.dart"
+  ],
+  "first_installment_includes_down_payment": [
+    "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+  ],
+  "pending_request_continue_message": [
+    "lib/features/my_requests/presentation/components/pending_educational_requests_widget.dart"
+  ],
+  "pending_request_title": [
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart"
+  ],
+  "pending_request_message": [
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart"
+  ],
+  "request_number": [
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart"
+  ],
+  "student_name": [
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart",
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart"
+  ],
+  "institution_name": [
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart",
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "pay_with_discount": [
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart",
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "later": [
+    "lib/features/my_requests/presentation/components/pending_request_popup.dart"
+  ],
+  "my_request_cancel_reason_title": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart"
+  ],
+  "my_request_reject_reason_title": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart",
+    "lib/features/my_requests/presentation/screens/ineligible_request_screen.dart"
+  ],
+  "my_request_cancel_reason_desc": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart"
+  ],
+  "my_request_reject_reason_desc": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart",
+    "lib/features/my_requests/presentation/screens/ineligible_request_screen.dart"
+  ],
+  "my_request_cancel_reason_desc2": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart"
+  ],
+  "my_request_reject_reason_desc2": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart",
+    "lib/features/my_requests/presentation/screens/ineligible_request_screen.dart"
+  ],
+  "reasons_for_cancellation_title": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart"
+  ],
+  "reasons_for_rejection_title": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart",
+    "lib/features/my_requests/presentation/screens/ineligible_request_screen.dart"
+  ],
+  "my_request_back_btn_title": [
+    "lib/features/my_requests/presentation/components/reasons_for_rejection_dialog.dart",
+    "lib/features/my_requests/presentation/screens/ineligible_request_screen.dart"
+  ],
+  "discount_no_longer_available": [
+    "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart",
+    "lib/features/my_requests/presentation/controllers/pending_request_controller.dart",
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "discount_payment_failed": [
+    "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart"
+  ],
+  "rescheduled_requests": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "my_requests_cancelled_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "paid_tuition_fees_tab_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "signing_contract_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "deposit_first_installment_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/my_requests/presentation/screens/financing_request_completion_screen.dart"
+  ],
+  "go_to_my_payments": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "request_new_sanad_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+  ],
+  "move_to_nafith_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/my_requests/presentation/screens/scheduled_request_completion_screen.dart"
+  ],
+  "nafith_rejected_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/my_requests/presentation/controllers/nafith_controller.dart"
+  ],
+  "nafith_rejected_sub_title": [
+    "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+    "lib/features/my_requests/presentation/controllers/nafith_controller.dart"
+  ],
+  "failed_to_cancel_request": [
+    "lib/features/my_requests/presentation/controllers/pending_request_controller.dart"
+  ],
+  "cancel_request_success": [
+    "lib/features/my_requests/presentation/controllers/pending_request_controller.dart"
+  ],
+  "failed_to_load_requests": [
+    "lib/features/my_requests/presentation/controllers/pending_request_controller.dart"
+  ],
+  "failed_to_load_request_details": [
+    "lib/features/my_requests/presentation/controllers/pending_request_controller.dart"
+  ],
+  "yaster_call_initiated_success": [
+    "lib/features/my_requests/presentation/controllers/yaster_call_controller.dart"
+  ],
+  "yaster_call_approved_success": [
+    "lib/features/my_requests/presentation/controllers/yaster_call_controller.dart"
+  ],
+  "yaster_call_rejected_title": [
+    "lib/features/my_requests/presentation/controllers/yaster_call_controller.dart"
+  ],
+  "yaster_call_rejected_message": [
+    "lib/features/my_requests/presentation/controllers/yaster_call_controller.dart"
+  ],
+  "dismiss": [
+    "lib/features/my_requests/presentation/controllers/yaster_call_controller.dart"
+  ],
+  "choose_how_to_pay_title": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_pay_now": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_continue_financing": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_question": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_subtitle": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_installments_desc": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_installments_title": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_installments_note": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_save_badge": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_full_title": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_full_desc": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_education_fees": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_your_discount": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_pay_today": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_request_label": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "choose_pay_student_label": [
+    "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart"
+  ],
+  "financing_created_successfully": [
+    "lib/features/my_requests/presentation/screens/financing_request_completion_screen.dart"
+  ],
+  "view_and_download_contract_title": [
+    "lib/features/my_requests/presentation/screens/financing_request_completion_screen.dart",
+    "lib/features/my_requests/presentation/screens/scheduled_request_completion_screen.dart"
+  ],
+  "my_request_financing_procedures": [
+    "lib/features/my_requests/presentation/screens/financing_request_completion_screen.dart",
+    "lib/features/my_requests/presentation/screens/scheduled_request_completion_screen.dart"
+  ],
+  "my_requests_title": [
+    "lib/features/my_requests/presentation/screens/my_requests_screen.dart"
+  ],
+  "guest_mode_requests_card_title": [
+    "lib/features/my_requests/presentation/screens/my_requests_screen.dart"
+  ],
+  "home_request_for_financing_title": [
+    "lib/features/my_requests/presentation/screens/my_requests_screen.dart"
+  ],
+  "home_request_for_financing_desc": [
+    "lib/features/my_requests/presentation/screens/my_requests_screen.dart"
+  ],
+  "nafith_back_warning_title": [
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart"
+  ],
+  "nafith_back_warning_body": [
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart"
+  ],
+  "nafith_info_title": [
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart"
+  ],
+  "nafith_info_sub_title": [
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart"
+  ],
+  "nafith_info_button_title": [
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart"
+  ],
+  "hub_connected_waiting": [
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart"
+  ],
+  "hub_connecting": [
+    "lib/features/my_requests/presentation/screens/nafith_info_screen.dart",
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "payment_type_apple_pay": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "payment_type_card": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "download_share_receipt_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "branch_name_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart",
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "total_tuition_fees_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart",
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "discount_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart"
+  ],
+  "total_payable_after_discount_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart"
+  ],
+  "payment_type_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "geidea_transaction_reference_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "support_phone_number_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart"
+  ],
+  "student_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart"
+  ],
+  "tuition_fees_label": [
+    "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+    "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart"
+  ],
+  "contract_terms_acceptance_text": [
+    "lib/features/my_requests/presentation/screens/request_contract_screen.dart"
+  ],
+  "contract_confirm_button_title": [
+    "lib/features/my_requests/presentation/screens/request_contract_screen.dart"
+  ],
+  "cancel_request_title": [
+    "lib/features/my_requests/presentation/screens/request_contract_screen.dart"
+  ],
+  "reschedule_last_step_title": [
+    "lib/features/my_requests/presentation/screens/scheduled_request_completion_screen.dart"
+  ],
+  "loan_approval_call_title": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_confirmation_title": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_before_nafith_desc": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_during_call_instruction": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_if_approve_title": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_if_approve_desc": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_if_reject_title": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_if_reject_desc": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_important_note": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_in_progress_button": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "yaster_call_initiate_button": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "hub_connected_waiting_call": [
+    "lib/features/my_requests/presentation/screens/YasterScreen.dart"
+  ],
+  "notification_cta_view_request": [
+    "lib/features/notifications/domain/entities/notification_intent.dart"
+  ],
+  "notification_cta_view_reason": [
+    "lib/features/notifications/domain/entities/notification_intent.dart"
+  ],
+  "notification_cta_done": [
+    "lib/features/notifications/domain/entities/notification_intent.dart"
+  ],
+  "notification_cta_pay_settlement": [
+    "lib/features/notifications/domain/entities/notification_intent.dart"
+  ],
+  "notification_ok_button_title": [
+    "lib/features/notifications/domain/entities/notification_intent.dart"
+  ],
+  "no_notifications_title": [
+    "lib/features/notifications/pesentation/components/empty_notifications_widget.dart"
+  ],
+  "notification_type_all_title": [
+    "lib/features/notifications/pesentation/controllers/notifications_controller.dart"
+  ],
+  "notification_type_read_title": [
+    "lib/features/notifications/pesentation/controllers/notifications_controller.dart"
+  ],
+  "notification_type_unread_title": [
+    "lib/features/notifications/pesentation/controllers/notifications_controller.dart"
+  ],
+  "notifications_mark_all_read_title": [
+    "lib/features/notifications/pesentation/screens/notifications_screen.dart"
+  ],
+  "Onboarding_Screen1Description1_Hint": [
+    "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+  ],
+  "Onboarding_Screen1Description2_Hint": [
+    "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+  ],
+  "Onboarding_Screen2Description1_Hint": [
+    "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+  ],
+  "Onboarding_Screen2Description2_Hint": [
+    "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+  ],
+  "Onboarding_Screen3Description1_Hint": [
+    "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+  ],
+  "Onboarding_Screen3Description2_Hint": [
+    "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+  ],
+  "onboarding_continue_now_button_title": [
+    "lib/features/onBoarding/presentation/screens/new_onboarding_screen.dart"
+  ],
+  "onboarding_lets_start_button_title": [
+    "lib/features/onBoarding/presentation/screens/new_onboarding_screen.dart"
+  ],
+  "required_amount_title": [
+    "lib/features/payment/presentation/components/choose_payment_method_widget.dart"
+  ],
+  "apple_pay_button_title": [
+    "lib/features/payment/presentation/components/choose_payment_method_widget.dart"
+  ],
+  "iban_label": [
+    "lib/features/payment/presentation/components/choose_payment_method_widget.dart"
+  ],
+  "enter_iban_hint": [
+    "lib/features/payment/presentation/components/choose_payment_method_widget.dart"
+  ],
+  "iban_required_error": [
+    "lib/features/payment/presentation/components/choose_payment_method_widget.dart"
+  ],
+  "invalid_iban_error": [
+    "lib/features/payment/presentation/components/choose_payment_method_widget.dart",
+    "lib/features/payment/presentation/controller/payment_controller.dart"
+  ],
+  "apple_pay_unavailable": [
+    "lib/features/payment/presentation/controller/payment_controller.dart"
+  ],
+  "apple_pay_failed": [
+    "lib/features/payment/presentation/controller/payment_controller.dart"
+  ],
+  "payment_not_confirmed": [
+    "lib/features/payment/presentation/controller/payment_controller.dart"
+  ],
+  "payment_declined_by_bank": [
+    "lib/features/payment/presentation/controller/payment_controller.dart"
+  ],
+  "alinma_pay_cancel_title": [
+    "lib/features/payment/presentation/screens/alinma_pay_web_view_screen.dart"
+  ],
+  "alinma_pay_cancel_body": [
+    "lib/features/payment/presentation/screens/alinma_pay_web_view_screen.dart"
+  ],
+  "alinma_pay_title": [
+    "lib/features/payment/presentation/screens/alinma_pay_web_view_screen.dart"
+  ],
+  "done": [
+    "lib/features/payment/presentation/screens/alinma_pay_web_view_screen.dart"
+  ],
+  "nationality": [
+    "lib/features/student_finance_request/presentation/components/installment_duration_dropdown_widget.dart"
+  ],
+  "choose_nationality": [
+    "lib/features/student_finance_request/presentation/components/installment_duration_dropdown_widget.dart"
+  ],
+  "tenor_plan_cleared": [
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "layer2_check_failed_title": [
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "select_academic_year_error": [
+    "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+  ],
+  "relationship_father": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "relationship_mother": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "relationship_brother": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "relationship_sister": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "relationship_guardian": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "relationship_other": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "add_student_screen_title": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "add_student_screen_subtitle": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "student_information_section": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "student_full_name_label": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "enter_full_name_hint": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "student_id": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart",
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "enter_student_id": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "same_id_error": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "academic_year": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart",
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "relationship_label": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "select_hint": [
+    "lib/features/student_finance_request/presentation/screens/add_student_screen.dart"
+  ],
+  "choose_student_title": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "tenor_none": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "oversized_tuition_disclaimer": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "oversized_tuition_disclaimer_conditional": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "continue_to_next_step": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "expected_monthly_installment": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "add_another_student": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "pending_fees": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "added_students_label": [
+    "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart"
+  ],
+  "Week1": [
+    "lib/features/withdraw/domain/entities/timing_models.dart"
+  ],
+  "Week2": [
+    "lib/features/withdraw/domain/entities/timing_models.dart"
+  ],
+  "Week3": [
+    "lib/features/withdraw/domain/entities/timing_models.dart"
+  ],
+  "Week4": [
+    "lib/features/withdraw/domain/entities/timing_models.dart"
+  ],
+  "Other": [
+    "lib/features/withdraw/domain/entities/timing_models.dart"
+  ],
+  "no_students": [
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "select_withdraw_student_msg": [
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart",
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "withdraw_submitted_successfully": [
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "failed_to_submit_withdrawal": [
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "back_to_my_withdrawal_title": [
+    "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+  ],
+  "continue": [
+    "lib/features/withdraw/presentation/screens/active_loans.dart"
+  ],
+  "withdrawal_loan_status_active": [
+    "lib/features/withdraw/presentation/screens/active_loans.dart",
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "customer": [
+    "lib/features/withdraw/presentation/screens/active_loans.dart"
+  ],
+  "customer_id": [
+    "lib/features/withdraw/presentation/screens/active_loans.dart"
+  ],
+  "paid_amount": [
+    "lib/features/withdraw/presentation/screens/components/withdraw_ui.dart"
+  ],
+  "select_withdraw_student": [
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "submit": [
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "withdrawal_timing": [
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart",
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "specify_timing": [
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "required_field": [
+    "lib/features/withdraw/presentation/screens/create_withdraw_request.dart"
+  ],
+  "loan_information": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "loan_id": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "total_tuition_fees": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "total_financed_amount": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "total_paid_amount": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "request_information": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "submission_date": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "current_status": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "request_submitted": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "withdrawal_review_message": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "rejection_reason": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "rejection_notes": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "processed_successfully": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "financial_summary": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "refund_amount": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "outstanding_amount": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "pay_outstanding": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "download_receipt": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "document": [
+    "lib/features/withdraw/presentation/screens/withdrawal_details.dart"
+  ],
+  "DELETE": [
+    "lib/globals/enums.dart"
+  ],
+  "splash_status_preparing": [
+    "lib/splash.dart"
+  ],
+  "splash_status_loading_config": [
+    "lib/splash.dart"
+  ],
+  "splash_status_security_check": [
+    "lib/splash.dart"
+  ],
+  "splash_status_loading_session": [
+    "lib/splash.dart"
+  ]
+}

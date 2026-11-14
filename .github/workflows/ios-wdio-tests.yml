@@ -1,0 +1,144 @@
+name: iOS WDIO tests (simulator on runner)
+
+# Runs the suite on a macOS runner: iOS simulator + local Appium (XCUITest) + WDIO.
+# Needs a SIMULATOR build of the QA flavor (Runner.app zipped), not an .ipa:
+#   flutter build ios --simulator --flavor qa --dart-define=FLAVOR=qa  -> build/ios/iphonesimulator/Runner.app
+
+on:
+  workflow_dispatch:
+    inputs:
+      app_run_id:
+        description: Run ID of the mobile repo build workflow that uploaded the simulator .app zip (leave empty to use app_url)
+        required: false
+      app_artifact:
+        description: Artifact name in that run
+        default: madark-simulator-qa
+      app_url:
+        description: Direct download URL of the zipped simulator .app
+        required: false
+      device:
+        description: Simulator device name
+        default: iPhone 15
+      lang:
+        description: en or ar
+        default: en
+      tags:
+        description: E2E_TAGS filter
+        default: smoke
+
+env:
+  MOBILE_REPO: Madark/Madarak-UserApp
+  APPIUM_PORT: '4725'
+
+jobs:
+  ios-wdio:
+    runs-on: macos-14
+    timeout-minutes: 240
+    env:
+      E2E_ENV: dev
+      E2E_ENCRYPTION: 'true'
+      E2E_TARGET: local
+      PLATFORM: ios
+      E2E_LANG: ${{ inputs.lang }}
+      E2E_TAGS: ${{ inputs.tags }}
+      APPIUM_HOST: 127.0.0.1
+      IOS_DEVICE_NAME: ${{ inputs.device }}
+      E2E_CUSTOMER_PHONE: ${{ secrets.E2E_CUSTOMER_PHONE }}
+      E2E_CUSTOMER_OTP: ${{ secrets.E2E_CUSTOMER_OTP }}
+      E2E_SKIP_UNSUPPORTED_DEVICE_ACTIONS: '1'
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies and Appium driver
+        run: |
+          npm ci
+          npx appium driver install xcuitest
+
+      - name: Static checks and Dev API check
+        run: |
+          npm run typecheck
+          npm run verify:locators
+          npm run verify:crypto
+          npm run verify:api
+
+      - name: Download app from mobile repo build
+        if: ${{ inputs.app_run_id != '' }}
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.MOBILE_REPO_TOKEN }}
+          repo: ${{ env.MOBILE_REPO }}
+          run_id: ${{ inputs.app_run_id }}
+          name: ${{ inputs.app_artifact }}
+          path: app
+
+      - name: Download app from URL
+        if: ${{ inputs.app_run_id == '' }}
+        env:
+          APP_URL: ${{ inputs.app_url }}
+        run: |
+          set -euo pipefail
+          test -n "$APP_URL" || { echo "::error::Provide app_run_id or app_url"; exit 1; }
+          mkdir -p app
+          curl -fsSL -o app/app.zip "$APP_URL"
+
+      - name: Unpack .app
+        run: |
+          set -euo pipefail
+          cd app
+          for z in *.zip; do [ -f "$z" ] && unzip -q -o "$z"; done
+          appdir="$(find "$PWD" -maxdepth 3 -name '*.app' -type d | head -1)"
+          test -n "$appdir" || { echo "::error::No .app found (need a simulator build)"; exit 1; }
+          echo "IOS_APP_PATH=$appdir" >> "$GITHUB_ENV"
+
+      - name: Boot simulator
+        run: |
+          set -euo pipefail
+          udid="$(xcrun simctl list devices available -j | node -e '
+            const d=JSON.parse(require("fs").readFileSync(0,"utf8")).devices;
+            const name=process.argv[1];
+            const all=Object.entries(d).filter(([rt])=>rt.includes("iOS")).flatMap(([,v])=>v);
+            const hit=all.reverse().find(x=>x.name===name);
+            if(!hit){console.error("no simulator named "+name);process.exit(1)}
+            console.log(hit.udid)' "$IOS_DEVICE_NAME")"
+          xcrun simctl boot "$udid" || true
+          xcrun simctl bootstatus "$udid" -b
+          xcrun simctl location "$udid" set 24.7136,46.6753
+          xcrun simctl install "$udid" "$IOS_APP_PATH"
+          version="$(xcrun simctl list devices -j | node -e '
+            const d=JSON.parse(require("fs").readFileSync(0,"utf8")).devices;
+            for(const [rt,v] of Object.entries(d)) if(v.some(x=>x.udid===process.argv[1])) console.log(rt.split("iOS-")[1].replace("-","."))' "$udid")"
+          echo "IOS_UDID=$udid" >> "$GITHUB_ENV"
+          echo "IOS_PLATFORM_VERSION=$version" >> "$GITHUB_ENV"
+
+      - name: Start Appium
+        run: |
+          mkdir -p logs
+          npx appium --address "$APPIUM_HOST" --port "$APPIUM_PORT" --relaxed-security --log logs/appium.log --log-timestamp &
+          for i in $(seq 1 60); do curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null && break; sleep 2; done
+          curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null || { echo "::error::Appium did not start"; exit 1; }
+
+      - name: Run WebdriverIO
+        run: npx wdio run wdio.conf.ts
+
+      - name: Generate Allure single-file report
+        if: always()
+        run: |
+          npx allure generate --single-file allure-results -o allure-html --clean || true
+          [ -f allure-html/index.html ] && cp allure-html/index.html "allure-html/allure-report-ios-${{ github.run_number }}.html" || true
+
+      - name: Upload report, results and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ios-wdio-${{ github.run_number }}
+          path: |
+            allure-html/allure-report-ios-${{ github.run_number }}.html
+            allure-results
+            logs
+          if-no-files-found: ignore

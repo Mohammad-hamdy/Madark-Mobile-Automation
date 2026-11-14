@@ -1,0 +1,3073 @@
+{
+  "app": "madark",
+  "source": {
+    "ref": "origin/new_design_kinan",
+    "sha": "fbb2d4a0",
+    "root": "D:\\Madark Project\\Mobile runner\\Madark-Mobile-Automation\\.app-snapshot\\fbb2d4a0"
+  },
+  "version": "1.0.7+83",
+  "platform": {
+    "android": {
+      "appPackage": "com.madark.institution.qa",
+      "appActivity": "com.madark.institution.MainActivity"
+    },
+    "ios": {
+      "bundleId": "com.madark.institution.qa"
+    }
+  },
+  "i18n": {
+    "en": "lib/common/Services/Lang/en_US.dart",
+    "ar": "lib/common/Services/Lang/ar_EG.dart"
+  },
+  "encryption": {
+    "request": "AES-256-GCM body + RSA-OAEP-SHA256 wrapped key, header X-Encrypted: 1",
+    "source": [
+      "lib/common/network/app_interceptors.dart",
+      "lib/common/encryption/aes_helper.dart",
+      "lib/common/encryption/rsa_helper.dart"
+    ]
+  },
+  "screens": [
+    {
+      "id": "amlError",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/aml/aml_error_screen.dart",
+      "components": [
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "aml_error_button_title",
+        "aml_error_sub_title",
+        "aml_error_title"
+      ]
+    },
+    {
+      "id": "preLoginChangeMobile",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/change_mobile/pre_login_change_mobile_screen.dart",
+      "components": [
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/input_widget.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/AuthFeature/Presentation/controller/pre_login_change_mobile_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "aml_error_button_title",
+        "change_mobile_sub_title",
+        "change_mobile_title",
+        "change_pn_tahakok_validation_max_attempts_sub_title",
+        "change_pn_tahakok_validation_max_attempts_title",
+        "change_pn_tahakok_validation_not_match_sub_title",
+        "change_pn_tahakok_validation_not_match_title",
+        "confirm",
+        "connection_error",
+        "generic_field_validation_error",
+        "invalid_saudi_id_number",
+        "invalid_saudi_number",
+        "login_account_title",
+        "login_phoneNumber_label",
+        "nafath_error_button_title",
+        "national_id_hint",
+        "phoneNumber_hint",
+        "signUp_national_id_label"
+      ]
+    },
+    {
+      "id": "forgetPassNewPassword",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_new_password_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/input_widget.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/AuthFeature/Presentation/components/custom_text_validation_password.dart",
+        "lib/features/AuthFeature/Presentation/controller/forget_pass_new_pass_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "change_password_not_match",
+        "forget_password_set_new_password_title",
+        "forget_password_success_sub_title",
+        "forget_password_success_title",
+        "login_account_title",
+        "password_hint",
+        "set_new_password_confirm_title",
+        "set_new_password_confirmation_password_label",
+        "set_new_password_new_password_label",
+        "validation_password_less_numbers_title",
+        "validation_password_less_numbers_title2",
+        "validation_password_number_title",
+        "validation_password_number_title2",
+        "validation_password_number_title3",
+        "validation_password_symbol_title1",
+        "validation_password_symbol_title2",
+        "validation_password_symbol_title3",
+        "validation_password_upper_case_title",
+        "validation_password_upper_case_title2",
+        "validation_password_upper_case_title3"
+      ]
+    },
+    {
+      "id": "forgetPassOtp",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/AuthFeature/Presentation/controller/forget_password_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "forgetPassPhone",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/forgetPassword/forget_pass_phone_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/input_widget.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/AuthFeature/Presentation/controller/forget_password_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "forget_password_desc",
+        "forget_password_title",
+        "login_phoneNumber_label",
+        "login_phoneNumber_validation_error",
+        "phoneNumber_hint",
+        "send_button_title"
+      ]
+    },
+    {
+      "id": "loginOtp",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/login/login_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/AuthFeature/Presentation/controller/login_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "connection_error",
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "login",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/login/login_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_auth_header.dart",
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_security_note.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/AuthFeature/Presentation/controller/biometric_auth_controller.dart",
+        "lib/features/AuthFeature/Presentation/controller/login_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "biometric_error_message_first_time_hint",
+        "biometric_error_message_new_password_hint",
+        "change_mobile_number_button",
+        "connection_error",
+        "login_Title_label",
+        "login_account_title",
+        "login_create_account_title",
+        "login_face_id_button_title",
+        "login_otp_notice",
+        "login_phoneNumber_label",
+        "login_phoneNumber_validation_error",
+        "login_security_notice",
+        "login_sub_title_label",
+        "or_label",
+        "otp_security_notice",
+        "phoneNumber_hint"
+      ]
+    },
+    {
+      "id": "changePhoneNumberOtp",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/AuthFeature/Presentation/controller/change_phone_number_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "changePhoneNumber",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/change_phone_number_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/features/AuthFeature/Presentation/controller/change_phone_number_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "aml_error_button_title",
+        "change_pn_tahakok_validation_max_attempts_sub_title",
+        "change_pn_tahakok_validation_max_attempts_title",
+        "confirm",
+        "connection_error",
+        "generic_field_validation_error",
+        "invalid_saudi_number",
+        "login_phoneNumber_label",
+        "nafath_change_phone_number_sub_title",
+        "nafath_change_phone_number_title",
+        "phoneNumber_hint"
+      ]
+    },
+    {
+      "id": "nafathProfileRefresh",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/features/AuthFeature/Presentation/controller/nafath_profile_refresh_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "bottom_sheet_button_title",
+        "connection_error",
+        "nafath_cancel_back_confirm_button",
+        "nafath_cancel_back_dismiss_button",
+        "nafath_cancel_back_sub_title",
+        "nafath_cancel_back_title",
+        "nafath_resend_code_button_title",
+        "nafath_resend_code_title",
+        "nafath_verify_account_sub_title",
+        "nafath_verify_account_title",
+        "sec_title"
+      ]
+    },
+    {
+      "id": "nafathProfileRefreshSuccess",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_profile_refresh_success_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_status_screen.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "nafath_profile_refresh_success_message",
+        "nafath_profile_refresh_success_title"
+      ]
+    },
+    {
+      "id": "nafath",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/features/AuthFeature/Presentation/controller/nafath_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "bottom_sheet_button_title",
+        "connection_error",
+        "nafath_cancel_back_confirm_button",
+        "nafath_cancel_back_dismiss_button",
+        "nafath_cancel_back_sub_title",
+        "nafath_cancel_back_title",
+        "nafath_error_try_again",
+        "nafath_resend_code_button_title",
+        "nafath_resend_code_title",
+        "nafath_verify_account_sub_title",
+        "nafath_verify_account_title",
+        "sec_title"
+      ]
+    },
+    {
+      "id": "nafathSuccess",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/nafath_success_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_status_screen.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/features/guest/presentation/controllers/view_as_a_guest_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "bottom_sheet_button_title",
+        "kyc_status_title",
+        "nafath_success_button_title",
+        "nafath_success_sub_title"
+      ]
+    },
+    {
+      "id": "tahakokError",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/tahakok_error_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_status_screen.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "nafath_error_button_title",
+        "nafath_error_sub_title",
+        "nafath_error_title"
+      ]
+    },
+    {
+      "id": "verifyEmailOtpWidget",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/nafath/verify_email_otp_widget.dart",
+      "components": [
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/AuthFeature/Presentation/controller/verify_email_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "activate_email_sub_title",
+        "activate_email_sub_title2",
+        "activate_email_title",
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify",
+        "skip"
+      ]
+    },
+    {
+      "id": "signupOtp",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/signUp/signup_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/AuthFeature/Presentation/controller/signUp/signup_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "connection_error",
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "signupPhone",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/signUp/signup_phone_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_auth_header.dart",
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_security_note.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/common/widgets/base/base_controller.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/AuthFeature/Domain/UseCases/auth_use_case.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "connection_error",
+        "invalid_saudi_number",
+        "login_otp_notice",
+        "login_phoneNumber_label",
+        "login_security_notice",
+        "next_button_title",
+        "otp_security_notice",
+        "phoneNumber_hint",
+        "signUp_Title_label",
+        "signup_sub_title_label"
+      ]
+    },
+    {
+      "id": "signupRegistrationForm",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/signUp/signup_registration_form_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_auth_header.dart",
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_security_note.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/features/AuthFeature/Presentation/components/base_auth_check_box_widget.dart",
+        "lib/features/AuthFeature/Presentation/controller/signup_registration_form_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "aml_error_button_title",
+        "and_label",
+        "change_pn_tahakok_validation_max_attempts_sub_title",
+        "change_pn_tahakok_validation_max_attempts_title",
+        "change_pn_tahakok_validation_not_match_sub_title",
+        "change_pn_tahakok_validation_not_match_title",
+        "connection_error",
+        "create_account_title",
+        "generic_field_validation_error",
+        "invalid_email",
+        "invalid_saudi_id_number",
+        "login_security_notice",
+        "nafath_error_button_title",
+        "otp_security_notice",
+        "signup_agree_verify_sema_prefix",
+        "signup_form_and",
+        "signup_form_email_hint",
+        "signup_form_email_label",
+        "signup_form_id_hint",
+        "signup_form_id_label",
+        "signup_form_privacy_link",
+        "signup_form_sub_title",
+        "signup_form_terms_link",
+        "signup_form_terms_prefix",
+        "signup_form_title",
+        "simah_consent_link"
+      ]
+    },
+    {
+      "id": "simahConsent",
+      "feature": "AuthFeature",
+      "file": "lib/features/AuthFeature/Presentation/Screens/signUp/simah_consent_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "simah_consent_agree_button",
+        "simah_consent_heading",
+        "simah_consent_intro",
+        "simah_consent_s1_body",
+        "simah_consent_s1_title",
+        "simah_consent_s2_body",
+        "simah_consent_s2_title",
+        "simah_consent_s3_body",
+        "simah_consent_s3_title",
+        "simah_consent_s4_body",
+        "simah_consent_s4_title",
+        "simah_consent_s5_body",
+        "simah_consent_s5_title",
+        "simah_consent_s6_body",
+        "simah_consent_s6_title",
+        "simah_consent_s7_body",
+        "simah_consent_s7_title",
+        "simah_consent_title"
+      ]
+    },
+    {
+      "id": "base_BNB",
+      "feature": "base_bnb",
+      "file": "lib/features/base_bnb/presentation/screens/base_BNB_screen.dart",
+      "components": [
+        "lib/features/base_bnb/domain/entities/base_bnb_model.dart",
+        "lib/features/base_bnb/presentation/components/base_icon_widget.dart",
+        "lib/features/base_bnb/presentation/components/base_tabs_widget.dart",
+        "lib/features/base_bnb/presentation/controllers/base_bnb_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "Are_you_sure_you_want_to_Exit",
+        "bnb_home_title",
+        "bnb_more_title",
+        "bnb_my_payments_title",
+        "bnb_my_requests_title",
+        "cancel",
+        "confirm"
+      ]
+    },
+    {
+      "id": "changePasswordOtp",
+      "feature": "change_password",
+      "file": "lib/features/change_password/presentation/screens/change_password_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/change_password/presentation/controllers/change_password_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "changePassword",
+      "feature": "change_password",
+      "file": "lib/features/change_password/presentation/screens/change_password_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/custom_text_validation_password.dart",
+        "lib/features/change_password/presentation/controllers/change_password_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "change_password_not_match",
+        "change_password_success_sub_title",
+        "change_password_success_title",
+        "change_password_title",
+        "current_password_label",
+        "login_account_title",
+        "password_hint",
+        "set_new_password_confirm_title",
+        "set_new_password_confirmation_password_label",
+        "set_new_password_new_password_label",
+        "validation_password_less_numbers_title",
+        "validation_password_less_numbers_title2",
+        "validation_password_number_title",
+        "validation_password_number_title2",
+        "validation_password_number_title3",
+        "validation_password_symbol_title1",
+        "validation_password_symbol_title2",
+        "validation_password_symbol_title3",
+        "validation_password_upper_case_title",
+        "validation_password_upper_case_title2",
+        "validation_password_upper_case_title3"
+      ]
+    },
+    {
+      "id": "noInternet",
+      "feature": "check_internet",
+      "file": "lib/features/check_internet/presentation/screens/no_internet_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_status_screen.dart",
+        "lib/features/check_internet/presentation/controllers/check_internet_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "no_internet_connection_subtitle",
+        "no_internet_connection_title",
+        "try_again"
+      ]
+    },
+    {
+      "id": "closeAccountOtp",
+      "feature": "close_account",
+      "file": "lib/features/close_account/presentation/screens/close_account_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/close_account/presentation/controllers/close_account_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "closeAccountSuccess",
+      "feature": "close_account",
+      "file": "lib/features/close_account/presentation/screens/close_account_success_screen.dart",
+      "components": [
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "bottom_sheet_button_title",
+        "close_account_success_sub_title",
+        "close_account_success_title"
+      ]
+    },
+    {
+      "id": "submitComplaint",
+      "feature": "complaint",
+      "file": "lib/features/complaint/presentation/screens/submit_complaint_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/features/complaint/domain/entities/complaint_entity.dart",
+        "lib/features/complaint/presentation/components/attachments_section_widget.dart",
+        "lib/features/complaint/presentation/components/category_dropdown_widget.dart",
+        "lib/features/complaint/presentation/controllers/complaint_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "add_image",
+        "attachments_hint",
+        "attachments_optional",
+        "complaint_category",
+        "complaint_description",
+        "complaint_description_hint",
+        "complaint_details",
+        "complaint_info_message",
+        "complaint_subcategory",
+        "complaint_submitted_successfully",
+        "customer_information",
+        "customer_name",
+        "description_required_error",
+        "description_too_short",
+        "email_hint",
+        "email_optional",
+        "failed_to_load_categories",
+        "failed_to_load_subcategories",
+        "failed_to_pick_images",
+        "failed_to_submit_complaint",
+        "file_size_too_large",
+        "id",
+        "invalid_email",
+        "invalid_saudi_number",
+        "max_attachments_reached",
+        "mobile_number",
+        "phoneNumber_hint",
+        "select_category",
+        "select_category_error",
+        "select_subcategory",
+        "submit_complaint",
+        "submit_complaint_title"
+      ]
+    },
+    {
+      "id": "componentGallery",
+      "feature": "dev",
+      "file": "lib/features/dev/presentation/screens/component_gallery_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_bottom_sheet.dart",
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_checkbox.dart",
+        "lib/common/widgets/app/app_chip.dart",
+        "lib/common/widgets/app/app_dialog.dart",
+        "lib/common/widgets/app/app_dots_indicator.dart",
+        "lib/common/widgets/app/app_empty_state.dart",
+        "lib/common/widgets/app/app_gradient_background.dart",
+        "lib/common/widgets/app/app_list_tile.dart",
+        "lib/common/widgets/app/app_loading.dart",
+        "lib/common/widgets/app/app_logo.dart",
+        "lib/common/widgets/app/app_otp_field.dart",
+        "lib/common/widgets/app/app_progress.dart",
+        "lib/common/widgets/app/app_radio.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_segmented_tabs.dart",
+        "lib/common/widgets/app/app_shimmer.dart",
+        "lib/common/widgets/app/app_status_screen.dart",
+        "lib/common/widgets/app/app_stepper.dart",
+        "lib/common/widgets/app/app_switch.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/common/widgets/app/app_toast.dart",
+        "lib/common/widgets/app/app_top_bar.dart"
+      ],
+      "keys": [],
+      "i18nKeys": []
+    },
+    {
+      "id": "editEmailOtp",
+      "feature": "edit_email",
+      "file": "lib/features/edit_email/presentation/screens/edit_email_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/edit_email/presentation/controllers/edit_email_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "change_email_success_sub_title",
+        "change_email_success_title",
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify",
+        "verify_email_success_sub_title",
+        "verify_email_success_title"
+      ]
+    },
+    {
+      "id": "editEmail",
+      "feature": "edit_email",
+      "file": "lib/features/edit_email/presentation/screens/edit_email_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_auth_header.dart",
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_security_note.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/features/edit_email/presentation/controllers/edit_email_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "change_email_sub_title",
+        "change_email_title",
+        "confirm",
+        "current_email_label",
+        "email_hint",
+        "invalid_email",
+        "login_security_notice",
+        "new_email_label",
+        "otp_security_notice"
+      ]
+    },
+    {
+      "id": "editEmailSuccess",
+      "feature": "edit_email",
+      "file": "lib/features/edit_email/presentation/screens/edit_email_success_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_status_screen.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_my_profile_title"
+      ]
+    },
+    {
+      "id": "changePnById",
+      "feature": "edit_phone_number",
+      "file": "lib/features/edit_phone_number/presentation/screens/change_pn_by_id_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_auth_header.dart",
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_security_note.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/features/edit_phone_number/presentation/controllers/change_pn_by_id_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_home_title",
+        "change_mobile_sub_title",
+        "change_mobile_title",
+        "change_pn_tahakok_validation_max_attempts_sub_title",
+        "change_pn_tahakok_validation_max_attempts_title",
+        "change_pn_tahakok_validation_not_match_sub_title",
+        "change_pn_tahakok_validation_not_match_title",
+        "confirm",
+        "connection_error",
+        "generic_field_validation_error",
+        "invalid_saudi_id_number",
+        "invalid_saudi_number",
+        "login_account_title",
+        "login_phoneNumber_label",
+        "login_security_notice",
+        "nafath_error_button_title",
+        "national_id_hint",
+        "otp_security_notice",
+        "phoneNumber_hint",
+        "signUp_national_id_label"
+      ]
+    },
+    {
+      "id": "changePnOtp",
+      "feature": "edit_phone_number",
+      "file": "lib/features/edit_phone_number/presentation/screens/change_pn_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/edit_phone_number/presentation/controllers/change_pn_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_home_title",
+        "back_to_profile_title",
+        "change_pn_tahakok_validation_max_attempts_sub_title",
+        "change_pn_tahakok_validation_max_attempts_title",
+        "change_pn_tahakok_validation_not_match_sub_title",
+        "change_pn_tahakok_validation_not_match_title",
+        "connection_error",
+        "login_account_title",
+        "nafath_error_button_title",
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "changePnSuccess",
+      "feature": "edit_phone_number",
+      "file": "lib/features/edit_phone_number/presentation/screens/change_pn_success_screen.dart",
+      "components": [],
+      "keys": [],
+      "i18nKeys": [
+        "change_pn_new_number_label",
+        "change_pn_verified_sub_title",
+        "change_pn_verified_title"
+      ]
+    },
+    {
+      "id": "editPhoneNumberOtp",
+      "feature": "edit_phone_number",
+      "file": "lib/features/edit_phone_number/presentation/screens/edit_phone_number_otp_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_otp_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_home_title",
+        "change_pn_tahakok_validation_max_attempts_sub_title",
+        "change_pn_tahakok_validation_max_attempts_title",
+        "change_pn_tahakok_validation_not_match_sub_title",
+        "change_pn_tahakok_validation_not_match_title",
+        "nafath_error_button_title",
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "editPhoneNumber",
+      "feature": "edit_phone_number",
+      "file": "lib/features/edit_phone_number/presentation/screens/edit_phone_number_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/input_widget.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/edit_phone_number/presentation/controllers/edit_phone_number_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_home_title",
+        "back_to_profile_title",
+        "change_pn_tahakok_validation_max_attempts_sub_title",
+        "change_pn_tahakok_validation_max_attempts_title",
+        "change_pn_tahakok_validation_not_match_sub_title",
+        "change_pn_tahakok_validation_not_match_title",
+        "current_phoneNumber_label",
+        "generic_field_validation_error",
+        "invalid_saudi_number",
+        "nafath_change_phone_number_button_title",
+        "nafath_change_phone_number_title",
+        "nafath_error_button_title",
+        "new_phoneNumber_label",
+        "phoneNumber_hint"
+      ]
+    },
+    {
+      "id": "editPhoneNumberSuccess",
+      "feature": "edit_phone_number",
+      "file": "lib/features/edit_phone_number/presentation/screens/edit_phone_number_success_screen.dart",
+      "components": [
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "change_phone_number_success_sub_title",
+        "change_phone_number_success_title",
+        "login_account_title"
+      ]
+    },
+    {
+      "id": "editPnTahakokValidation",
+      "feature": "edit_phone_number",
+      "file": "lib/features/edit_phone_number/presentation/screens/edit_pn_tahakok_validation_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "not_eligible_support_note"
+      ]
+    },
+    {
+      "id": "editProfile",
+      "feature": "edit_profile",
+      "file": "lib/features/edit_profile/presentation/screens/edit_profile_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_loading.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/common/widgets/base/base_controller.dart",
+        "lib/features/close_account/presentation/controllers/close_account_controller.dart",
+        "lib/features/edit_profile/presentation/components/set_biometric_login_section.dart",
+        "lib/features/edit_profile/presentation/components/verify_email_section.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart",
+        "lib/features/profile/presentation/controllers/profile_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_manage_profile_title",
+        "back_to_profile_title",
+        "bottom_sheet_button_title",
+        "cancel",
+        "cancel_title",
+        "change_mobile_number_button",
+        "close_account_desc",
+        "close_account_proceed_title",
+        "close_account_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "early_settlement_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "edit_profile_email_not_verified_title",
+        "edit_profile_email_title",
+        "edit_profile_email_verified_title",
+        "edit_profile_national_id_title",
+        "edit_profile_phone_number_title",
+        "edit_profile_title",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "logout_title",
+        "more_section_logout",
+        "national_id_already_updated_message",
+        "set_biometric_login_title",
+        "verify_email_button_title",
+        "verify_email_sub_title",
+        "verify_email_title"
+      ]
+    },
+    {
+      "id": "educationalInstitutionDetails",
+      "feature": "educational_institution",
+      "file": "lib/features/educational_institution/presentation/screens/educational_institution_details_screen.dart",
+      "components": [
+        "lib/common/widgets/Loading/loading_dialog.dart",
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/features/educational_institution/domain/entities/branches.dart",
+        "lib/features/educational_institution/domain/entities/educational_institution_details_entity.dart",
+        "lib/features/educational_institution/presentation/components/images_with_indicator_widget.dart",
+        "lib/features/educational_institution/presentation/components/university_college_list_widget.dart",
+        "lib/features/guest/presentation/components/guest_mode_dialog.dart",
+        "lib/features/guest/presentation/controllers/view_as_a_guest_controller.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/kyc_questions/presentation/controller/request_eligibility_controller.dart",
+        "lib/features/educational_institution/presentation/controllers/educational_institution_details_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "active_request_exists",
+        "address",
+        "are_you_registered",
+        "departments_title",
+        "educational_details_financing_request_button",
+        "guest_mode_bottom_sheet_benefit_history",
+        "guest_mode_bottom_sheet_benefit_installments",
+        "guest_mode_bottom_sheet_benefit_receipts",
+        "guest_mode_bottom_sheet_button_title",
+        "guest_mode_bottom_sheet_title",
+        "id",
+        "no",
+        "registration_required",
+        "yes"
+      ]
+    },
+    {
+      "id": "educationalInstitutions",
+      "feature": "educational_institution",
+      "file": "lib/features/educational_institution/presentation/screens/educational_institutions_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_icon_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/educational_institution/presentation/components/educational_institution_category_types.dart",
+        "lib/features/educational_institution/presentation/components/educational_institution_list.dart",
+        "lib/features/educational_institution/presentation/components/search_and_filter_dropdown.dart",
+        "lib/features/educational_institution/presentation/controllers/educational_institution_controller.dart",
+        "lib/features/educational_institution/presentation/controllers/educational_institution_filter_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "clear_search_institution_title",
+        "connection_error",
+        "institutions_load_failed_sub_title",
+        "institutions_load_failed_title",
+        "search_institution_hint",
+        "try_again"
+      ]
+    },
+    {
+      "id": "forceUpdateAlertDialog",
+      "feature": "force_update",
+      "file": "lib/features/force_update/presentation/screens/force_update_alert_dialog.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "force_update_button_optional_title",
+        "force_update_dismiss_button_title",
+        "force_update_optional_title"
+      ]
+    },
+    {
+      "id": "forceUpdateAlert",
+      "feature": "force_update",
+      "file": "lib/features/force_update/presentation/screens/force_update_alert_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_status_screen.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "force_update_button_title",
+        "force_update_title"
+      ]
+    },
+    {
+      "id": "onboardingGuestMode",
+      "feature": "guest",
+      "file": "lib/features/guest/presentation/screens/onboarding_guest_mode_screen.dart",
+      "components": [
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/guest/presentation/controllers/view_as_a_guest_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": []
+    },
+    {
+      "id": "educationTypes",
+      "feature": "home",
+      "file": "lib/features/home/presentation/screens/education_types_screen.dart",
+      "components": [
+        "lib/features/home/presentation/components/category_network_icon.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/features/home/domain/entities/education_types_entity.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "home_what_looking_for_title",
+        "id"
+      ]
+    },
+    {
+      "id": "home",
+      "feature": "home",
+      "file": "lib/features/home/presentation/screens/home_screen.dart",
+      "components": [
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/guest/presentation/components/guest_eligibility_card.dart",
+        "lib/features/guest/presentation/components/guest_home_header.dart",
+        "lib/features/guest/presentation/components/why_madark_section.dart",
+        "lib/features/guest/presentation/controllers/view_as_a_guest_controller.dart",
+        "lib/features/home/presentation/components/home_hero_header.dart",
+        "lib/features/home/presentation/components/home_loan_summary_card.dart",
+        "lib/features/home/presentation/components/home_search_categories_section.dart",
+        "lib/features/home/presentation/components/special_institutions_widget.dart",
+        "lib/features/home/presentation/controllers/home_controller.dart",
+        "lib/features/payment/presentation/components/choose_payment_method_widget.dart",
+        "lib/features/home/presentation/components/complete_your_data.dart",
+        "lib/features/home/presentation/components/follow_financing_request.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "apple_pay_button_title",
+        "back_to_my_payments_title",
+        "bottom_sheet_button_title",
+        "complete_your_data",
+        "complete_your_data_message",
+        "early_settlement_failure_sub_title",
+        "early_settlement_failure_title",
+        "enter_iban_hint",
+        "follow_approved_request_title",
+        "go_to_payments_button",
+        "guest_home_eligibility_desc",
+        "guest_home_eligibility_title",
+        "guest_home_get_started",
+        "home_hello_title",
+        "home_hero_subtitle",
+        "home_overdue_payment_label",
+        "home_paid_label",
+        "home_recommended_title",
+        "home_remaining_label",
+        "home_total_requested_label",
+        "home_what_looking_for_title",
+        "iban_label",
+        "iban_required_error",
+        "invalid_iban_error",
+        "loan_installment_pay_now_title",
+        "not_found_education_types",
+        "pay_your_next_installment_title",
+        "required_amount_title",
+        "retry_settlement_title",
+        "why_madark_flexible_financing",
+        "why_madark_no_hidden_fees",
+        "why_madark_title"
+      ]
+    },
+    {
+      "id": "kycQuestions",
+      "feature": "kyc_questions",
+      "file": "lib/features/kyc_questions/presentation/screens/kyc_questions_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_stepper.dart",
+        "lib/features/educational_institution/domain/entities/branches.dart",
+        "lib/features/home/presentation/controllers/home_controller.dart",
+        "lib/features/kyc_questions/presentation/components/kyc_confirmation_tab.dart",
+        "lib/features/kyc_questions/presentation/controller/kyc_questions_controller.dart",
+        "lib/features/student_finance_request/domain/entities/extra_info.dart",
+        "lib/features/kyc_questions/domain/entities/kyc_category_model.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "KYCFAQPage_Section3Title_Hint",
+        "address",
+        "all_students_blocked_title",
+        "cancel_title",
+        "continue_application_title",
+        "eligibility_error_title",
+        "id",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "id_still_expired_go_to_profile_button",
+        "id_still_expired_popup_message",
+        "id_still_expired_popup_title",
+        "incomplete_application_title",
+        "kyc_confirm_button_title",
+        "kyc_must_answer_all_questions",
+        "kyc_next_button_title",
+        "kyc_simah_verification_text",
+        "msg_template_saved_successfully",
+        "nafath_profile_refresh_continue_button",
+        "ok_title",
+        "some_students_blocked_title",
+        "tenor_cap_change_button",
+        "tenor_cap_title"
+      ]
+    },
+    {
+      "id": "kycSuccess",
+      "feature": "kyc_questions",
+      "file": "lib/features/kyc_questions/presentation/screens/kyc_success_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "alert_voting_dialog_btn2",
+        "deposit_first_installment_title",
+        "go_to_my_payments",
+        "kyc_success_back_to_my_requests",
+        "kyc_success_sub_title",
+        "kyc_success_title",
+        "move_to_nafith_title",
+        "my_request_proceed_title",
+        "my_requests_approved_title",
+        "my_requests_cancelled_title",
+        "my_requests_rejected_title",
+        "my_requests_under_review_title",
+        "nafith_rejected_sub_title",
+        "nafith_rejected_title",
+        "paid_tuition_fees_tab_title",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "pending_requests",
+        "proceed_to_yaster",
+        "request_new_sanad_title",
+        "rescheduled_requests",
+        "retry_payment_title",
+        "signing_contract_title"
+      ]
+    },
+    {
+      "id": "maintenance",
+      "feature": "maintenance",
+      "file": "lib/features/maintenance/presentation/screens/maintenance_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_status_screen.dart"
+      ],
+      "keys": [],
+      "i18nKeys": []
+    },
+    {
+      "id": "aboutMadark",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/about_madark_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_pdf_widget.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_profile_title",
+        "cancel",
+        "cancel_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "error_loading_file_title",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "logout_title",
+        "more_section_about_madark",
+        "more_section_logout",
+        "national_id_already_updated_message"
+      ]
+    },
+    {
+      "id": "complianceWithIslamicLaw",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/compliance_with_islamic_law_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_pdf_widget.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_profile_title",
+        "cancel",
+        "cancel_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "error_loading_file_title",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "logout_title",
+        "more_section_compliance_with_islamic_law",
+        "more_section_logout",
+        "national_id_already_updated_message"
+      ]
+    },
+    {
+      "id": "contactUs",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/contact_us_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/features/more/presentation/components/custom_contact_us_section_widget.dart",
+        "lib/features/more/presentation/components/custom_social_widget.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_profile_title",
+        "cancel",
+        "cancel_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "follow_us_on",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "logout_title",
+        "more_section_contact_us",
+        "more_section_logout",
+        "national_id_already_updated_message",
+        "or_contact_us_via",
+        "submit_complaint_button"
+      ]
+    },
+    {
+      "id": "faq",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/faq_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/features/more/presentation/components/custom_faq_widget.dart",
+        "lib/features/more/presentation/controllers/faq_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "more_section_q_&_a_not_found",
+        "more_section_q_&_a_title"
+      ]
+    },
+    {
+      "id": "more",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/more_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/features/educational_institution/domain/entities/branches.dart",
+        "lib/features/more/presentation/components/more_profile_header.dart",
+        "lib/features/more/presentation/components/more_settings_row.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "address",
+        "back_to_profile_title",
+        "cancel",
+        "cancel_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "edit_profile_title",
+        "edit_your_data",
+        "guest_register_now_title",
+        "id",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "login_account_title",
+        "logout_title",
+        "more_about_app_subtitle",
+        "more_about_app_title",
+        "more_account_section_title",
+        "more_change_phone_subtitle",
+        "more_change_phone_title",
+        "more_help_faq_subtitle",
+        "more_help_faq_title",
+        "more_language_subtitle",
+        "more_language_title",
+        "more_notifications_subtitle",
+        "more_personal_info_subtitle",
+        "more_personal_info_title",
+        "more_preferences_section_title",
+        "more_section_compliance_with_islamic_law",
+        "more_section_contact_us",
+        "more_section_help_and_support_title",
+        "more_section_language",
+        "more_section_language_type",
+        "more_section_legal_and_policy_title",
+        "more_section_logout",
+        "more_section_privacy_policy",
+        "more_section_terms_and_conditions",
+        "more_section_terms_of_use",
+        "more_section_theme",
+        "national_id_already_updated_message",
+        "notification_title",
+        "settings_subtitle",
+        "settings_title",
+        "share_app",
+        "update_national_id_title",
+        "version",
+        "withdraw_requests"
+      ]
+    },
+    {
+      "id": "privacyPolicy",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/privacy_policy_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_pdf_widget.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_profile_title",
+        "cancel",
+        "cancel_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "error_loading_file_title",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "logout_title",
+        "more_section_logout",
+        "more_section_privacy_policy",
+        "national_id_already_updated_message"
+      ]
+    },
+    {
+      "id": "termsAndConditions",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/terms_and_conditions_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_pdf_widget.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_profile_title",
+        "cancel",
+        "cancel_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "error_loading_file_title",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "logout_title",
+        "more_section_logout",
+        "more_section_terms_and_conditions",
+        "national_id_already_updated_message"
+      ]
+    },
+    {
+      "id": "termsOfUse",
+      "feature": "more",
+      "file": "lib/features/more/presentation/screens/terms_of_use_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_pdf_widget.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/more/presentation/controllers/more_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_profile_title",
+        "cancel",
+        "cancel_title",
+        "connection_error",
+        "contact_support_title",
+        "done_title",
+        "edit_pn_validation_max_attempts_sub_title",
+        "edit_pn_validation_max_attempts_sub_title2",
+        "edit_pn_validation_max_attempts_title",
+        "error_loading_file_title",
+        "id_expired_popup_message",
+        "id_expired_popup_title",
+        "id_expired_refresh_button",
+        "logout_title",
+        "more_section_logout",
+        "more_section_terms_of_use",
+        "national_id_already_updated_message"
+      ]
+    },
+    {
+      "id": "earlySettlement",
+      "feature": "my_payments",
+      "file": "lib/features/my_payments/presentation/screens/early_settlement_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/common/widgets/base/currency_icon.dart",
+        "lib/features/payment/presentation/components/choose_payment_method_widget.dart",
+        "lib/features/my_payments/domain/entities/loan_installments_entity.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "amount",
+        "apple_pay_button_title",
+        "back_to_my_payments_title",
+        "bottom_sheet_button_title",
+        "early_settlement_failure_sub_title",
+        "early_settlement_failure_title",
+        "enter_iban_hint",
+        "iban_label",
+        "iban_required_error",
+        "invalid_iban_error",
+        "loan_amount_per_each_title",
+        "loan_early_settlement_payment_date",
+        "loan_early_settlement_title",
+        "loan_installment_pay_now_title",
+        "loan_remaining_installments_title",
+        "required_amount_title",
+        "retry_settlement_title",
+        "total_remaining_installments_title"
+      ]
+    },
+    {
+      "id": "earlySettlementSuccess",
+      "feature": "my_payments",
+      "file": "lib/features/my_payments/presentation/screens/early_settlement_success_screen.dart",
+      "components": [
+        "lib/common/widgets/base/base_pdf_screen.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_my_payments_title",
+        "early_settlement_success_sub_title1",
+        "early_settlement_success_sub_title2",
+        "early_settlement_success_title",
+        "error_loading_file_title",
+        "view_settlement_receipt_button_title"
+      ]
+    },
+    {
+      "id": "myPayments",
+      "feature": "my_payments",
+      "file": "lib/features/my_payments/presentation/screens/my_payments_screen.dart",
+      "components": [
+        "lib/features/my_payments/presentation/components/overdue_installments_banner.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/guest/presentation/components/guest_mode_widget.dart",
+        "lib/features/guest/presentation/controllers/view_as_a_guest_controller.dart",
+        "lib/features/home/presentation/components/custom_notification_widget.dart",
+        "lib/features/my_payments/presentation/components/choose_loan_dropdown.dart",
+        "lib/features/my_payments/presentation/components/installments_section.dart",
+        "lib/features/my_payments/presentation/components/loan_details_widget.dart",
+        "lib/features/my_payments/presentation/components/loan_request_details_widget.dart",
+        "lib/features/my_payments/presentation/components/no_payments_widget.dart",
+        "lib/features/my_payments/presentation/components/payment_summary_card.dart",
+        "lib/features/my_payments/presentation/controllers/my_payments_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "all_installments_title",
+        "back_to_my_payments_title",
+        "beneficiary_id",
+        "bottom_sheet_button_title",
+        "choose_loan_title",
+        "filter_all_title",
+        "filter_paid_title",
+        "filter_upcoming_title",
+        "guest_mode_bottom_sheet_title",
+        "loan_full_settlement_button",
+        "loan_installment_pay_now_title",
+        "loan_paid_percent_label",
+        "loan_remaining_balance_title",
+        "loan_request_installment_end_date_title",
+        "loan_request_installment_per_month_title",
+        "loan_request_installment_start_date_title",
+        "loan_request_installment_total_title",
+        "loan_request_number_of_installment_title",
+        "loan_request_order_date_title",
+        "loan_total_financing_title",
+        "my_payments_page_title",
+        "my_payments_subtitle",
+        "next_payment_title",
+        "no_payments_available_title",
+        "overdue_installments_few",
+        "overdue_installments_many",
+        "overdue_installments_one",
+        "overdue_installments_sub_title",
+        "overdue_installments_two",
+        "pay_early_multiple_button_title",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_overdue_sub_title",
+        "payment_overdue_sub_title2",
+        "payment_overdue_sub_title3",
+        "payment_overdue_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "payment_total_due_title",
+        "remind_me_later_title",
+        "retry_payment_title",
+        "show_less_installments_title",
+        "student_financing_amount",
+        "tap_to_view_details_title",
+        "tuition_fees",
+        "verify_debt",
+        "view_all_installments_title"
+      ]
+    },
+    {
+      "id": "payEarlyInstallments",
+      "feature": "my_payments",
+      "file": "lib/features/my_payments/presentation/screens/pay_early_installments_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_icon_button.dart",
+        "lib/common/widgets/app/app_list_tile.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/base/currency_icon.dart",
+        "lib/features/my_payments/domain/entities/loan_installments_entity.dart",
+        "lib/features/my_payments/presentation/controllers/my_payments_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "amount",
+        "back_to_my_payments_title",
+        "deselect_all_title",
+        "installment_due_date_prefix",
+        "loan_installment_pay_now_title",
+        "pay_early_installments_hint",
+        "pay_early_installments_subtitle",
+        "pay_early_installments_title",
+        "pay_selected_amount_button_title",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_overdue_sub_title",
+        "payment_overdue_sub_title2",
+        "payment_overdue_sub_title3",
+        "payment_overdue_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "remind_me_later_title",
+        "retry_payment_title",
+        "select_all_title",
+        "selected_installments_count_title",
+        "total_payment_title",
+        "upcoming_installments_title"
+      ]
+    },
+    {
+      "id": "payNow",
+      "feature": "my_payments",
+      "file": "lib/features/my_payments/presentation/screens/pay_now_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/my_payments/domain/entities/loan_installments_entity.dart",
+        "lib/features/my_payments/presentation/components/custom_title_subtitle_widget.dart",
+        "lib/features/my_payments/presentation/components/pay_now_button.dart",
+        "lib/features/payment/presentation/components/choose_payment_method_widget.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "amount",
+        "apple_pay_button_title",
+        "back_to_my_payments_title",
+        "bottom_sheet_button_title",
+        "early_settlement_failure_sub_title",
+        "early_settlement_failure_title",
+        "enter_iban_hint",
+        "iban_label",
+        "iban_required_error",
+        "installment_amount_title",
+        "installment_payment_due_date_title",
+        "invalid_iban_error",
+        "loan_installment_pay_now_title",
+        "required_amount_title",
+        "retry_settlement_title"
+      ]
+    },
+    {
+      "id": "chooseHowToPay",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/choose_how_to_pay_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_radio.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/features/my_requests/domain/entities/educational_loan_requests_entity.dart",
+        "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart",
+        "lib/features/my_requests/presentation/controllers/pending_request_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "amount",
+        "back_to_my_payments_title",
+        "branch",
+        "cancel_request_success",
+        "choose_how_to_pay_title",
+        "choose_pay_continue_financing",
+        "choose_pay_education_fees",
+        "choose_pay_full_desc",
+        "choose_pay_full_title",
+        "choose_pay_installments_desc",
+        "choose_pay_installments_note",
+        "choose_pay_installments_title",
+        "choose_pay_pay_now",
+        "choose_pay_pay_today",
+        "choose_pay_question",
+        "choose_pay_request_label",
+        "choose_pay_save_badge",
+        "choose_pay_student_label",
+        "choose_pay_subtitle",
+        "choose_pay_your_discount",
+        "discount_no_longer_available",
+        "discount_payment_failed",
+        "failed_to_cancel_request",
+        "failed_to_load_request_details",
+        "failed_to_load_requests",
+        "id",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "students"
+      ]
+    },
+    {
+      "id": "financingRequestCompletion",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/financing_request_completion_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/common/widgets/base/syncfusion_pdf_screen.dart",
+        "lib/features/my_requests/domain/entities/request_details_entity.dart",
+        "lib/features/my_requests/presentation/components/financing_step_tile.dart",
+        "lib/features/my_requests/presentation/components/financing_summary_card.dart",
+        "lib/features/my_requests/presentation/components/installment_schedule_section.dart",
+        "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "alert_voting_dialog_btn2",
+        "amount",
+        "amount_label",
+        "approval_amount_disclaimer",
+        "approved_amount_label",
+        "beneficiary",
+        "beneficiary_id",
+        "beneficiary_name",
+        "deposit_first_installment_title",
+        "due_date_label",
+        "error_loading_file_title",
+        "financing_created_successfully",
+        "financing_limit_title",
+        "first_installment_includes_deposit",
+        "first_installment_ordinal",
+        "go_to_my_payments",
+        "loan_installment_overdue_title",
+        "loan_installment_paid_title",
+        "loan_installment_schedule_title",
+        "move_to_nafith_title",
+        "my_request_financing_procedures",
+        "my_request_proceed_title",
+        "my_requests_approved_title",
+        "my_requests_cancelled_title",
+        "my_requests_rejected_title",
+        "my_requests_under_review_title",
+        "nafith_rejected_sub_title",
+        "nafith_rejected_title",
+        "paid_tuition_fees_tab_title",
+        "payment_breakdown_installment_per_month",
+        "payment_breakdown_installments_end_date",
+        "payment_breakdown_installments_start_date",
+        "payment_breakdown_no_of_installments",
+        "payment_breakdown_total_first_installment",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "pending_requests",
+        "proceed_to_yaster",
+        "request_new_sanad_title",
+        "requested_amount_label",
+        "rescheduled_requests",
+        "retry_payment_title",
+        "signing_contract_title",
+        "total_finance_amount_label",
+        "view_and_download_contract_title"
+      ]
+    },
+    {
+      "id": "ineligibleRequest",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/ineligible_request_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/features/my_requests/domain/entities/my_requests_entity.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "my_request_back_btn_title",
+        "my_request_reject_reason_desc",
+        "my_request_reject_reason_desc2",
+        "my_request_reject_reason_title",
+        "reasons_for_rejection_title"
+      ]
+    },
+    {
+      "id": "myRequests",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/my_requests_screen.dart",
+      "components": [
+        "lib/common/widgets/base/base_controller.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/guest/presentation/components/guest_mode_widget.dart",
+        "lib/features/guest/presentation/controllers/view_as_a_guest_controller.dart",
+        "lib/features/home/presentation/components/custom_notification_widget.dart",
+        "lib/features/my_requests/presentation/components/my_requests_list.dart",
+        "lib/features/my_requests/presentation/components/my_requests_status_list.dart",
+        "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "alert_voting_dialog_btn2",
+        "amount",
+        "and_n_others",
+        "cancel_request",
+        "continue_kyc",
+        "deposit_first_installment_title",
+        "go_to_my_payments",
+        "guest_mode_bottom_sheet_title",
+        "guest_mode_requests_card_title",
+        "home_request_for_financing_desc",
+        "home_request_for_financing_title",
+        "move_to_nafith_title",
+        "my_request_proceed_title",
+        "my_request_status_cancelled",
+        "my_request_status_expired",
+        "my_request_status_in_progress",
+        "my_requests_approved_title",
+        "my_requests_cancelled_title",
+        "my_requests_rejected_title",
+        "my_requests_title",
+        "my_requests_under_review_title",
+        "nafith_rejected_sub_title",
+        "nafith_rejected_title",
+        "new_installments",
+        "paid_tuition_fees_tab_title",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "pending",
+        "pending_card_branch_name",
+        "pending_card_institution_name",
+        "pending_card_requested_amount",
+        "pending_card_student_name",
+        "pending_card_submission_date",
+        "pending_request_inactive_message",
+        "pending_requests",
+        "previous_installments",
+        "proceed_to_yaster",
+        "remaining_amount",
+        "remaining_installments",
+        "remaining_new_installments",
+        "request_new_sanad_title",
+        "rescheduled_requests",
+        "retry_payment_title",
+        "sar",
+        "signing_contract_title"
+      ]
+    },
+    {
+      "id": "nafithInfo",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/nafith_info_screen.dart",
+      "components": [
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/my_requests/presentation/controllers/nafith_controller.dart",
+        "lib/features/my_requests/presentation/controllers/my_requests_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "alert_voting_dialog_btn2",
+        "cancel",
+        "confirm",
+        "connection_error",
+        "deposit_first_installment_title",
+        "go_to_my_payments",
+        "hub_connected_waiting",
+        "hub_connecting",
+        "move_to_nafith_title",
+        "my_request_proceed_title",
+        "my_requests_approved_title",
+        "my_requests_cancelled_title",
+        "my_requests_rejected_title",
+        "my_requests_under_review_title",
+        "nafith_back_warning_body",
+        "nafith_back_warning_title",
+        "nafith_info_button_title",
+        "nafith_info_sub_title",
+        "nafith_info_title",
+        "nafith_rejected_sub_title",
+        "nafith_rejected_title",
+        "paid_tuition_fees_tab_title",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "pending_requests",
+        "proceed_to_yaster",
+        "request_new_sanad_title",
+        "rescheduled_requests",
+        "retry_payment_title",
+        "signing_contract_title"
+      ]
+    },
+    {
+      "id": "paidTuitionFeeReceipt",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/paid_tuition_fee_receipt_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/common/widgets/base/base_pdf_screen.dart",
+        "lib/common/widgets/base/currency_icon.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/my_requests/domain/entities/paid_tuition_fee_entity.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "branch_name_label",
+        "discount_label",
+        "download_share_receipt_label",
+        "error_loading_file_title",
+        "geidea_transaction_reference_label",
+        "id",
+        "payment_date_label",
+        "payment_type_apple_pay",
+        "payment_type_card",
+        "payment_type_label",
+        "signUp_national_id_label",
+        "student_label",
+        "student_name",
+        "students",
+        "support_phone_number_label",
+        "total_payable_after_discount_label",
+        "total_tuition_fees_label",
+        "tuition_fees_label",
+        "view_details_and_receipt_label"
+      ]
+    },
+    {
+      "id": "payWithDiscount",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/pay_with_discount_screen.dart",
+      "components": [
+        "lib/features/payment/presentation/components/choose_payment_method_widget.dart",
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/common/widgets/base/base_bottom_sheet.dart",
+        "lib/common/widgets/base/base_pdf_screen.dart",
+        "lib/common/widgets/base/base_toast.dart",
+        "lib/common/widgets/base/currency_icon.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/my_payments/presentation/components/pay_now_button.dart",
+        "lib/features/my_requests/domain/entities/educational_loan_requests_entity.dart",
+        "lib/features/my_requests/domain/entities/paid_tuition_fee_entity.dart",
+        "lib/features/my_requests/domain/useCases/my_requests_use_case.dart",
+        "lib/features/my_requests/presentation/controllers/discount_payment_flow.dart",
+        "lib/features/my_requests/presentation/controllers/pending_request_controller.dart",
+        "lib/features/payment/domain/services/payment_retry_chain.dart",
+        "lib/features/payment/presentation/controller/payment_controller.dart",
+        "lib/features/student_finance_request/domain/entities/educational_institution_students_entity.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "address",
+        "amount",
+        "apple_pay_button_title",
+        "apple_pay_failed",
+        "apple_pay_unavailable",
+        "back_to_my_payments_title",
+        "bottom_sheet_button_title",
+        "branch",
+        "branch_name_label",
+        "cancel_request_success",
+        "discount_label",
+        "discount_no_longer_available",
+        "discount_payment_failed",
+        "enter_iban_hint",
+        "error_loading_file_title",
+        "failed_to_cancel_request",
+        "failed_to_load_request_details",
+        "failed_to_load_requests",
+        "iban_label",
+        "iban_required_error",
+        "id",
+        "invalid_iban_error",
+        "loan_installment_pay_now_title",
+        "pay_with_discount",
+        "payment_declined_by_bank",
+        "payment_not_confirmed",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "required_amount_title",
+        "signUp_national_id_label",
+        "student_label",
+        "student_name",
+        "students",
+        "total_payable_after_discount_label",
+        "total_tuition_fees_label",
+        "tuition_fees_label"
+      ]
+    },
+    {
+      "id": "requestContract",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/request_contract_screen.dart",
+      "components": [
+        "lib/common/widgets/base/base_pdf_screen.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/my_requests/domain/entities/sign_type_enum.dart",
+        "lib/features/my_requests/presentation/controllers/contract_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "cancel_request_title",
+        "contract_confirm_button_title",
+        "contract_terms_acceptance_text",
+        "error_loading_file_title"
+      ]
+    },
+    {
+      "id": "scheduledRequestCompletion",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/scheduled_request_completion_screen.dart",
+      "components": [
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/currency_icon.dart",
+        "lib/common/widgets/base/custom_divider.dart",
+        "lib/common/widgets/base/syncfusion_pdf_screen.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/common/widgets/painters/diagonal_background_painter.dart",
+        "lib/features/my_requests/domain/entities/my_rescheduled_requests_entity.dart",
+        "lib/features/my_requests/domain/entities/request_details_entity.dart",
+        "lib/features/my_requests/presentation/components/financing_procedures_list.dart",
+        "lib/features/my_requests/presentation/controllers/my_requests_controller.dart",
+        "lib/features/my_requests/presentation/components/payment_break_down_section.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "alert_voting_dialog_btn2",
+        "amount",
+        "deposit_first_installment_title",
+        "error_loading_file_title",
+        "financing_limit_title",
+        "first_installment_includes_deposit",
+        "first_installment_includes_down_payment",
+        "go_to_my_payments",
+        "id",
+        "move_to_nafith_title",
+        "my_request_financing_procedures",
+        "my_request_proceed_title",
+        "my_requests_approved_title",
+        "my_requests_cancelled_title",
+        "my_requests_rejected_title",
+        "my_requests_under_review_title",
+        "nafith_rejected_sub_title",
+        "nafith_rejected_title",
+        "new_installments",
+        "paid_tuition_fees_tab_title",
+        "payment_breakdown_installment_per_month",
+        "payment_breakdown_installments_end_date",
+        "payment_breakdown_installments_start_date",
+        "payment_breakdown_no_of_installments",
+        "payment_breakdown_total_first_installment",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "pending_requests",
+        "proceed_to_yaster",
+        "remaining_amount",
+        "remaining_new_installments",
+        "request_new_sanad_title",
+        "reschedule_last_step_title",
+        "rescheduled_requests",
+        "retry_payment_title",
+        "signing_contract_title",
+        "total_finance_amount_label",
+        "view_and_download_contract_title"
+      ]
+    },
+    {
+      "id": "verifyOtpContract",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/verify_otp_contract_screen.dart",
+      "components": [
+        "lib/common/widgets/base/app_bar.dart",
+        "lib/features/AuthFeature/Presentation/components/base_otp_widget.dart",
+        "lib/features/my_requests/presentation/controllers/verify_otp_contract_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "otp_blocked_wait",
+        "otp_enter_code_label",
+        "otp_not_receive_code_title",
+        "otp_resend_title",
+        "otp_send_sms_title",
+        "otp_send_verification_code_title",
+        "otp_verify"
+      ]
+    },
+    {
+      "id": "YasterScreen",
+      "feature": "my_requests",
+      "file": "lib/features/my_requests/presentation/screens/YasterScreen.dart",
+      "components": [
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/my_requests/presentation/controllers/yaster_call_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "alert_voting_dialog_btn2",
+        "cancel",
+        "dismiss",
+        "hub_connected_waiting_call",
+        "hub_connecting",
+        "loan_approval_call_title",
+        "yaster_call_approved_success",
+        "yaster_call_before_nafith_desc",
+        "yaster_call_confirmation_title",
+        "yaster_call_during_call_instruction",
+        "yaster_call_if_approve_desc",
+        "yaster_call_if_approve_title",
+        "yaster_call_if_reject_desc",
+        "yaster_call_if_reject_title",
+        "yaster_call_important_note",
+        "yaster_call_in_progress_button",
+        "yaster_call_initiate_button",
+        "yaster_call_initiated_success",
+        "yaster_call_rejected_message",
+        "yaster_call_rejected_title"
+      ]
+    },
+    {
+      "id": "notifications",
+      "feature": "notifications",
+      "file": "lib/features/notifications/pesentation/screens/notifications_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/features/notifications/pesentation/components/empty_notifications_widget.dart",
+        "lib/features/notifications/pesentation/components/notification_list_widget.dart",
+        "lib/features/notifications/pesentation/controllers/notifications_controller.dart",
+        "lib/features/notifications/pesentation/components/custom_notification_types_widget.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "no_notifications_title",
+        "notification_title",
+        "notification_type_all_title",
+        "notification_type_read_title",
+        "notification_type_unread_title",
+        "notifications_mark_all_read_title"
+      ]
+    },
+    {
+      "id": "newOnboarding",
+      "feature": "onBoarding",
+      "file": "lib/features/onBoarding/presentation/screens/new_onboarding_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_dots_indicator.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/onBoarding/domain/entity/oboarding_model.dart",
+        "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "Onboarding_Screen1Description1_Hint",
+        "Onboarding_Screen1Description2_Hint",
+        "Onboarding_Screen2Description1_Hint",
+        "Onboarding_Screen2Description2_Hint",
+        "Onboarding_Screen3Description1_Hint",
+        "Onboarding_Screen3Description2_Hint",
+        "onboarding_continue_now_button_title",
+        "onboarding_lets_start_button_title",
+        "skip"
+      ]
+    },
+    {
+      "id": "onboarding",
+      "feature": "onBoarding",
+      "file": "lib/features/onBoarding/presentation/screens/onboarding_screen.dart",
+      "components": [
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/onBoarding/presentation/components/on_boarding_dots_widget.dart",
+        "lib/features/onBoarding/presentation/components/onboarding_next_button.dart",
+        "lib/features/onBoarding/presentation/components/onboardinng_pager_item.dart",
+        "lib/features/onBoarding/presentation/controller/onboarding_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "Onboarding_Screen1Description1_Hint",
+        "Onboarding_Screen1Description2_Hint",
+        "Onboarding_Screen2Description1_Hint",
+        "Onboarding_Screen2Description2_Hint",
+        "Onboarding_Screen3Description1_Hint",
+        "Onboarding_Screen3Description2_Hint",
+        "skip"
+      ]
+    },
+    {
+      "id": "alinmaPayWebView",
+      "feature": "payment",
+      "file": "lib/features/payment/presentation/screens/alinma_pay_web_view_screen.dart",
+      "components": [
+        "lib/common/widgets/Loading/loading_dialog.dart",
+        "lib/common/widgets/base/button_default.dart",
+        "lib/common/widgets/base/texts.dart",
+        "lib/features/payment/domain/services/alinma_pay_redirect.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "alinma_pay_cancel_body",
+        "alinma_pay_cancel_title",
+        "alinma_pay_title",
+        "cancel",
+        "confirm",
+        "done"
+      ]
+    },
+    {
+      "id": "applePayNativeDemo",
+      "feature": "payment",
+      "file": "lib/features/payment/presentation/screens/apple_pay_native_demo_screen.dart",
+      "components": [],
+      "keys": [],
+      "i18nKeys": [
+        "amount"
+      ]
+    },
+    {
+      "id": "addStudent",
+      "feature": "student_finance_request",
+      "file": "lib/features/student_finance_request/presentation/screens/add_student_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_icon_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/features/home/presentation/components/custom_notification_widget.dart",
+        "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "academic_year",
+        "add_student_screen_subtitle",
+        "add_student_screen_title",
+        "all_students_blocked_title",
+        "cancel_title",
+        "connection_error",
+        "discount_no_longer_available",
+        "enter_full_name_hint",
+        "enter_student_id",
+        "layer2_check_failed_title",
+        "ok_title",
+        "relationship_brother",
+        "relationship_father",
+        "relationship_guardian",
+        "relationship_label",
+        "relationship_mother",
+        "relationship_other",
+        "relationship_sister",
+        "same_id_error",
+        "select_academic_year_error",
+        "select_hint",
+        "some_students_blocked_title",
+        "student_full_name_label",
+        "student_id",
+        "student_information_section",
+        "tenor_plan_cleared",
+        "try_again"
+      ]
+    },
+    {
+      "id": "studentRequestFinance",
+      "feature": "student_finance_request",
+      "file": "lib/features/student_finance_request/presentation/screens/student_request_finance_screen.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/common/widgets/base/base_remote_widget.dart",
+        "lib/common/widgets/base/currency_icon.dart",
+        "lib/features/educational_institution/domain/entities/branches.dart",
+        "lib/features/home/presentation/components/custom_notification_widget.dart",
+        "lib/features/my_requests/domain/entities/educational_loan_requests_entity.dart",
+        "lib/features/student_finance_request/domain/entities/extra_info.dart",
+        "lib/features/student_finance_request/presentation/components/installment_duration_dropdown_widget.dart",
+        "lib/features/student_finance_request/presentation/controllers/student_finance_request_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "academic_year",
+        "add_another_student",
+        "added_students_label",
+        "address",
+        "all_students_blocked_title",
+        "amount",
+        "branch",
+        "branch_name_label",
+        "cancel_title",
+        "choose_nationality",
+        "choose_student_title",
+        "connection_error",
+        "continue_to_next_step",
+        "discount_no_longer_available",
+        "expected_monthly_installment",
+        "id",
+        "layer2_check_failed_title",
+        "nationality",
+        "ok_title",
+        "oversized_tuition_disclaimer",
+        "oversized_tuition_disclaimer_conditional",
+        "pay_with_discount",
+        "pending_fees",
+        "select_academic_year_error",
+        "some_students_blocked_title",
+        "student_id",
+        "students",
+        "tenor_none",
+        "tenor_plan_cleared",
+        "total_tuition_fees_label",
+        "try_again",
+        "tuition_fees"
+      ]
+    },
+    {
+      "id": "activeLoans",
+      "feature": "withdraw",
+      "file": "lib/features/withdraw/presentation/screens/active_loans.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_card.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/features/my_requests/presentation/components/empty_requests_widget.dart",
+        "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_my_withdrawal_title",
+        "bnb_my_requests_title",
+        "continue",
+        "customer",
+        "customer_id",
+        "customer_name",
+        "empty_requests_sub_title",
+        "empty_requests_title",
+        "failed_to_pick_images",
+        "failed_to_submit_withdrawal",
+        "file_size_too_large",
+        "max_attachments_reached",
+        "no_students",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "retry_payment_title",
+        "select_withdraw_student_msg",
+        "withdraw_requests",
+        "withdraw_submitted_successfully",
+        "withdrawal_loan_status_active"
+      ]
+    },
+    {
+      "id": "attachmentsSectionWidget",
+      "feature": "withdraw",
+      "file": "lib/features/withdraw/presentation/screens/components/attachments_section_widget.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "add_image",
+        "attachments_hint",
+        "attachments_optional",
+        "back_to_my_withdrawal_title",
+        "failed_to_pick_images",
+        "failed_to_submit_withdrawal",
+        "file_size_too_large",
+        "max_attachments_reached",
+        "no_students",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "retry_payment_title",
+        "select_withdraw_student_msg",
+        "withdraw_submitted_successfully"
+      ]
+    },
+    {
+      "id": "categoryDropdownWidget",
+      "feature": "withdraw",
+      "file": "lib/features/withdraw/presentation/screens/components/category_dropdown_widget.dart",
+      "components": [],
+      "keys": [],
+      "i18nKeys": []
+    },
+    {
+      "id": "withdrawUi",
+      "feature": "withdraw",
+      "file": "lib/features/withdraw/presentation/screens/components/withdraw_ui.dart",
+      "components": [],
+      "keys": [],
+      "i18nKeys": [
+        "amount",
+        "paid_amount",
+        "sar"
+      ]
+    },
+    {
+      "id": "createWithdrawRequest",
+      "feature": "withdraw",
+      "file": "lib/features/withdraw/presentation/screens/create_withdraw_request.dart",
+      "components": [
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_text_field.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/features/withdraw/domain/entities/timing_models.dart",
+        "lib/features/withdraw/presentation/controllers/withdraw_controller.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "Other",
+        "Week1",
+        "Week2",
+        "Week3",
+        "Week4",
+        "back_to_my_withdrawal_title",
+        "branch",
+        "cancel",
+        "failed_to_pick_images",
+        "failed_to_submit_withdrawal",
+        "file_size_too_large",
+        "id",
+        "max_attachments_reached",
+        "no_students",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "required_field",
+        "retry_payment_title",
+        "sar",
+        "select_withdraw_student",
+        "select_withdraw_student_msg",
+        "specify_timing",
+        "submit",
+        "tuition_fees",
+        "withdraw_submitted_successfully",
+        "withdrawal_loan_status_active",
+        "withdrawal_timing"
+      ]
+    },
+    {
+      "id": "withdrawRequests",
+      "feature": "withdraw",
+      "file": "lib/features/withdraw/presentation/screens/withdraw_requests.dart",
+      "components": [
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart",
+        "lib/features/withdraw/domain/entities/withdrawal_entity.dart",
+        "lib/features/withdraw/presentation/controllers/withdraw_controller.dart",
+        "lib/features/withdraw/presentation/helpers/withdrawal_status_label.dart",
+        "lib/features/my_requests/presentation/components/empty_requests_widget.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "back_to_my_withdrawal_title",
+        "empty_requests_sub_title",
+        "empty_requests_title",
+        "failed_to_pick_images",
+        "failed_to_submit_withdrawal",
+        "file_size_too_large",
+        "id",
+        "max_attachments_reached",
+        "my_request_request_number_title",
+        "no_students",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "retry_payment_title",
+        "select_withdraw_student_msg",
+        "students",
+        "withdraw_requests",
+        "withdraw_submitted_successfully"
+      ]
+    },
+    {
+      "id": "withdrawalDetails",
+      "feature": "withdraw",
+      "file": "lib/features/withdraw/presentation/screens/withdrawal_details.dart",
+      "components": [
+        "lib/features/withdraw/presentation/helpers/withdrawal_status_label.dart",
+        "lib/common/widgets/base/base_pdf_screen.dart",
+        "lib/features/withdraw/domain/entities/timing_models.dart",
+        "lib/features/withdraw/domain/entities/withdrawal_entity.dart",
+        "lib/features/withdraw/presentation/controllers/withdraw_controller.dart",
+        "lib/common/widgets/app/app_button.dart",
+        "lib/common/widgets/app/app_scaffold.dart",
+        "lib/common/widgets/app/app_top_bar.dart"
+      ],
+      "keys": [],
+      "i18nKeys": [
+        "Other",
+        "Week1",
+        "Week2",
+        "Week3",
+        "Week4",
+        "back_to_my_withdrawal_title",
+        "current_status",
+        "document",
+        "download_receipt",
+        "error_loading_file_title",
+        "failed_to_pick_images",
+        "failed_to_submit_withdrawal",
+        "file_size_too_large",
+        "financial_summary",
+        "id",
+        "institution_name",
+        "loan_id",
+        "loan_information",
+        "max_attachments_reached",
+        "my_request_request_number_title",
+        "no_students",
+        "outstanding_amount",
+        "pay_outstanding",
+        "payment_failure_sub_title",
+        "payment_failure_title",
+        "payment_share_view_receipt_button_title",
+        "payment_success_sub_title1",
+        "payment_success_sub_title2",
+        "payment_success_title",
+        "processed_successfully",
+        "refund_amount",
+        "rejection_notes",
+        "rejection_reason",
+        "request_information",
+        "request_submitted",
+        "retry_payment_title",
+        "sar",
+        "select_withdraw_student_msg",
+        "students",
+        "submission_date",
+        "total_financed_amount",
+        "total_paid_amount",
+        "total_tuition_fees",
+        "tuition_fees",
+        "withdraw_submitted_successfully",
+        "withdrawal_review_message",
+        "withdrawal_timing"
+      ]
+    }
+  ],
+  "apis": [
+    {
+      "id": "refreshToken",
+      "path": "api/1/User/RefreshToken"
+    },
+    {
+      "id": "getUserDevOTP",
+      "path": "api/1/User/GetUserOtpDev"
+    },
+    {
+      "id": "validateCredentials",
+      "path": "api/1/User/ValidateCredentials"
+    },
+    {
+      "id": "generateUserOtp",
+      "path": "api/1/User/GenerateUserOTP"
+    },
+    {
+      "id": "validateUserOtp",
+      "path": "api/1/User/ValidateUserOTP"
+    },
+    {
+      "id": "generateUserRegisterOtp",
+      "path": "api/1/User/GeneratePreRegistrationOtp"
+    },
+    {
+      "id": "validateUserRegisterOtp",
+      "path": "api/1/User/ValidatePreRegistrationOtp"
+    },
+    {
+      "id": "setNewPassword",
+      "path": "api/1/User/SetNewPassword"
+    },
+    {
+      "id": "changePassword",
+      "path": "api/1/User/ChangePassword"
+    },
+    {
+      "id": "login",
+      "path": "api/1/User/login"
+    },
+    {
+      "id": "setCurrentDeviceAsTrustDevice",
+      "path": "api/1/User/SetCurrentDeviceAsTrustDevice"
+    },
+    {
+      "id": "getProfileData",
+      "path": "api/1/User/GetProfileData"
+    },
+    {
+      "id": "register",
+      "path": "api/1/User/ClientRegister"
+    },
+    {
+      "id": "changeRequestPhoneNumber",
+      "path": "api/1/User/ChangeRequestPhoneNumber"
+    },
+    {
+      "id": "verifyNafathUserData",
+      "path": "api/1/User/VerifyNafathUserData"
+    },
+    {
+      "id": "requestNafathProfileRefresh",
+      "path": "api/1/User/RequestNafathProfileRefresh"
+    },
+    {
+      "id": "getNafathProfileRefreshStatus",
+      "path": "api/1/User/GetNafathProfileRefreshStatus"
+    },
+    {
+      "id": "checkNationalIdExpiry",
+      "path": "api/1/LoanApplication/CheckNationalIdExpiry"
+    },
+    {
+      "id": "sendEmailConfirmationOtp",
+      "path": "api/1/User/SendEmailConfirmationOtp"
+    },
+    {
+      "id": "sendEmailConfirmationOtpByRequestId",
+      "path": "api/1/User/SendEmailConfirmationOtpByRequestId"
+    },
+    {
+      "id": "confirmUserEmail",
+      "path": "api/1/User/ConfirmUserEmail"
+    },
+    {
+      "id": "confirmUserEmailByRequestId",
+      "path": "api/1/User/ConfirmUserEmailByRequestId"
+    },
+    {
+      "id": "requestChangePhoneNumber",
+      "path": "api/1/User/RequestChangePhoneNumber"
+    },
+    {
+      "id": "changePhoneNumber",
+      "path": "api/1/User/ChangePhoneNumber"
+    },
+    {
+      "id": "requestChangeEmail",
+      "path": "api/1/User/RequestChangeEmail"
+    },
+    {
+      "id": "changeEmail",
+      "path": "api/1/User/ChangeEmail"
+    },
+    {
+      "id": "generateLoginOrRegisterOtp",
+      "path": "api/1/User/GenerateLoginOrRegisterOtp"
+    },
+    {
+      "id": "checkMobileRegistration",
+      "path": "api/1/User/CheckMobileRegistration"
+    },
+    {
+      "id": "submitRegistrationRequest",
+      "path": "api/1/User/SubmitRegistrationRequest"
+    },
+    {
+      "id": "changePhoneNumberByNationalId",
+      "path": "api/1/User/ChangePhoneNumberByNationalId"
+    },
+    {
+      "id": "educationTypes",
+      "path": "api/1/EducationalLookups/EducationTypes"
+    },
+    {
+      "id": "educationCategoryTypes",
+      "path": "api/1/EducationalLookups/EducationCategoryTypes"
+    },
+    {
+      "id": "educationalInstitutions",
+      "path": "api/1/EducationalInstitution/GetAll"
+    },
+    {
+      "id": "educationalInstitutionGetAllBranchs",
+      "path": "api/1/EducationalInstitution/GetAllBranchs"
+    },
+    {
+      "id": "educationalInstitutionDetails",
+      "path": "api/1/EducationalInstitution/Details"
+    },
+    {
+      "id": "specialEducationalInstitutionsBranches",
+      "path": "api/1/EducationalInstitution/GetAllSpecial"
+    },
+    {
+      "id": "getAllSpecialBranchess",
+      "path": "api/1/EducationalInstitution/GetAllSpecialBranches"
+    },
+    {
+      "id": "educationalInstitutionLinkedStudents",
+      "path": "api/1/EducationalInstitution/LinkedStudents"
+    },
+    {
+      "id": "getAllCities",
+      "path": "api/1/EducationalLookups/GetAllCities"
+    },
+    {
+      "id": "getSystemInfoByType",
+      "path": "api/1/Faq/GetSystemInfoByType"
+    },
+    {
+      "id": "getAllSystemFaq",
+      "path": "api/1/Faq/GetAllSystemFaq"
+    },
+    {
+      "id": "getAllKycQuestion",
+      "path": "api/1/KycQuestion/GetAll"
+    },
+    {
+      "id": "getKycQuestionById",
+      "path": "api/1/KycQuestion/ById"
+    },
+    {
+      "id": "getTemplatesByUserId",
+      "path": "api/1/KycQuestion/GetTemplatesByUserId"
+    },
+    {
+      "id": "saveOrUpdateTemplate",
+      "path": "api/1/KycQuestion/SaveOrUpdateTemplate"
+    },
+    {
+      "id": "addAnswersScoringQuestions",
+      "path": "api/1/ScoringUserAnswer/AddAnswers"
+    },
+    {
+      "id": "acceptKycPolicy",
+      "path": "api/1/ScoringSession/AcceptPolicy"
+    },
+    {
+      "id": "getSimahAuthorizationDisclosure",
+      "path": "api/1/Templates/GetSimahAuthorizationDisclosure"
+    },
+    {
+      "id": "checkAppVersion",
+      "path": "api/1/Configuration/CheckAppVersion"
+    },
+    {
+      "id": "insertLoanApplication",
+      "path": "api/1/LoanApplication/Insert"
+    },
+    {
+      "id": "newApplicationEligibility",
+      "path": "api/1/LoanApplication/NewApplicationEligibility"
+    },
+    {
+      "id": "getMyLoans",
+      "path": "api/1/Loans/GetAll"
+    },
+    {
+      "id": "createLoan",
+      "path": "api/1/Loans/CreateLoan"
+    },
+    {
+      "id": "getLoansUnComplete",
+      "path": "api/1/Loans/GetAllUnComplete"
+    },
+    {
+      "id": "getLoanContract",
+      "path": "api/1/LoanApplication/GetLoanContract"
+    },
+    {
+      "id": "getRescheduledLoanContract",
+      "path": "api/1/Loans/GetLoanContract"
+    },
+    {
+      "id": "sendSignContractOtp",
+      "path": "api/1/LoanApplication/SendSignContractOtp"
+    },
+    {
+      "id": "verifyOtpForSignDocument",
+      "path": "api/1/LoanApplication/VerifyOtpForSignDocument"
+    },
+    {
+      "id": "getLoanRequestDetailsWithSteps",
+      "path": "api/1/LoanApplication/GetLoanRequestDetailsWithSteps"
+    },
+    {
+      "id": "getPaymentSchedule",
+      "path": "api/1/LoanApplication/GetPaymentSchedule"
+    },
+    {
+      "id": "changeLoanApplicationFToApprovedStatus",
+      "path": "api/1/LoanApplication/ChangeLoanApplicationFToApprovedStatus"
+    },
+    {
+      "id": "cancelLoanApplicationRequest",
+      "path": "api/1/LoanApplication/CancelRequest"
+    },
+    {
+      "id": "createSanadWithLoanId",
+      "path": "api/1/LoanApplication/CreateSanadWithLoanId"
+    },
+    {
+      "id": "getApprovedApplicationNotCompleate",
+      "path": "api/1/LoanApplication/GetApprovedApplicationNotCompleate"
+    },
+    {
+      "id": "getInstallmentPlans",
+      "path": "api/1/LoanApplication/GetInstallmentPlans"
+    },
+    {
+      "id": "previewNewRequestPlan",
+      "path": "api/1/LoanApplication/PreviewNewRequestPlan"
+    },
+    {
+      "id": "validateStudentsForNewRequest",
+      "path": "api/1/LoanApplication/ValidateStudentsForNewRequest"
+    },
+    {
+      "id": "getProofOfDebtDocument",
+      "path": "api/1/Loans/GetProofOfDebtDocument"
+    },
+    {
+      "id": "yasterDialCall",
+      "path": "api/1/Yeaster/dial"
+    },
+    {
+      "id": "nafithCallbackStatus",
+      "path": "api/1/CallbackStatus/nafith-status/"
+    },
+    {
+      "id": "yeasterCallbackStatus",
+      "path": "api/1/CallbackStatus/yeaster-status/"
+    },
+    {
+      "id": "nafathRegisterStatus",
+      "path": "api/1/CallbackStatus/nafath-register-status"
+    },
+    {
+      "id": "getMyRequests",
+      "path": "api/1/LoanApplication/GetMyRequests"
+    },
+    {
+      "id": "getLoanInstallments",
+      "path": "api/1/Installments/GetLoanInstallments"
+    },
+    {
+      "id": "getLoanFirstInstallment",
+      "path": "api/1/Installments/GetLoanFirstInstallment"
+    },
+    {
+      "id": "getAllNotification",
+      "path": "api/1/Notifications/GetAll"
+    },
+    {
+      "id": "readNotification",
+      "path": "api/1/Notifications/ReadNotification"
+    },
+    {
+      "id": "closeAccountEligibility",
+      "path": "api/1/User/CloseAccountEligibility"
+    },
+    {
+      "id": "closeAccount",
+      "path": "api/1/User/CloseAccount"
+    },
+    {
+      "id": "createPayment",
+      "path": "api/1/Payment/Create"
+    },
+    {
+      "id": "proceedPayment",
+      "path": "api/1/Payment/ProceedPayment"
+    },
+    {
+      "id": "submitComplaint",
+      "path": "api/1/Complaint"
+    },
+    {
+      "id": "getComplaintById",
+      "path": "api/1/Complaint"
+    },
+    {
+      "id": "getComplaintByCode",
+      "path": "api/1/Complaint/by-code"
+    },
+    {
+      "id": "getMyComplaintsPaginated",
+      "path": "api/1/Complaint/GetMyComplaintsPaginated"
+    },
+    {
+      "id": "getComplaintCategories",
+      "path": "api/1/Complaint/categories/lookup"
+    },
+    {
+      "id": "getComplaintSubcategories",
+      "path": "api/1/Complaint/subcategories/lookup"
+    },
+    {
+      "id": "getAllMyRelatedRequests",
+      "path": "api/1/EducationalInstituationLoanApplicationRequests/GetAllMyRelatedRequests"
+    },
+    {
+      "id": "completeLoanApplicationRequest",
+      "path": "api/1/EducationalInstituationLoanApplicationRequests/CompleteLoanApplicationRequest"
+    },
+    {
+      "id": "getLoanApplicationRequestDetails",
+      "path": "api/1/EducationalInstituationLoanApplicationRequests/GetLoanApplicationRequestDetails"
+    },
+    {
+      "id": "discountAvailability",
+      "path": "api/1/loan-requests"
+    },
+    {
+      "id": "myFullPayments",
+      "path": "api/1/loan-requests/my-full-payments"
+    },
+    {
+      "id": "getRescheduleRequestsForCurrentUserPendingSignature",
+      "path": "api/1/Loans/GetRescheduleRequestsForCurrentUserPendingSignature"
+    },
+    {
+      "id": "createRescheduleSanad",
+      "path": "api/1/Loans/CreateRescheduleSanad"
+    },
+    {
+      "id": "getLoanContractByLoanRequestId",
+      "path": "api/1/Loans/GetLoanContract?loanRequestId="
+    },
+    {
+      "id": "loansRejectSignContract",
+      "path": "api/1/Loans/RejectSignContract?loanRequestId="
+    },
+    {
+      "id": "withdrawActiveLoans",
+      "path": "api/1/WithdrawalRequest/ActiveLoans"
+    },
+    {
+      "id": "withdrawRequestSubmit",
+      "path": "api/1/WithdrawalRequest/Submit"
+    },
+    {
+      "id": "withdrawMyRequests",
+      "path": "api/1/WithdrawalRequest/My"
+    },
+    {
+      "id": "withdrawRequestDetails",
+      "path": "api/1/WithdrawalRequest/Details"
+    }
+  ]
+}

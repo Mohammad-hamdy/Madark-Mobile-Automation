@@ -1,0 +1,10 @@
+node_modules/
+.env.local
+allure-results/
+allure-report/
+logs/
+environment/testdata/dev/*
+environment/testdata/preprod/*
+!environment/testdata/dev/.gitkeep
+!environment/testdata/preprod/.gitkeep
+.app-snapshot/

@@ -1,0 +1,202 @@
+name: Android WDIO tests (emulator on runner)
+
+# Runs the suite on the GitHub runner itself: Android emulator + local Appium + WDIO.
+# The QA-flavor APK (com.madark.institution.qa) is not built here. It comes from either:
+#   - an artifact of the mobile repo's build workflow (apk_run_id + apk_artifact), or
+#   - a direct download URL (apk_url), e.g. a GitHub Release asset or internal storage.
+
+on:
+  workflow_dispatch:
+    inputs:
+      apk_run_id:
+        description: Run ID of the mobile repo build workflow that uploaded the APK (leave empty to use apk_url)
+        required: false
+      apk_artifact:
+        description: Artifact name in that run
+        default: madark-apk-qa
+      apk_url:
+        description: Direct APK download URL (used when apk_run_id is empty)
+        required: false
+      lang:
+        description: en or ar
+        default: en
+      tags:
+        description: E2E_TAGS filter (e.g. smoke, p0, signIn, 11874)
+        default: smoke
+      api_level:
+        description: Emulator Android API level
+        default: '34'
+  repository_dispatch:
+    types: [madark-apk-ready]
+
+concurrency:
+  group: android-wdio-${{ github.ref }}
+  cancel-in-progress: false
+
+env:
+  MOBILE_REPO: Madark/Madarak-UserApp
+  APPIUM_PORT: '4725'
+
+jobs:
+  android-wdio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    env:
+      E2E_ENV: dev
+      E2E_ENCRYPTION: 'true'
+      E2E_TARGET: local
+      PLATFORM: android
+      E2E_LANG: ${{ inputs.lang || github.event.client_payload.lang || 'en' }}
+      E2E_TAGS: ${{ inputs.tags || github.event.client_payload.tags || 'smoke' }}
+      ANDROID_UDID: emulator-5554
+      APPIUM_HOST: 127.0.0.1
+      ANDROID_APP_PATH: ${{ github.workspace }}/app/madark-qa.apk
+      E2E_CUSTOMER_PHONE: ${{ secrets.E2E_CUSTOMER_PHONE }}
+      E2E_CUSTOMER_OTP: ${{ secrets.E2E_CUSTOMER_OTP }}
+      E2E_SKIP_UNSUPPORTED_DEVICE_ACTIONS: '1'
+
+    steps:
+      - name: Checkout automation
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies and Appium driver
+        run: |
+          npm ci
+          npx appium driver install uiautomator2
+
+      - name: Static checks (no device)
+        run: |
+          npm run typecheck
+          npm run verify:locators
+          npm run verify:crypto
+
+      - name: Encrypted Dev API check
+        run: npm run verify:api
+
+      - name: Download APK from mobile repo build
+        if: ${{ inputs.apk_run_id != '' || github.event.client_payload.run_id != '' }}
+        uses: dawidd6/action-download-artifact@v6
+        with:
+          github_token: ${{ secrets.MOBILE_REPO_TOKEN }}
+          repo: ${{ env.MOBILE_REPO }}
+          run_id: ${{ inputs.apk_run_id || github.event.client_payload.run_id }}
+          name: ${{ inputs.apk_artifact || github.event.client_payload.artifact || 'madark-apk-qa' }}
+          path: app
+
+      - name: Download APK from URL
+        if: ${{ inputs.apk_run_id == '' && github.event.client_payload.run_id == '' }}
+        env:
+          APK_URL: ${{ inputs.apk_url || github.event.client_payload.apk_url }}
+          APK_URL_TOKEN: ${{ secrets.APK_URL_TOKEN }}
+        run: |
+          set -euo pipefail
+          test -n "$APK_URL" || { echo "::error::Provide apk_run_id or apk_url"; exit 1; }
+          mkdir -p app
+          if [ -n "${APK_URL_TOKEN:-}" ]; then
+            curl -fsSL -H "Authorization: Bearer $APK_URL_TOKEN" -o "$ANDROID_APP_PATH" "$APK_URL"
+          else
+            curl -fsSL -o "$ANDROID_APP_PATH" "$APK_URL"
+          fi
+
+      - name: Normalise APK path
+        run: |
+          set -euo pipefail
+          found="$(find app -name '*.apk' | head -1)"
+          test -n "$found" || { echo "::error::No APK found"; exit 1; }
+          [ "$found" = "app/madark-qa.apk" ] || mv "$found" "$ANDROID_APP_PATH"
+          ls -la app
+
+      - name: Enable KVM
+        run: |
+          echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+          sudo udevadm control --reload-rules
+          sudo udevadm trigger --name-match=kvm
+
+      - name: AVD cache
+        uses: actions/cache@v4
+        id: avd-cache
+        with:
+          path: |
+            ~/.android/avd/*
+            ~/.android/adb*
+          key: avd-${{ inputs.api_level || '34' }}-google_apis-x86_64
+
+      - name: Create AVD snapshot for caching
+        if: steps.avd-cache.outputs.cache-hit != 'true'
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ inputs.api_level || '34' }}
+          arch: x86_64
+          target: google_apis
+          force-avd-creation: false
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: echo "AVD snapshot created"
+
+      - name: Run WebdriverIO on emulator
+        uses: reactivecircus/android-emulator-runner@v2
+        with:
+          api-level: ${{ inputs.api_level || '34' }}
+          arch: x86_64
+          target: google_apis
+          force-avd-creation: false
+          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          disable-animations: true
+          script: |
+            set -euo pipefail
+            adb wait-for-device
+            adb emu geo fix 46.6753 24.7136
+            adb install -r -t -g "$ANDROID_APP_PATH"
+            mkdir -p logs
+            npx appium --address "$APPIUM_HOST" --port "$APPIUM_PORT" --relaxed-security --allow-insecure=uiautomator2:adb_shell --log logs/appium.log --log-timestamp &
+            for i in $(seq 1 60); do curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null && break; sleep 2; done
+            curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null || { echo "::error::Appium did not start"; exit 1; }
+            npx wdio run wdio.conf.ts
+
+      - name: Generate Allure single-file report
+        if: always()
+        run: |
+          npx allure generate --single-file allure-results -o allure-html --clean || true
+          [ -f allure-html/index.html ] && cp allure-html/index.html "allure-html/allure-report-${{ github.run_number }}.html" || true
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report-${{ github.run_number }}
+          path: allure-html/allure-report-${{ github.run_number }}.html
+          if-no-files-found: ignore
+
+      - name: Upload raw results and logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-results-${{ github.run_number }}
+          path: |
+            allure-results
+            logs
+            generated/missing.locator
+          if-no-files-found: ignore
+
+      - name: Summary
+        if: always()
+        run: |
+          {
+            echo "### Android WDIO — ${E2E_ENV} / encryption=${E2E_ENCRYPTION} / ${E2E_LANG} / tags=${E2E_TAGS:-all}"
+            echo ""
+            total=$(ls allure-results/*-result.json 2>/dev/null | wc -l)
+            passed=$(grep -l '"status":"passed"' allure-results/*-result.json 2>/dev/null | wc -l)
+            failed=$(grep -lE '"status":"(failed|broken)"' allure-results/*-result.json 2>/dev/null | wc -l)
+            skipped=$(grep -l '"status":"skipped"' allure-results/*-result.json 2>/dev/null | wc -l)
+            echo "| Total | Passed | Failed | Skipped |"
+            echo "|---|---|---|---|"
+            echo "| $total | $passed | $failed | $skipped |"
+            echo ""
+            echo "Report: artifact \`allure-report-${{ github.run_number }}\`"
+          } >> "$GITHUB_STEP_SUMMARY"
