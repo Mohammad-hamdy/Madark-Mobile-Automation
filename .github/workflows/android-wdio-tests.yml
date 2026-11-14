@@ -75,8 +75,8 @@ jobs:
       E2E_SKIP_UNSUPPORTED_DEVICE_ACTIONS: '1'
       E2E_FAST: '1'
       WDIO_WALL_TIMEOUT: '480'
-      # Faster emulator shutdown after script exits (default 20s).
-      ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '5'
+      # Graceful emu kill often hangs on GHA — keep this tiny; script also force-kills qemu.
+      ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '1'
       WDIO_SPEC: ${{ inputs.spec || github.event.client_payload.spec || './specs/sign-in/sign-in.spec.ts' }}
 
     steps:
@@ -153,18 +153,7 @@ jobs:
             ~/.android/adb*
           key: avd-${{ inputs.api_level || '34' }}-google_apis-x86_64
 
-      - name: Create AVD snapshot for caching
-        if: steps.avd-cache.outputs.cache-hit != 'true'
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ inputs.api_level || '34' }}
-          arch: x86_64
-          target: google_apis
-          force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          script: echo "AVD snapshot created"
-
+      # One emulator boot only (snapshot pre-warm was a 2nd boot + hung Terminate Emulator).
       - name: Run WebdriverIO on emulator
         id: wdio
         uses: reactivecircus/android-emulator-runner@v2
@@ -173,7 +162,7 @@ jobs:
           arch: x86_64
           target: google_apis
           force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
+          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
           # Runner executes script line-by-line — keep a single call into a bash file.
           script: bash scripts/ci-android-wdio.sh

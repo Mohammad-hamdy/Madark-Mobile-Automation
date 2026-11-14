@@ -23,6 +23,13 @@ APPIUM_PID=$!
 cleanup() {
   kill "$APPIUM_PID" 2>/dev/null || true
   wait "$APPIUM_PID" 2>/dev/null || true
+  # android-emulator-runner "Terminate Emulator" can hang for minutes on graceful qemu exit.
+  # Kill the emulator ourselves so the action cleanup returns immediately.
+  echo "Force-stopping emulator (avoid hung Terminate Emulator)"
+  adb -s "${ANDROID_UDID:-emulator-5554}" emu kill >/dev/null 2>&1 || true
+  sleep 1
+  pkill -9 -f 'qemu-system' >/dev/null 2>&1 || true
+  pkill -9 -f '/emulator/emulator ' >/dev/null 2>&1 || true
 }
 trap cleanup EXIT
 
