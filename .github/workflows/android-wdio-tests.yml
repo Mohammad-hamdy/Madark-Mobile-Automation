@@ -171,34 +171,8 @@ jobs:
           force-avd-creation: false
           emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
           disable-animations: true
-          script: |
-            set -euo pipefail
-            adb wait-for-device
-            adb emu geo fix 46.6753 24.7136
-            adb install -r -t -g "$ANDROID_APP_PATH"
-            mkdir -p logs
-            npx appium --address "$APPIUM_HOST" --port "$APPIUM_PORT" \
-              --relaxed-security --allow-insecure=uiautomator2:adb_shell \
-              --log logs/appium.log --log-timestamp &
-            for i in $(seq 1 60); do
-              curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null && break
-              sleep 2
-            done
-            curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null \
-              || { echo "::error::Appium did not start"; exit 1; }
-
-            SPEC_ARGS=()
-            if [ -n "${WDIO_SPEC:-}" ]; then
-              SPEC_ARGS=(--spec "$WDIO_SPEC")
-            fi
-
-            echo "Running WDIO tags=${E2E_TAGS} lang=${E2E_LANG} spec=${WDIO_SPEC:-all}"
-            set +e
-            npx wdio run wdio.conf.ts "${SPEC_ARGS[@]}"
-            code=$?
-            set -e
-            echo "wdio_exit=$code" >> "$GITHUB_OUTPUT"
-            exit "$code"
+          # Runner executes script line-by-line — keep a single call into a bash file.
+          script: bash scripts/ci-android-wdio.sh
 
       - name: Generate Allure single-file report
         if: always()
