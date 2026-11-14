@@ -7,6 +7,10 @@ IMAGE="system-images;android-${API_LEVEL};google_apis;x86_64"
 SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
 export ANDROID_AVD_HOME="$HOME/.android/avd"
 export PATH="$SDK/cmdline-tools/latest/bin:$SDK/emulator:$SDK/platform-tools:$PATH"
+if [ -n "${GITHUB_PATH:-}" ]; then
+  echo "$SDK/platform-tools" >> "$GITHUB_PATH"
+  echo "$SDK/emulator" >> "$GITHUB_PATH"
+fi
 mkdir -p "$ANDROID_AVD_HOME" logs
 
 yes | sdkmanager --licenses >/dev/null 2>&1 || true
