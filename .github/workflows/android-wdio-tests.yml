@@ -144,28 +144,27 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
-      - name: AVD cache
-        uses: actions/cache@v4
-        id: avd-cache
-        with:
-          path: |
-            ~/.android/avd/*
-            ~/.android/adb*
-          key: avd-${{ inputs.api_level || '34' }}-google_apis-x86_64
+      # Emulator is managed directly: android-emulator-runner hung ~25 min in its
+      # "Terminate Emulator" cleanup even after the emulator had exited.
+      - name: Start emulator
+        timeout-minutes: 10
+        env:
+          API_LEVEL: ${{ inputs.api_level || '34' }}
+        run: bash scripts/ci-start-emulator.sh
 
-      # One emulator boot only (snapshot pre-warm was a 2nd boot + hung Terminate Emulator).
       - name: Run WebdriverIO on emulator
         id: wdio
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ inputs.api_level || '34' }}
-          arch: x86_64
-          target: google_apis
-          force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          # Runner executes script line-by-line — keep a single call into a bash file.
-          script: bash scripts/ci-android-wdio.sh
+        timeout-minutes: 12
+        run: bash scripts/ci-android-wdio.sh
+
+      - name: Stop emulator
+        if: always()
+        timeout-minutes: 1
+        run: |
+          adb -s emulator-5554 emu kill >/dev/null 2>&1 || true
+          [ -f /tmp/emulator.pid ] && kill -9 "$(cat /tmp/emulator.pid)" 2>/dev/null || true
+          pkill -9 -f qemu-system >/dev/null 2>&1 || true
+          adb kill-server >/dev/null 2>&1 || true
 
       - name: Generate Allure single-file report
         if: always()
