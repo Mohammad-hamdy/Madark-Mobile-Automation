@@ -114,10 +114,14 @@ export class MobileGestures {
     dir: SwipeDir,
     { maxSwipes = 8, timeout = 2000 }: { maxSwipes?: number; timeout?: number } = {}
   ): Promise<boolean> {
+    // Header/footer chrome (language toggle, Skip, nav) is on-screen but outside the
+    // content safe band — accept it for taps; only swipe when the element is missing.
+    if (await this.isOnScreen(locator, timeout)) return true;
     if (await this.inSafeArea(locator, timeout)) return true;
     if (await this.healHeaderOrFooter(locator)) return true;
     for (let i = 0; i < maxSwipes; i += 1) {
       await this.swipe(dir);
+      if (await this.isOnScreen(locator, timeout)) return true;
       if (await this.inSafeArea(locator, timeout)) return true;
       if (await this.healHeaderOrFooter(locator)) return true;
     }
@@ -128,6 +132,7 @@ export class MobileGestures {
     locator: string,
     { maxSwipes = 8, timeout = 2000 }: { maxSwipes?: number; timeout?: number } = {}
   ): Promise<boolean> {
+    if (await this.isOnScreen(locator, timeout)) return true;
     if (await this.swipeUntilVisible(locator, 'up', { maxSwipes, timeout })) return true;
     return this.swipeUntilVisible(locator, 'down', { maxSwipes, timeout });
   }
@@ -136,6 +141,15 @@ export class MobileGestures {
     const el = await $(locator);
     await el.waitForDisplayed({ timeout: 15000 });
     await el.touchAction([{ action: 'longPress' }, { action: 'release' }]);
+  }
+
+  private static async isOnScreen(locator: string, timeout: number): Promise<boolean> {
+    try {
+      const el = await $(locator);
+      return Boolean(await el.waitForDisplayed({ timeout }));
+    } catch {
+      return false;
+    }
   }
 
   private static async inSafeArea(locator: string, timeout: number): Promise<boolean> {
@@ -160,12 +174,12 @@ export class MobileGestures {
       if (!(await el.isDisplayed())) return false;
       const band = await this.safeBand();
       const { x, y } = await el.getLocation();
-      if (y < band.yTop) await this.performSwipe('down', { distance: 0.22 });
-      else if (y > band.yBottom) await this.performSwipe('up', { distance: 0.22 });
-      else if (x < band.xLeft) await this.performSwipe('right', { distance: 0.22 });
+      // Fixed app chrome sits in the header/footer — tappable as-is; swiping moves the wrong layer.
+      if (y < band.yTop || y > band.yBottom) return true;
+      if (x < band.xLeft) await this.performSwipe('right', { distance: 0.22 });
       else if (x > band.xRight) await this.performSwipe('left', { distance: 0.22 });
       else return true;
-      return this.isInSafeBand(el);
+      return (await this.isInSafeBand(el)) || (await el.isDisplayed());
     } catch {
       return false;
     }

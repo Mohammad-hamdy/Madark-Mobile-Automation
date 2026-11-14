@@ -131,14 +131,15 @@ export class BasePage {
       message: `field ready ${locator}`,
     });
     await el.clearValue().catch(() => undefined);
-    await driver.keys([...String(value)]);
+    // Flutter EditTexts often ignore clear/keys; setValue then keys as fallback.
+    try {
+      await el.setValue(String(value));
+    } catch {
+      await driver.keys([...String(value)]);
+    }
     const wanted = normalize(value);
     await Wait.until(
-      async () => {
-        const fresh = await $(locator);
-        const shown = (await fresh.getAttribute(isIos() ? 'value' : 'text').catch(() => '')) || (await fresh.getText().catch(() => ''));
-        return normalize(shown || '').includes(wanted);
-      },
+      async () => normalize(await this.readFieldShown(locator)).includes(wanted),
       { message: `field shows ${value}` }
     );
     logger.debug(`typed into ${locator}`);
@@ -158,8 +159,26 @@ export class BasePage {
   }
 
   async getFieldValue(locator: string): Promise<string> {
-    const el = await this.waitForDisplayed(locator);
-    return (await el.getAttribute(isIos() ? 'value' : 'text').catch(() => '')) || (await el.getText().catch(() => '')) || '';
+    await this.waitForDisplayed(locator);
+    return this.readFieldShown(locator);
+  }
+
+  /** Flutter Android keeps typed value in content-desc more often than text. */
+  private async readFieldShown(locator: string): Promise<string> {
+    const el = await $(locator);
+    if (isIos()) {
+      return (
+        (await el.getAttribute('value').catch(() => '')) ||
+        (await el.getText().catch(() => '')) ||
+        ''
+      );
+    }
+    const text = (await el.getAttribute('text').catch(() => '')) || '';
+    const desc = (await el.getAttribute('content-desc').catch(() => '')) || '';
+    const hint = (await el.getAttribute('hint').catch(() => '')) || '';
+    const raw = (await el.getText().catch(() => '')) || '';
+    const candidates = [text, desc, raw].filter((v) => v && v !== hint);
+    return candidates.join(' ') || text || desc || raw || '';
   }
 
   async countOf(kind: ElementKind): Promise<number> {
