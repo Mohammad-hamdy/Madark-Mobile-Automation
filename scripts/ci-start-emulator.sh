@@ -5,27 +5,32 @@ set -euo pipefail
 API_LEVEL="${API_LEVEL:-34}"
 IMAGE="system-images;android-${API_LEVEL};google_apis;x86_64"
 SDK="${ANDROID_HOME:-${ANDROID_SDK_ROOT:-/usr/local/lib/android/sdk}}"
+export ANDROID_AVD_HOME="$HOME/.android/avd"
 export PATH="$SDK/cmdline-tools/latest/bin:$SDK/emulator:$SDK/platform-tools:$PATH"
+mkdir -p "$ANDROID_AVD_HOME" logs
 
-yes | sdkmanager --licenses >/dev/null || true
+yes | sdkmanager --licenses >/dev/null 2>&1 || true
 sdkmanager --install "$IMAGE" emulator platform-tools >/dev/null
 
-if ! avdmanager list avd | grep -q 'Name: ci'; then
-  echo no | avdmanager create avd -n ci -k "$IMAGE" -d pixel_6 --force >/dev/null
-fi
+echo no | avdmanager create avd -n ci -k "$IMAGE" --force
+emulator -list-avds | grep -qx ci || { echo "::error::AVD 'ci' was not created"; exit 1; }
 
-mkdir -p logs
 nohup emulator -avd ci -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim \
   -no-snapshot -camera-back none -port 5554 >logs/emulator.log 2>&1 &
 echo $! > /tmp/emulator.pid
 
-adb wait-for-device
-for _ in $(seq 1 180); do
+timeout 120 adb -s emulator-5554 wait-for-device || {
+  echo "::error::Emulator never connected to adb"
+  tail -30 logs/emulator.log
+  exit 1
+}
+for _ in $(seq 1 150); do
   [ "$(adb -s emulator-5554 shell getprop sys.boot_completed 2>/dev/null | tr -d '\r')" = "1" ] && break
   sleep 2
 done
 [ "$(adb -s emulator-5554 shell getprop sys.boot_completed | tr -d '\r')" = "1" ] || {
-  echo "::error::Emulator did not boot"
+  echo "::error::Emulator did not finish booting"
+  tail -30 logs/emulator.log
   exit 1
 }
 
