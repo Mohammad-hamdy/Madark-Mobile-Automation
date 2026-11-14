@@ -74,6 +74,9 @@ jobs:
       E2E_CUSTOMER_OTP: ${{ secrets.E2E_CUSTOMER_OTP }}
       E2E_SKIP_UNSUPPORTED_DEVICE_ACTIONS: '1'
       E2E_FAST: '1'
+      WDIO_WALL_TIMEOUT: '480'
+      # Faster emulator shutdown after script exits (default 20s).
+      ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '5'
       WDIO_SPEC: ${{ inputs.spec || github.event.client_payload.spec || './specs/sign-in/sign-in.spec.ts' }}
 
     steps:

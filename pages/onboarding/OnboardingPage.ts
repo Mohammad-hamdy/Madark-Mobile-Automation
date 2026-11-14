@@ -47,7 +47,7 @@ export class OnboardingPage extends BasePage {
     return this.when('clickOnArabicToggle', () => this.tap(this.arabicToggle));
   }
 
-  async isOnboardingVisible(timeout = this.timeouts.long): Promise<boolean> {
+  async isOnboardingVisible(timeout = this.timeouts.medium): Promise<boolean> {
     return this.then('isOnboardingVisible', () => this.isElementDisplayed(this.skipButton, timeout));
   }
 

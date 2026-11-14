@@ -51,8 +51,9 @@ export class Wait {
     await this.gone(progress, timeout).catch(() => logger.debug('progress indicator still visible'));
   }
 
-  /** Cheap settle: avoid long page-source polls after every gesture. */
+  /** Cheap settle: skip page-source polling in CI/fast (each dump can take seconds). */
   static async settled(timeout = Timeouts.settled): Promise<void> {
+    if (Timeouts.fast) return;
     const need = Timeouts.settledHits;
     let last = '';
     let hits = 0;
@@ -66,7 +67,7 @@ export class Wait {
         }
         return hits >= need;
       },
-      { timeout, interval: Timeouts.fast ? 350 : 250, message: 'ui settled' }
+      { timeout, interval: 250, message: 'ui settled' }
     ).catch(() => logger.debug('ui settle timed out — continuing'));
   }
 }

@@ -26,7 +26,7 @@ export class LoginPage extends BasePage {
     this.changeMobileNumberLink = this.byTextContains('change_mobile_number_button');
   }
 
-  async isLoginScreenVisible(timeout = this.timeouts.long): Promise<boolean> {
+  async isLoginScreenVisible(timeout = this.timeouts.medium): Promise<boolean> {
     return this.then('isLoginScreenVisible', () => this.isElementDisplayed(this.title, timeout));
   }
 
