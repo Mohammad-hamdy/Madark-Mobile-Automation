@@ -1,6 +1,7 @@
 import { logger } from '@madark/utils/logger';
 import { I18n } from '@madark/i18n/i18n';
 import { when } from '@madark/utils/report';
+import { Timeouts } from '@madark/utils/timeouts';
 import { Wait } from '@madark/utils/wait';
 
 export type SwipeDir = 'up' | 'down' | 'left' | 'right';
@@ -99,7 +100,7 @@ export class MobileGestures {
   static async swipeOnElement(locator: string, dir: SwipeDir, opts: SwipeOpts = {}): Promise<void> {
     return when(`swipeOnElement ${dir}`, async () => {
       const el = await $(locator);
-      await el.waitForDisplayed({ timeout: 15000 });
+      await el.waitForDisplayed({ timeout: Timeouts.medium });
       const loc = await el.getLocation();
       const size = await el.getSize();
       await this.performSwipe(dir, {
@@ -112,17 +113,18 @@ export class MobileGestures {
   static async swipeUntilVisible(
     locator: string,
     dir: SwipeDir,
-    { maxSwipes = 8, timeout = 2000 }: { maxSwipes?: number; timeout?: number } = {}
+    {
+      maxSwipes = Timeouts.maxSwipes,
+      timeout = Timeouts.medium,
+      probe = Timeouts.probe,
+    }: { maxSwipes?: number; timeout?: number; probe?: number } = {}
   ): Promise<boolean> {
-    // Header/footer chrome (language toggle, Skip, nav) is on-screen but outside the
-    // content safe band — accept it for taps; only swipe when the element is missing.
+    // First look uses the action timeout; swipe probes stay short so misses fail fast.
     if (await this.isOnScreen(locator, timeout)) return true;
-    if (await this.inSafeArea(locator, timeout)) return true;
     if (await this.healHeaderOrFooter(locator)) return true;
     for (let i = 0; i < maxSwipes; i += 1) {
       await this.swipe(dir);
-      if (await this.isOnScreen(locator, timeout)) return true;
-      if (await this.inSafeArea(locator, timeout)) return true;
+      if (await this.isOnScreen(locator, probe)) return true;
       if (await this.healHeaderOrFooter(locator)) return true;
     }
     return false;
@@ -130,16 +132,20 @@ export class MobileGestures {
 
   static async scrollUntilVisible(
     locator: string,
-    { maxSwipes = 8, timeout = 2000 }: { maxSwipes?: number; timeout?: number } = {}
+    {
+      maxSwipes = Timeouts.maxSwipes,
+      timeout = Timeouts.medium,
+      probe = Timeouts.probe,
+    }: { maxSwipes?: number; timeout?: number; probe?: number } = {}
   ): Promise<boolean> {
     if (await this.isOnScreen(locator, timeout)) return true;
-    if (await this.swipeUntilVisible(locator, 'up', { maxSwipes, timeout })) return true;
-    return this.swipeUntilVisible(locator, 'down', { maxSwipes, timeout });
+    if (await this.swipeUntilVisible(locator, 'up', { maxSwipes, timeout: probe, probe })) return true;
+    return this.swipeUntilVisible(locator, 'down', { maxSwipes, timeout: probe, probe });
   }
 
   static async longPress(locator: string): Promise<void> {
     const el = await $(locator);
-    await el.waitForDisplayed({ timeout: 15000 });
+    await el.waitForDisplayed({ timeout: Timeouts.medium });
     await el.touchAction([{ action: 'longPress' }, { action: 'release' }]);
   }
 

@@ -1,8 +1,14 @@
 import { logger } from '@madark/utils/logger';
 import { isIos } from '@madark/config/capabilities';
+import { Timeouts } from '@madark/utils/timeouts';
 
 export class Wait {
-  static timeouts = { short: 5000, medium: 15000, long: 30000 };
+  static timeouts = {
+    short: Timeouts.short,
+    medium: Timeouts.medium,
+    long: Timeouts.long,
+    probe: Timeouts.probe,
+  };
 
   static async visible(locator: string, timeout = this.timeouts.medium) {
     const el = await $(locator);
@@ -40,12 +46,14 @@ export class Wait {
     );
   }
 
-  static async loadingGone(timeout = this.timeouts.long): Promise<void> {
-    const progress = isIos() ? "//XCUIElementTypeActivityIndicator" : "//android.widget.ProgressBar";
-    await this.gone(progress, timeout).catch(() => logger.debug("progress indicator still visible"));
+  static async loadingGone(timeout = this.timeouts.short): Promise<void> {
+    const progress = isIos() ? '//XCUIElementTypeActivityIndicator' : '//android.widget.ProgressBar';
+    await this.gone(progress, timeout).catch(() => logger.debug('progress indicator still visible'));
   }
 
-  static async settled(timeout = this.timeouts.medium): Promise<void> {
+  /** Cheap settle: avoid long page-source polls after every gesture. */
+  static async settled(timeout = Timeouts.settled): Promise<void> {
+    const need = Timeouts.settledHits;
     let last = '';
     let hits = 0;
     await this.until(
@@ -56,9 +64,9 @@ export class Wait {
           last = src;
           hits = 0;
         }
-        return hits >= 2;
+        return hits >= need;
       },
-      { timeout, interval: 200, message: 'ui settled' }
-    );
+      { timeout, interval: Timeouts.fast ? 350 : 250, message: 'ui settled' }
+    ).catch(() => logger.debug('ui settle timed out — continuing'));
   }
 }

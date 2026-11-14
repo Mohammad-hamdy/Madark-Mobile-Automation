@@ -4,6 +4,7 @@ import { isIos } from '@madark/config/capabilities';
 import { I18n } from '@madark/i18n/i18n';
 import { MissingLocator } from '@madark/utils/missing-locator';
 import { MobileGestures } from '@madark/utils/mobile-gestures';
+import { Timeouts } from '@madark/utils/timeouts';
 import { Wait } from '@madark/utils/wait';
 import { when, then } from '@madark/utils/report';
 
@@ -30,7 +31,11 @@ const IOS: Record<ElementKind, string> = {
 };
 
 export class BasePage {
-  protected timeouts = { short: 5000, medium: 15000, long: 30000 };
+  protected timeouts = {
+    short: Timeouts.short,
+    medium: Timeouts.medium,
+    long: Timeouts.long,
+  };
 
   protected byDesc(i18nKey: string): string {
     const attr = isIos() ? '@name' : '@content-desc';
@@ -103,11 +108,17 @@ export class BasePage {
 
   async tap(locator: string, timeout = this.timeouts.medium): Promise<void> {
     this.assertLocated(locator);
-    const found = await MobileGestures.scrollUntilVisible(locator, { timeout });
+    const found = await MobileGestures.scrollUntilVisible(locator, {
+      timeout,
+      probe: Timeouts.probe,
+      maxSwipes: Timeouts.maxSwipes,
+    });
     if (!found) throw new Error(`not visible after gestures: ${locator}`);
-    const el = await Wait.enabled(locator, timeout).catch(() => Wait.visible(locator, timeout));
+    const el = await Wait.enabled(locator, Math.min(timeout, Timeouts.short)).catch(() =>
+      Wait.visible(locator, Math.min(timeout, Timeouts.short))
+    );
     await el.click();
-    await Wait.loadingGone().catch(() => undefined);
+    await Wait.loadingGone(Timeouts.probe).catch(() => undefined);
   }
 
   private assertLocated(locator: string): void {

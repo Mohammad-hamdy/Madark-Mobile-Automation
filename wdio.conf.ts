@@ -9,6 +9,7 @@ import { I18n } from '@madark/i18n/i18n';
 import { TestdataHelper } from '@madark/environment/testdata/helpers/testdata.helper';
 import { AppSetup } from '@madark/utils/app-setup';
 import { writeRunMetadata, refreshSessionMetadata } from '@madark/utils/report-metadata';
+import { Timeouts } from '@madark/utils/timeouts';
 
 dotenv.config({ path: path.resolve(__dirname, '.env.local') });
 
@@ -22,9 +23,9 @@ export const config: Options.Testrunner = {
   capabilities: [resolveCapabilities()],
   logLevel: (process.env.WDIO_LOG_LEVEL as Options.WebDriverLogTypes) || 'error',
   outputDir: path.resolve(__dirname, 'logs'),
-  waitforTimeout: 20000,
-  connectionRetryTimeout: 300000,
-  connectionRetryCount: 1,
+  waitforTimeout: Timeouts.waitfor,
+  connectionRetryTimeout: Timeouts.connectionRetry,
+  connectionRetryCount: Timeouts.connectionRetryCount,
   framework: 'mocha',
   reporters: [
     'spec',
@@ -44,7 +45,7 @@ export const config: Options.Testrunner = {
       project: path.resolve(__dirname, 'tsconfig.json'),
     },
   },
-  mochaOpts: { ui: 'bdd', timeout: 300000 },
+  mochaOpts: { ui: 'bdd', timeout: Timeouts.mocha },
   onPrepare() {
     TestdataHelper.generate(envName());
     writeRunMetadata(ALLURE_RESULTS);

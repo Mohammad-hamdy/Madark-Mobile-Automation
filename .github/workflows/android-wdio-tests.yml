@@ -73,6 +73,7 @@ jobs:
       E2E_CUSTOMER_PHONE: ${{ secrets.E2E_CUSTOMER_PHONE }}
       E2E_CUSTOMER_OTP: ${{ secrets.E2E_CUSTOMER_OTP }}
       E2E_SKIP_UNSUPPORTED_DEVICE_ACTIONS: '1'
+      E2E_FAST: '1'
       WDIO_SPEC: ${{ inputs.spec || github.event.client_payload.spec || './specs/sign-in/sign-in.spec.ts' }}
 
     steps:

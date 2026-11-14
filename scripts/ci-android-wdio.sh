@@ -7,6 +7,8 @@ set -euo pipefail
 : "${APPIUM_PORT:=4725}"
 : "${E2E_TAGS:=11874}"
 : "${E2E_LANG:=ar}"
+: "${E2E_FAST:=1}"
+export E2E_FAST
 
 adb wait-for-device
 adb emu geo fix 46.6753 24.7136
