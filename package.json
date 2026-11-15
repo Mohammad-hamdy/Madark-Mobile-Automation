@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "appium": "appium --address 127.0.0.1 --port 4725 --relaxed-security --allow-insecure=uiautomator2:adb_shell",
-    "appium:install-drivers": "appium driver install uiautomator2 && appium driver install xcuitest",
+    "appium:install-drivers": "appium driver install uiautomator2@4.2.9 && appium driver install xcuitest@9.10.5",
     "snapshot": "tsx scripts/snapshot-app.ts",
     "scan": "tsx scripts/scan-app.ts",
     "import:suite": "tsx scripts/import-suite.ts",
@@ -37,6 +37,8 @@
     "@wdio/spec-reporter": "^8.43.0",
     "@wdio/types": "^8.41.0",
     "allure-commandline": "^2.32.0",
+    "appium": "^2.19.0",
+    "appium-uiautomator2-driver": "^4.2.9",
     "cross-env": "^7.0.3",
     "dotenv": "^16.4.5",
     "pixelmatch": "^5.3.0",

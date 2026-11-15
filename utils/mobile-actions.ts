@@ -384,7 +384,7 @@ export class MobileActions {
     return when('openDeepLink', async () => {
       await this.require('deepLink');
       const caps = (driver.capabilities || {}) as Record<string, unknown>;
-      const pkg = String(caps['appium:appPackage'] || caps['appium:bundleId'] || '');
+      const pkg = this.appId();
       await driver.execute('mobile: deepLink', isIos() ? { url } : { url, package: pkg });
       await Wait.settled();
     });
@@ -442,9 +442,31 @@ export class MobileActions {
         await driver.installApp(String((driver.capabilities as Record<string, unknown>)['appium:app'] || ''));
       } else {
         await driver.execute('mobile: clearApp', { appId: this.appId() });
+        // pm clear also resets runtime permissions (Android 13+ notifications dialog would cover the app).
+        await driver
+          .execute('mobile: changePermissions', { permissions: 'all', appPackage: this.appId(), action: 'grant' })
+          .catch((err: unknown) => logger.warn(`re-grant permissions failed: ${String(err)}`));
       }
       await this.activate();
+      await this.acceptSystemPermissionDialog();
       await Wait.settled();
+    });
+  }
+
+  /** Accepts an OS runtime-permission dialog (notifications, location…) if one is on top of the app. */
+  static acceptSystemPermissionDialog(timeout = 3000): Promise<boolean> {
+    return when('acceptSystemPermissionDialog', async () => {
+      const allow = isIos()
+        ? '//XCUIElementTypeAlert//XCUIElementTypeButton[@name="Allow" or @name="OK" or @name="Allow While Using App"]'
+        : '//*[@resource-id="com.android.permissioncontroller:id/permission_allow_button" or @resource-id="com.android.permissioncontroller:id/permission_allow_foreground_only_button"]';
+      try {
+        const el = await $(allow);
+        await el.waitForDisplayed({ timeout });
+        await el.click();
+        return true;
+      } catch {
+        return false;
+      }
     });
   }
 
@@ -533,13 +555,13 @@ export class MobileActions {
     const caps = (driver.capabilities || {}) as Record<string, unknown>;
     if (t.platform === 'ios') {
       await driver.execute('mobile: setPermission', {
-        bundleId: String(caps['appium:bundleId'] || ''),
+        bundleId: this.appId(),
         access: { [permission]: action === 'grant' ? 'yes' : 'never' },
       });
       return;
     }
     await driver.execute('mobile: changePermissions', {
-      appPackage: String(caps['appium:appPackage'] || ''),
+      appPackage: this.appId(),
       permissions: permission,
       action,
     });
@@ -553,8 +575,14 @@ export class MobileActions {
     await driver.execute("mobile: terminateApp", isIos() ? { bundleId: this.appId() } : { appId: this.appId() });
   }
 
+  /** App id of the session. Appium returns caps without the "appium:" prefix; fall back to the requested caps. */
   private static appId(): string {
     const caps = (driver.capabilities || {}) as Record<string, unknown>;
-    return String(caps['appium:appPackage'] || caps['appium:bundleId'] || '');
+    const requested = (driver.requestedCapabilities || {}) as Record<string, unknown>;
+    const id =
+      caps.appPackage || caps['appium:appPackage'] || caps.bundleId || caps['appium:bundleId'] ||
+      requested['appium:appPackage'] || requested['appium:bundleId'] || '';
+    if (!id) throw new Error('app id not found in session capabilities (appPackage / bundleId)');
+    return String(id);
   }
 }

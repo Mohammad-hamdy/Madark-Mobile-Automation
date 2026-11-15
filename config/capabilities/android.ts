@@ -11,6 +11,14 @@ export function androidCaps(): Record<string, unknown> {
     'appium:autoGrantPermissions': true,
     'appium:noReset': false,
     'appium:newCommandTimeout': Number(process.env.E2E_NEW_COMMAND_TIMEOUT || 120),
-    'appium:settings': { waitForIdleTimeout: 100, actionAcknowledgmentTimeout: 500 },
+    // Flutter screens with continuous animation never go idle: don't wait for idle, read every window
+    // (system dialogs and the app), and disable system window animations on the device.
+    'appium:disableWindowAnimation': true,
+    'appium:settings': {
+      waitForIdleTimeout: 0,
+      waitForSelectorTimeout: 0,
+      actionAcknowledgmentTimeout: 500,
+      enableMultiWindows: true,
+    },
   };
 }

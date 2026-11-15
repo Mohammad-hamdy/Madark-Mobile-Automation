@@ -11,3 +11,5 @@ environment/testdata/preprod/*
 !environment/testdata/dev/.gitkeep
 !environment/testdata/preprod/.gitkeep
 .app-snapshot/
+apps/
+bugreport-*.zip
