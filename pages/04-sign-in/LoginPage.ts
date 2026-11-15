@@ -1,5 +1,5 @@
-import { BasePage } from '@madark/pages/BasePage';
-import { EnvSetupPage } from '@madark/pages/common/EnvSetupPage';
+import { BasePage } from '@madark/pages/00-common/BasePage';
+import { EnvSetupPage } from '@madark/pages/00-common/EnvSetupPage';
 
 export class LoginPage extends BasePage {
   readonly envSetupPage: EnvSetupPage;
@@ -12,6 +12,8 @@ export class LoginPage extends BasePage {
   private readonly faceIdButton: string;
   private readonly createAccountButton: string;
   private readonly changeMobileNumberLink: string;
+  private readonly otpNotice: string;
+  private readonly securityNotice: string;
 
   constructor({ envSetupPage }: { envSetupPage?: EnvSetupPage } = {}) {
     super();
@@ -24,6 +26,8 @@ export class LoginPage extends BasePage {
     this.faceIdButton = this.byTextContains('login_face_id_button_title');
     this.createAccountButton = this.byTextContains('login_create_account_title');
     this.changeMobileNumberLink = this.byTextContains('change_mobile_number_button');
+    this.otpNotice = this.byTextContains('login_otp_notice');
+    this.securityNotice = this.byTextContains('login_security_notice');
   }
 
   async isLoginScreenVisible(timeout = this.timeouts.medium): Promise<boolean> {
@@ -40,6 +44,25 @@ export class LoginPage extends BasePage {
 
   async isLoginButtonEnabled(): Promise<boolean> {
     return this.then('isLoginButtonEnabled', () => this.isElementEnabled(this.loginButton));
+  }
+
+  async isChangeMobileNumberLinkVisible(): Promise<boolean> {
+    return this.then('isChangeMobileNumberLinkVisible', () => this.isElementDisplayed(this.changeMobileNumberLink));
+  }
+
+  async isOtpNoticeVisible(): Promise<boolean> {
+    return this.then('isOtpNoticeVisible', () => this.isElementDisplayed(this.otpNotice));
+  }
+
+  async isSecurityNoticeVisible(): Promise<boolean> {
+    return this.then('isSecurityNoticeVisible', () => this.isElementDisplayed(this.securityNotice));
+  }
+
+  /** Digits stay left-to-right (no bidi reordering) in both languages. */
+  async isPhoneFieldLeftToRight(): Promise<boolean> {
+    return this.then('isPhoneFieldLeftToRight', async () =>
+      /^\d+$/.test((await this.getFieldValue(this.phoneNumberField)).replace(/[\s‎‏]/g, ''))
+    );
   }
 
   async getPhoneNumber(): Promise<string> {

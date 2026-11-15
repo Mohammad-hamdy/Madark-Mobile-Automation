@@ -249,6 +249,32 @@ export class MobileActions {
     });
   }
 
+  /** Go back one screen: system back on Android, left-edge swipe on iOS (Flutter Cupertino back gesture). */
+  static navigateBack(): Promise<void> {
+    return when('navigateBack', async () => {
+      if (isIos()) {
+        const { width, height } = await driver.getWindowSize();
+        await driver.performActions([
+          {
+            type: 'pointer',
+            id: 'edge',
+            parameters: { pointerType: 'touch' },
+            actions: [
+              { type: 'pointerMove', duration: 0, x: 2, y: Math.round(height / 2) },
+              { type: 'pointerDown', button: 0 },
+              { type: 'pointerMove', duration: 300, x: Math.round(width * 0.7), y: Math.round(height / 2) },
+              { type: 'pointerUp', button: 0 },
+            ],
+          },
+        ]);
+        await driver.releaseActions().catch(() => undefined);
+      } else {
+        await driver.pressKeyCode(4);
+      }
+      await Wait.settled();
+    });
+  }
+
   static pressBack(): Promise<void> {
     return when('pressBack', async () => {
       await this.require('back');
@@ -396,6 +422,15 @@ export class MobileActions {
     return when('terminateApp', async () => {
       await this.require('appLifecycle');
       await this.terminate();
+    });
+  }
+
+  /** Device action: app goes to background for N seconds and Appium brings it back (case step "background for 60 seconds"). */
+  static backgroundFor(seconds: number): Promise<void> {
+    return when('backgroundFor', async () => {
+      await this.require('appLifecycle');
+      await driver.execute('mobile: backgroundApp', { seconds });
+      await Wait.settled();
     });
   }
 

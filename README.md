@@ -60,21 +60,49 @@ Every session checks the login screen's QA pickers and selects **Environment = `
 ## How it is built
 
 ```
-scripts/snapshot-app.ts   git archive APP_REF (default origin/new_design_kinan) -> .app-snapshot/<sha>
-scripts/scan-app.ts       -> generated/app-map.json, i18n/{en,ar}.json, i18n-usage.json, literals.json, server-public-key.pem
-scripts/import-suite.ts   ADO JSON -> generated/suite.json + specs/<module>/<module>.spec.ts (append-only)
+config/suite-layout.ts      module (feature) order and screen order → the 01, 02, … numbers
+scripts/snapshot-app.ts     git archive APP_REF (default origin/new_design_kinan) -> .app-snapshot/<sha>
+scripts/scan-app.ts         -> generated/app-map.json, i18n/{en,ar}.json, i18n-usage.json, literals.json, server-public-key.pem
+scripts/gen-pages-index.ts  -> pages/index.ts (every page class, in module order, as a lazy fixture)
+scripts/import-suite.ts     ADO JSON -> generated/suite.json + specs/NN-<module>/NN-<module>.spec.ts (rebuild, keeps bodies)
 scripts/verify-locators.ts  every page key exists in EN+AR and is used in the scanned app; lists known gaps
-pages/                    one class per screen; private inline locators; one Allure step per method
-api/                      encrypted ApiClient, builders, services, workflows (preconditions)
-utils/app-setup.ts        UI workflows: open login, match language, enforce env/encryption, loginAs
-fixtures/test.fixture.ts  test() wrapper: pages, testdata, api, mobile, app injected; tags; ADO link
+pages/NN-<module>/          one class per screen; private inline locators; one Allure step per method
+api/                        encrypted ApiClient, builders, services, workflows (preconditions)
+utils/app-setup.ts          Given workflows: fresh start, guest, login (+ post-login screen), env/encryption, language, theme, open request/contract …
+utils/test-data.ts          `data` fixture: customer, Dev OTP, seeds, generated values, money/discount helpers
+utils/visual.ts             `visual` fixture: screenshot vs approved baseline for the "matches Figma" cases
+fixtures/test.fixture.ts    test() wrapper: lazy pages + data, visual, app, mobile, api injected; tags; ADO link
 ```
+
+**Layout (01, 02, …).** Specs and pages follow the customer journey in the app; the order lives in `config/suite-layout.ts`:
+
+| # | Module | # | Module |
+|---|---|---|---|
+| 01 | Onboarding | 12 | Complete Institution Request |
+| 02 | Guest Mode | 13 | Pay With Discount |
+| 03 | Registration | 14 | Cancel Request |
+| 04 | Sign In | 15 | Payment |
+| 05 | Home | 16 | Early Settlement |
+| 06 | Institutions | 17 | Withdrawal |
+| 07 | Submit Request | 18 | Notifications |
+| 08 | Request Validation | 19 | Profile |
+| 09 | KYC | 20 | More & Support |
+| 10 | Contract Activation | 21 | App States |
+| 11 | My Requests | 22 | Theme & Language |
+
+Each module is one spec file `specs/NN-<module>/NN-<module>.spec.ts` (one app session per file) with one `describe('NN · <Screen>')` per screen in screen order. Pages live in the matching `pages/NN-<module>/`; shared pages are in `pages/00-common/`. To reorder modules or screens, edit `config/suite-layout.ts` and run `npm run import:suite`: it rebuilds the files and moves every existing test body unchanged.
+
+**Seeds (backend state).** Cases that need an existing request, loan, institution setup or sandbox card read a named seed: `data.seed('pendingInstitutionRequestDiscount')`. Seeds live in `environment/testdata/<env>/seed.json` (gitignored); copy `environment/testdata/seed.example.json` and fill in real Dev data. A case whose seed (or seed field) is missing is **skipped with the seed name**, never failed or faked. Consumed seeds (`cancellableRequest`, `payableDiscountRequest`, `closableAccount`, `phoneChangeTarget`) must be refreshed after a run.
+
+**Visual checks.** "Matches Figma" cases assert `visual.matchesBaseline('<name>')` and record the Figma inspection as a manual Allure step. Baselines are `baselines/<platform>/<lang>/<WxH>/<name>.png` and should be committed once approved. On the first run a missing baseline is recorded from the screenshot; review it in Allure, then commit it. `E2E_STRICT_VISUAL=1` fails on missing baselines; `npm run visual:update` re-records them all.
+
+**Manual steps.** Steps that cannot be verified from the device (back-office checks, API call counts, Figma inspection, system share sheets) are written as `manualCheck('…')`. This adds a *skipped* Allure step so the case stays 1:1 with ADO and the gap is visible in the report.
 
 **Encryption.** `api/client.ts` mirrors `app_interceptors.dart`. Each request body is encrypted with a fresh AES-256-GCM key and a 12-byte IV, the key is wrapped with the server RSA key (OAEP-SHA256), and the request is sent as `{encryptedAESKey, encryptedPayload, iv, tag}` with `X-Encrypted: 1`. The `{data, tag, iv}` response is decrypted with the same AES key. The server key is read from the app's `rsa_helper.dart` on each scan.
 
 **Locators** follow this order: Semantics/ValueKey → widget + i18n → hint → visible i18n text (matches EN *and* AR). Text that isn't translated, such as the QA pickers and the language toggle, comes from `generated/literals.json`, which is extracted from DEV. Nothing is invented. When no locator exists, the page uses `missing()` (`cannot-be-located`) or `structural()` (`structural-only`), and the gap is listed in `generated/missing.locator`.
 
-**Test cases.** One ADO work item = one `test('[<ADO id>] <title>', …)`. Steps map 1:1 to page calls, and assertions use `I18n.t`/page checks, never hardcoded text. A case that isn't automated yet stays in its spec as a skipped stub carrying `blocked: '<reason>'` and its ADO link, so all 291 stay traceable. **Re-running `npm run import:suite` never overwrites an implemented test.** To implement a case, replace its stub body and remove `blocked`.
+**Test cases.** One ADO work item = one `test('[<ADO id>] <title>', …)`. Steps map 1:1 to page calls, and assertions use page checks built on the app's i18n, never hardcoded text. A case that can't run stays in its spec as a skipped test carrying `blocked: '<reason>'` and its ADO link, so all 291 stay traceable. **Re-running `npm run import:suite` never overwrites a test body.**
 
 ## CI (GitHub Actions)
 
@@ -102,19 +130,28 @@ Every workflow runs typecheck → `verify:locators` → `verify:crypto` → `ver
 
 ## Status (snapshot fbb2d4a0, app 1.0.7+83)
 
-| | Cases |
-|---|---|
-| Implemented | 5: 11834, 11835 (Onboarding) · 11840 (GuestMode) · 11874, 11875 (SignIn) |
-| Automatable now, not yet implemented | 148 |
-| Need seeded data / mocks (backend state, payment gateway, Nafath) | 128 |
-| Manual / device only | 10 |
+| Status (`generated/suite.json`) | Cases | Meaning |
+|---|---|---|
+| `ready` | 270 | Implemented. Runs when its seeds exist; otherwise it skips with the seed name |
+| `needs-qa-action` | 16 | Needs a QA or backend action during the run: proxy failure, remote config (maintenance / force update), push notification, token expiry, AlinmaPay outage, system font size, device matrix |
+| `not-in-build` | 5 | The feature in ADO doesn't exist in build fbb2d4a0: Forgot/Change Password (no password login), customer-entered requested amount (11917, 11925), payment method sheet (11984) |
 
-Not yet run on a device. The first BrowserStack smoke run needs `.env.local`.
+Typecheck covers all 22 specs. Not yet run on a device; the first run needs `.env.local` and `environment/testdata/dev/seed.json`.
+
+Some steps depend on external systems: Nafath sandbox approval, the Geidea/AlinmaPay checkout, file pickers and share sheets. Those cases drive the app up to the external screen, record the external part as `manualCheck`, and assert the app's result screen.
 
 ## Known issues to resolve with the app team
 
-1. **No accessibility ids.** 0 of 86 screens have a `ValueKey` or `Semantics(identifier:)`. Locators rely on i18n text, and the OTP input is located structurally. Ask for `Semantics(identifier: …)` on interactive widgets, starting with login, OTP, home, request financing and payment.
-2. **ADO expected text ≠ app text.** For example, the cases expect "Welcome Back", "Continue" and "Invalid phone number.", while the app shows "Welcome Back,", "Login" and "Mobile number must start with 5". Tests assert the app's i18n. Each difference is either a test-case update or an app bug.
-3. **Figma "matches design" cases** (about 92) need visual comparison (screenshot vs approved baseline), which isn't wired yet.
+1. **No accessibility ids.** 0 of 86 screens have a `ValueKey` or `Semantics(identifier:)`. Locators rely on i18n text. 14 elements are located structurally (listed in `generated/missing.locator`): OTP input, sign-up/KYC/contract checkboxes, Choose-how-to-pay radios, withdrawal "+", biometric switch, notification rows, KYC/complaint option rows, and the payment gateway card fields. The Home notification bell has no label at all, so tests open Notifications from More. Ask for `Semantics(identifier: …)` on these first.
+2. **ADO expected text ≠ app text.** Examples:
+   - "Welcome Back" / "Continue" / "Invalid phone number." vs "Welcome Back," / "Login" / "Mobile number must start with 5".
+   - The guest "You are currently viewing this page as a guest." is replaced by "Create an account to follow your requests easily".
+   - The "Pending Finance Request" popup is replaced by the post-login "Choose how to pay" screen.
+   - The "Select a Student" sheet is replaced by inline student cards.
+   - "Manage Payments > Early Settlement" is now "Pay Full".
+   - The bottom-nav label is "Payments" where Figma says "My Payments".
+
+   Tests assert the app's i18n; each difference is either a test-case update or an app bug.
+3. **Visual baselines** need QA approval: the first run records them, and QA reviews and commits them.
 4. **Dev OTP.** `User/GetUserOtpDev` is commented out in the app, so OTP comes from `E2E_CUSTOMER_OTP` (the fixed Dev OTP).
 5. **Build & upload pipeline** lives in the mobile repo and is not added. It must upload the QA-flavor APK as `madark-apk-qa` (and a simulator `.app` zip as `madark-simulator-qa` for iOS). The repository-dispatch step above is optional.

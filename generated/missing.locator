@@ -1,8 +1,86 @@
 [
   {
+    "screen": "SignupFormPage",
+    "element": "termsCheckbox",
+    "status": "structural-only",
+    "reason": "BaseAuthCheckBoxWidget has no key; Terms & Privacy is the 1st checkbox on the form"
+  },
+  {
+    "screen": "SignupFormPage",
+    "element": "simahCheckbox",
+    "status": "structural-only",
+    "reason": "BaseAuthCheckBoxWidget has no key; SIMAH consent is the 2nd checkbox on the form"
+  },
+  {
     "screen": "OtpPage",
     "element": "otpField",
     "status": "structural-only",
-    "reason": "PinCodeTextField in base_otp_widget.dart has no key/Semantics/label; it is the only input on LoginOtpScreen"
+    "reason": "PinCodeTextField in base_otp_widget.dart has no key/Semantics/label; it is the only input on the OTP screens"
+  },
+  {
+    "screen": "KycPage",
+    "element": "simahCheckbox",
+    "status": "structural-only",
+    "reason": "KYC confirmation tab checkbox has no key; it is the only checkbox on the tab"
+  },
+  {
+    "screen": "KycPage",
+    "element": "singleChoiceOption",
+    "status": "structural-only",
+    "reason": "single-choice sheet options come from the API; the first selectable row is used"
+  },
+  {
+    "screen": "ContractPage",
+    "element": "termsCheckbox",
+    "status": "structural-only",
+    "reason": "contract terms checkbox has no key; it is the only checkbox on the contract screen"
+  },
+  {
+    "screen": "ChooseHowToPayPage",
+    "element": "installmentsRadio",
+    "status": "structural-only",
+    "reason": "option cards use Radio without key; instalments is the 1st radio"
+  },
+  {
+    "screen": "ChooseHowToPayPage",
+    "element": "payInFullRadio",
+    "status": "structural-only",
+    "reason": "option cards use Radio without key; pay in full is the 2nd radio"
+  },
+  {
+    "screen": "PaymentGatewayPage",
+    "element": "geideaCardFields",
+    "status": "structural-only",
+    "reason": "Geidea SDK native card form: number, expiry, CVV, holder by input order"
+  },
+  {
+    "screen": "PaymentGatewayPage",
+    "element": "alinmaWebviewCardFields",
+    "status": "structural-only",
+    "reason": "AlinmaPay hosted page in WEBVIEW context, fields by autocomplete cc-number / cc-exp / cc-csc / cc-name"
+  },
+  {
+    "screen": "WithdrawalPage",
+    "element": "addWithdrawalButton",
+    "status": "structural-only",
+    "reason": "FloatingActionButton(Icon(Icons.add)) has no key/Semantics/text; it is the last button on Withdraw Requests"
+  },
+  {
+    "screen": "NotificationsPage",
+    "element": "firstNotification",
+    "status": "structural-only",
+    "reason": "notification rows have no key; titles come from the server — the first row under the filters is used"
+  },
+  {
+    "screen": "EditProfilePage",
+    "element": "biometricSwitch",
+    "status": "structural-only",
+    "reason": "biometric Switch has no key; it is the only switch on Edit Profile"
+  },
+  {
+    "screen": "ContactUsPage",
+    "element": "complaintCategoryOption",
+    "status": "structural-only",
+    "reason": "categories come from Complaint/categories/lookup; the first option of the open dropdown is used"
   }
 ]

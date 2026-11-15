@@ -1,36 +1,25 @@
 import path from 'node:path';
-import { OnboardingPage } from '@madark/pages/onboarding/OnboardingPage';
-import { GuestHomePage } from '@madark/pages/home/GuestHomePage';
-import { LoginPage } from '@madark/pages/auth/LoginPage';
-import { OtpPage } from '@madark/pages/auth/OtpPage';
-import { HomePage } from '@madark/pages/home/HomePage';
-import { MorePage } from '@madark/pages/more/MorePage';
-import { TrustDevicePage } from '@madark/pages/auth/TrustDevicePage';
-import { BottomNavPage } from '@madark/pages/common/BottomNavPage';
+import { lazyPages, type Pages } from '@madark/pages/index';
 import { TestdataHelper, type TestData } from '@madark/environment/testdata/helpers/testdata.helper';
 import { loadEnv } from '@madark/environment';
 import type { EnvConfig } from '@madark/environment/types';
 import { ApiClient } from '@madark/api/client';
 import { AppSetup } from '@madark/utils/app-setup';
+import { Data } from '@madark/utils/test-data';
+import { Visual } from '@madark/utils/visual';
 import { annotateCase } from '@madark/utils/report';
 import { setTestContext } from '@madark/utils/test-context';
 import { MobileActions } from '@madark/utils/mobile-actions';
 import { matchesFilter, parseCaseId, tag, type CaseTags } from '@madark/utils/tag';
 
-export type AppFixtures = {
+export type AppFixtures = Pages & {
   env: EnvConfig;
   testdata: TestData;
+  data: Data;
   api: ApiClient;
   mobile: typeof MobileActions;
+  visual: typeof Visual;
   app: AppSetup;
-  onboardingPage: OnboardingPage;
-  guestHomePage: GuestHomePage;
-  loginPage: LoginPage;
-  otpPage: OtpPage;
-  homePage: HomePage;
-  morePage: MorePage;
-  trustDevicePage: TrustDevicePage;
-  bottomNav: BottomNavPage;
 };
 
 export type CaseMeta = { blocked?: string; adoUrl?: string };
@@ -39,25 +28,18 @@ type Body = (fixtures: AppFixtures) => Promise<void>;
 type Token = string | CaseTags | CaseMeta;
 
 function build(): AppFixtures {
-  const bottomNav = new BottomNavPage();
-  const pages = {
-    onboardingPage: new OnboardingPage(),
-    guestHomePage: new GuestHomePage({ bottomNav }),
-    loginPage: new LoginPage(),
-    otpPage: new OtpPage(),
-    homePage: new HomePage({ bottomNav }),
-    morePage: new MorePage(),
-    trustDevicePage: new TrustDevicePage(),
-  };
-  return {
+  const pages = lazyPages();
+  const testdata = TestdataHelper.load();
+  const base = {
     env: loadEnv(),
-    testdata: TestdataHelper.load(),
+    testdata,
+    data: new Data(testdata),
     api: ApiClient.instance,
     mobile: MobileActions,
+    visual: Visual,
     app: new AppSetup(pages),
-    bottomNav,
-    ...pages,
   };
+  return Object.defineProperties(base, Object.getOwnPropertyDescriptors(pages)) as AppFixtures;
 }
 
 function isMeta(t: Token): t is CaseMeta {
@@ -75,7 +57,7 @@ export function test(name: string, ...rest: Array<Token | Body>): void {
     setTestContext(this);
     const file = this.test?.file || 'specs/unknown/unknown.spec.ts';
     const specFile = path.basename(file);
-    const module = path.basename(path.dirname(file));
+    const module = path.basename(path.dirname(file)).replace(/^\d+-/, '');
     const tags = tag({ id: parseCaseId(name), module }, ...raw);
     if (!matchesFilter(tags, process.env.E2E_TAGS)) {
       this.skip();

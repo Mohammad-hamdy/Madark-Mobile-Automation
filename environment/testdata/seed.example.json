@@ -1,0 +1,112 @@
+{
+  "eligibleCustomer": { "phone": "5XXXXXXXX" },
+  "kycIncompleteCustomer": { "phone": "5XXXXXXXX" },
+  "newBranchCustomer": { "phone": "5XXXXXXXX" },
+  "ineligibleCustomer": { "phone": "5XXXXXXXX" },
+  "openRequestCustomer": { "phone": "5XXXXXXXX" },
+  "rejectionCapCustomer": { "phone": "5XXXXXXXX" },
+  "lockedAccount": { "phone": "5XXXXXXXX" },
+  "closableAccount": { "phone": "5XXXXXXXX" },
+  "profileCustomer": { "phone": "5XXXXXXXX", "nationalId": "1XXXXXXXXX", "email": "customer@example.com" },
+  "phoneChangeTarget": { "phone": "5XXXXXXXX", "newPhone": "5XXXXXXXX" },
+
+  "institution": {
+    "educationType": "Schools",
+    "educationTypeAr": "المدارس",
+    "secondEducationType": "Universities",
+    "emptyEducationType": "Institutes",
+    "universitiesType": "Universities",
+    "universityName": "King Saud University",
+    "schoolsType": "Schools",
+    "searchText": "Manahel",
+    "name": "Manahel Al Tarbia Schools",
+    "nameAr": "مدارس مناهل التربية",
+    "branch": "Nawal Branch",
+    "studentName": "Mohammed Fahad",
+    "specialBranch": "Featured Branch Name",
+    "city": "Riyadh",
+    "otherCityInstitution": "A Jeddah school name",
+    "categoryChips": ["All", "Governmental", "Private"],
+    "secondBranch": { "educationType": "Schools", "searchText": "Other", "name": "Other School" }
+  },
+  "discountBranch": { "educationType": "Schools", "searchText": "Discount", "name": "Discount School", "studentName": "Student Name" },
+  "inactiveBranch": { "educationType": "Schools", "searchText": "Inactive", "name": "Inactive School" },
+
+  "registration": { "registeredNationalId": "1XXXXXXXXX", "amlNationalId": "1XXXXXXXXX", "mismatchNationalId": "1XXXXXXXXX" },
+
+  "kycQuestions": {
+    "nationality": "Nationality",
+    "maritalStatus": "Marital status",
+    "workSector": "Work sector",
+    "parentQuestion": "Do you have other obligations?",
+    "triggeringAnswer": "Yes",
+    "nonTriggeringAnswer": "No",
+    "childQuestion": "Monthly obligation amount"
+  },
+  "kycFiles": { "validPdf": "environment/testdata/files/valid.pdf", "devicePath": "/sdcard/Download/valid.pdf" },
+
+  "approvedIncompleteRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "rejectedRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000", "reasonEn": "Reason in English", "reasonAr": "السبب" },
+  "cancellableRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "requestStatusesCustomer": { "phone": "5XXXXXXXX", "expiredRequestNumber": "REQ-0000000000" },
+  "salaryCertificateRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "paidTuitionCustomer": { "phone": "5XXXXXXXX" },
+
+  "contractPending": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "rescheduledRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "firstInstallmentRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000", "noFirstPaymentRequestNumber": "REQ-0000000000" },
+  "nafithRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "activatedRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+
+  "pendingInstitutionRequestDiscount": {
+    "phone": "5XXXXXXXX",
+    "requestNumber": "REQ-0000000621",
+    "institution": "مدارس مناهل التربية نوال",
+    "student": "محمد بن فهد",
+    "amount": "200.00",
+    "discountPercent": 10
+  },
+  "pendingInstitutionRequestNoDiscount": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000", "amount": "200.00", "student": "Student Name" },
+  "webPageRequestDiscount": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "webRequestLink": { "url": "https://gateway.madark.dev/request/<uuid>", "requestNumber": "REQ-0000000000" },
+  "paidInstitutionRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "multiplePendingRequests": { "phone": "5XXXXXXXX", "requestNumbers": ["REQ-0000000001", "REQ-0000000002"] },
+  "longNamesRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "discountFeeVariants": [
+    { "requestNumber": "REQ-0000000000", "fees": 199.99, "percent": 10 },
+    { "requestNumber": "REQ-0000000000", "fees": 1, "percent": 10 },
+    { "requestNumber": "REQ-0000000000", "fees": 5, "percent": 10 },
+    { "requestNumber": "REQ-0000000000", "fees": 0.01, "percent": 10 },
+    { "requestNumber": "REQ-0000000000", "fees": 40000, "percent": 10 },
+    { "requestNumber": "REQ-0000000000", "fees": 40000.01, "percent": 10 },
+    { "requestNumber": "REQ-0000000000", "fees": 200, "percent": 15 }
+  ],
+  "payableDiscountRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000" },
+  "mixedDiscountRequests": { "phone": "5XXXXXXXX", "discountRequestNumber": "REQ-0000000000", "noDiscountRequestNumber": "REQ-0000000000" },
+  "paidDiscountRequest": { "phone": "5XXXXXXXX", "requestNumber": "REQ-0000000000", "amountPaid": "180.00" },
+
+  "customerWithLoan": { "phone": "5XXXXXXXX", "loanNumber": "LN-0000" },
+  "customerWithTwoLoans": { "phone": "5XXXXXXXX", "firstLoanNumber": "LN-0001", "secondLoanNumber": "LN-0002" },
+  "customerWithOverdue": { "phone": "5XXXXXXXX" },
+  "halalaInstallmentCustomer": { "phone": "5XXXXXXXX" },
+  "fullyPaidCustomer": { "phone": "5XXXXXXXX" },
+  "earlySettlementLoan": { "phone": "5XXXXXXXX" },
+  "sandboxCard": { "number": "4111111111111111", "expiry": "12/30", "cvv": "123", "holder": "E2E TEST" },
+  "declinedCard": { "number": "4000000000000002", "expiry": "12/30", "cvv": "123", "holder": "E2E TEST" },
+
+  "withdrawalLoan": { "phone": "5XXXXXXXX", "loanNumber": "LN-0000", "students": ["Student Name"], "loanWithoutStudents": "LN-0001" },
+  "pendingWithdrawal": { "phone": "5XXXXXXXX", "loanNumber": "LN-0000" },
+  "pendingPaymentWithdrawal": { "phone": "5XXXXXXXX", "requestNumber": "WD-0000" },
+  "withdrawalStatuses": {
+    "phone": "5XXXXXXXX",
+    "requests": [{ "requestNumber": "WD-0000", "statusEn": "Under Review", "statusAr": "قيد المراجعة" }]
+  },
+  "rejectedWithdrawals": {
+    "phone": "5XXXXXXXX",
+    "rejected": { "requestNumber": "WD-0001", "reasonEn": "Reason", "reasonAr": "السبب" },
+    "rejectedByMadarak": { "requestNumber": "WD-0002", "reasonEn": "Reason", "reasonAr": "السبب" }
+  },
+
+  "customerWithNotifications": { "phone": "5XXXXXXXX", "notificationTitle": "Notification title" },
+  "contactChannels": { "phone": "8003010081", "email": "Care@madark.sa" }
+}

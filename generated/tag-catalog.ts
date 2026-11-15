@@ -1,7 +1,4 @@
 export const ModuleTags = {
-  "completeInstitutionRequest": "completeInstitutionRequest",
-  "myRequests": "myRequests",
-  "payWithDiscount": "payWithDiscount",
   "onboarding": "onboarding",
   "guestMode": "guestMode",
   "registration": "registration",
@@ -12,6 +9,9 @@ export const ModuleTags = {
   "requestValidation": "requestValidation",
   "kYC": "kYC",
   "contractActivation": "contractActivation",
+  "myRequests": "myRequests",
+  "completeInstitutionRequest": "completeInstitutionRequest",
+  "payWithDiscount": "payWithDiscount",
   "cancelRequest": "cancelRequest",
   "payment": "payment",
   "earlySettlement": "earlySettlement",

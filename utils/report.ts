@@ -111,3 +111,12 @@ function words(name: string): string {
 function titleCase(s: string): string {
   return s.replace(/[-_]/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 }
+
+/**
+ * A step of the ADO case that cannot be verified from the device (back-office checks, network traffic, Figma
+ * inspection). Recorded as a skipped Allure step so the case stays 1:1 with ADO and the gap is visible.
+ */
+export function manualCheck(description: string): void {
+  allure.startStep(`Manual check — ${description}`);
+  allure.endStep('skipped' as StepStatus);
+}

@@ -33,7 +33,7 @@ on:
       spec:
         description: Optional WDIO --spec path (speeds up single-case runs)
         required: false
-        default: './specs/sign-in/sign-in.spec.ts'
+        default: './specs/04-sign-in/04-sign-in.spec.ts'
         type: string
       api_level:
         description: Emulator Android API level
@@ -77,7 +77,7 @@ jobs:
       WDIO_WALL_TIMEOUT: '480'
       # Graceful emu kill often hangs on GHA — keep this tiny; script also force-kills qemu.
       ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '1'
-      WDIO_SPEC: ${{ inputs.spec || github.event.client_payload.spec || './specs/sign-in/sign-in.spec.ts' }}
+      WDIO_SPEC: ${{ inputs.spec || github.event.client_payload.spec || './specs/04-sign-in/04-sign-in.spec.ts' }}
 
     steps:
       - name: Checkout automation

@@ -1,4 +1,4 @@
-import { BasePage } from '@madark/pages/BasePage';
+import { BasePage } from '@madark/pages/00-common/BasePage';
 import { devLiteral } from '@madark/i18n/literals';
 
 export class EnvSetupPage extends BasePage {

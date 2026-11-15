@@ -27,6 +27,14 @@ export class I18n {
     return format(v, args);
   }
 
+  /** Text of a key in a specific language, independent of the run language. */
+  static textIn(lang: Lang, key: string): string {
+    this.ensureLoaded();
+    const v = this.maps[lang]?.[key];
+    if (v == null) throw new Error(`missing i18n ${key} (${lang})`);
+    return v;
+  }
+
   static texts(key: string): string[] {
     this.ensureLoaded();
     const order: Lang[] = this.lang === 'ar' ? ['ar', 'en'] : ['en', 'ar'];

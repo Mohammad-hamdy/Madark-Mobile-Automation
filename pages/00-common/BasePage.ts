@@ -62,7 +62,7 @@ export class BasePage {
 
   protected byTextContains(i18nKey: string): string {
     const attrs = isIos() ? ['@name', '@label'] : ['@content-desc', '@text'];
-    const parts = I18n.texts(i18nKey).flatMap((t) => attrs.map((a) => `contains(${a},${xpathLiteral(t.trim())})`));
+    const parts = I18n.texts(i18nKey).flatMap((t) => attrs.map((a) => `contains(${a},${xpathLiteral(fixedFragment(t))})`));
     return `//*[${parts.join(' or ')}]`;
   }
 
@@ -71,9 +71,58 @@ export class BasePage {
     return `//*[${attrs.map((a) => `contains(${a},${xpathLiteral(literal)})`).join(' or ')}]`;
   }
 
-  protected structural(id: string, kind: ElementKind, reason: string): string {
+  protected structural(id: string, kind: ElementKind, reason: string, nth = 1): string {
     MissingLocator.record({ screen: this.constructor.name, element: id, status: 'structural-only', reason });
-    return `(//${isIos() ? IOS[kind] : ANDROID[kind]})[1]`;
+    return `(//${isIos() ? IOS[kind] : ANDROID[kind]})[${nth}]`;
+  }
+
+  /** Text that comes from the backend or test data (institution names, request numbers), not from i18n. */
+  protected byDynamicText(value: string): string {
+    return this.byLiteral(value);
+  }
+
+  /** Same i18n key, element by visual order when the label repeats (e.g. two "Pay now" buttons). */
+  protected nth(locator: string, n: number): string {
+    return `(${locator})[${n}]`;
+  }
+
+  async isChecked(locator: string): Promise<boolean> {
+    const el = await this.waitForDisplayed(locator);
+    const v = (await el.getAttribute(isIos() ? 'value' : 'checked').catch(() => '')) || '';
+    return v === 'true' || v === '1';
+  }
+
+  async getBounds(locator: string): Promise<{ x: number; y: number; width: number; height: number }> {
+    const el = await this.waitForDisplayed(locator);
+    const { x, y } = await el.getLocation();
+    const { width, height } = await el.getSize();
+    return { x, y, width, height };
+  }
+
+  async countMatches(locator: string): Promise<number> {
+    this.assertLocated(locator);
+    return (await $$(locator)).length;
+  }
+
+  async readText(locator: string): Promise<string> {
+    const el = await this.waitForDisplayed(locator);
+    if (isIos()) return (await el.getAttribute('label').catch(() => '')) || (await el.getText().catch(() => '')) || '';
+    return (await el.getAttribute('content-desc').catch(() => '')) || (await el.getAttribute('text').catch(() => '')) || '';
+  }
+
+  /** All visible strings on screen (for amount / number assertions on backend data). */
+  async screenTexts(): Promise<string[]> {
+    const els = await $$(isIos() ? '//*[@label]' : '//*[@content-desc!="" or @text!=""]');
+    const out: string[] = [];
+    for (const el of els) {
+      const v = isIos() ? await el.getAttribute('label').catch(() => '') : (await el.getAttribute('content-desc').catch(() => '')) || (await el.getAttribute('text').catch(() => ''));
+      if (v) out.push(v);
+    }
+    return out;
+  }
+
+  async isTextOnScreen(value: string, timeout = this.timeouts.short): Promise<boolean> {
+    return this.isElementDisplayed(this.byLiteral(value), timeout);
   }
 
   protected byText(i18nKey: string): string {
@@ -219,6 +268,12 @@ export class BasePage {
     const attr = isIos() ? 'label' : 'content-desc';
     return (await el.getAttribute(attr)) || (await el.getText());
   }
+}
+
+/** Longest fixed part of a translation that has runtime placeholders (@name, %s), trimmed. */
+function fixedFragment(text: string): string {
+  const pieces = text.split(/@\w+|%s/).map((p) => p.trim()).filter(Boolean);
+  return (pieces.sort((a, b) => b.length - a.length)[0] ?? text).trim();
 }
 
 function normalize(s: string): string {
