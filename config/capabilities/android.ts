@@ -10,7 +10,7 @@ export function androidCaps(): Record<string, unknown> {
     'appium:udid': process.env.ANDROID_UDID || 'emulator-5554',
     'appium:autoGrantPermissions': true,
     'appium:noReset': false,
-    'appium:newCommandTimeout': 300,
+    'appium:newCommandTimeout': Number(process.env.E2E_NEW_COMMAND_TIMEOUT || 120),
     'appium:settings': { waitForIdleTimeout: 100, actionAcknowledgmentTimeout: 500 },
   };
 }

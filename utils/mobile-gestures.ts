@@ -1,6 +1,7 @@
 import { logger } from '@madark/utils/logger';
 import { I18n } from '@madark/i18n/i18n';
 import { when } from '@madark/utils/report';
+import { Timeouts } from '@madark/utils/timeouts';
 import { Wait } from '@madark/utils/wait';
 
 export type SwipeDir = 'up' | 'down' | 'left' | 'right';
@@ -99,7 +100,7 @@ export class MobileGestures {
   static async swipeOnElement(locator: string, dir: SwipeDir, opts: SwipeOpts = {}): Promise<void> {
     return when(`swipeOnElement ${dir}`, async () => {
       const el = await $(locator);
-      await el.waitForDisplayed({ timeout: 15000 });
+      await el.waitForDisplayed({ timeout: Timeouts.medium });
       const loc = await el.getLocation();
       const size = await el.getSize();
       await this.performSwipe(dir, {
@@ -112,13 +113,18 @@ export class MobileGestures {
   static async swipeUntilVisible(
     locator: string,
     dir: SwipeDir,
-    { maxSwipes = 8, timeout = 2000 }: { maxSwipes?: number; timeout?: number } = {}
+    {
+      maxSwipes = Timeouts.maxSwipes,
+      timeout = Timeouts.medium,
+      probe = Timeouts.probe,
+    }: { maxSwipes?: number; timeout?: number; probe?: number } = {}
   ): Promise<boolean> {
-    if (await this.inSafeArea(locator, timeout)) return true;
+    // First look uses the action timeout; swipe probes stay short so misses fail fast.
+    if (await this.isOnScreen(locator, timeout)) return true;
     if (await this.healHeaderOrFooter(locator)) return true;
     for (let i = 0; i < maxSwipes; i += 1) {
       await this.swipe(dir);
-      if (await this.inSafeArea(locator, timeout)) return true;
+      if (await this.isOnScreen(locator, probe)) return true;
       if (await this.healHeaderOrFooter(locator)) return true;
     }
     return false;
@@ -126,16 +132,30 @@ export class MobileGestures {
 
   static async scrollUntilVisible(
     locator: string,
-    { maxSwipes = 8, timeout = 2000 }: { maxSwipes?: number; timeout?: number } = {}
+    {
+      maxSwipes = Timeouts.maxSwipes,
+      timeout = Timeouts.medium,
+      probe = Timeouts.probe,
+    }: { maxSwipes?: number; timeout?: number; probe?: number } = {}
   ): Promise<boolean> {
-    if (await this.swipeUntilVisible(locator, 'up', { maxSwipes, timeout })) return true;
-    return this.swipeUntilVisible(locator, 'down', { maxSwipes, timeout });
+    if (await this.isOnScreen(locator, timeout)) return true;
+    if (await this.swipeUntilVisible(locator, 'up', { maxSwipes, timeout: probe, probe })) return true;
+    return this.swipeUntilVisible(locator, 'down', { maxSwipes, timeout: probe, probe });
   }
 
   static async longPress(locator: string): Promise<void> {
     const el = await $(locator);
-    await el.waitForDisplayed({ timeout: 15000 });
+    await el.waitForDisplayed({ timeout: Timeouts.medium });
     await el.touchAction([{ action: 'longPress' }, { action: 'release' }]);
+  }
+
+  private static async isOnScreen(locator: string, timeout: number): Promise<boolean> {
+    try {
+      const el = await $(locator);
+      return Boolean(await el.waitForDisplayed({ timeout }));
+    } catch {
+      return false;
+    }
   }
 
   private static async inSafeArea(locator: string, timeout: number): Promise<boolean> {
@@ -160,12 +180,12 @@ export class MobileGestures {
       if (!(await el.isDisplayed())) return false;
       const band = await this.safeBand();
       const { x, y } = await el.getLocation();
-      if (y < band.yTop) await this.performSwipe('down', { distance: 0.22 });
-      else if (y > band.yBottom) await this.performSwipe('up', { distance: 0.22 });
-      else if (x < band.xLeft) await this.performSwipe('right', { distance: 0.22 });
+      // Fixed app chrome sits in the header/footer — tappable as-is; swiping moves the wrong layer.
+      if (y < band.yTop || y > band.yBottom) return true;
+      if (x < band.xLeft) await this.performSwipe('right', { distance: 0.22 });
       else if (x > band.xRight) await this.performSwipe('left', { distance: 0.22 });
       else return true;
-      return this.isInSafeBand(el);
+      return (await this.isInSafeBand(el)) || (await el.isDisplayed());
     } catch {
       return false;
     }

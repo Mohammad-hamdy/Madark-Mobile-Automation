@@ -18,7 +18,7 @@ export class GuestHomePage extends BasePage {
     this.whyMadarkTitle = this.byTextContains('why_madark_title');
   }
 
-  async isGuestHomeVisible(timeout = this.timeouts.long): Promise<boolean> {
+  async isGuestHomeVisible(timeout = this.timeouts.medium): Promise<boolean> {
     return this.then('isGuestHomeVisible', () => this.isElementDisplayed(this.eligibilityTitle, timeout));
   }
 

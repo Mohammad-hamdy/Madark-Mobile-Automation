@@ -19,6 +19,7 @@
     "test:smoke": "cross-env E2E_TAGS=smoke wdio run wdio.conf.ts",
     "test:bs": "cross-env E2E_TARGET=browserstack wdio run wdio.conf.ts",
     "test:bs:smoke": "cross-env E2E_TARGET=browserstack E2E_TAGS=smoke wdio run wdio.conf.ts",
+    "notify:telegram": "tsx scripts/notify-telegram.ts",
     "allure:report": "allure generate allure-results --clean -o allure-report && allure open allure-report"
   },
   "devDependencies": {

@@ -34,16 +34,19 @@ export class AppSetup {
   async openLoginScreen(): Promise<void> {
     await given('openLoginScreen', async () => {
       const { onboardingPage, guestHomePage, morePage, loginPage } = this.pages;
-      if (await loginPage.isLoginScreenVisible(Wait.timeouts.short)) return;
-      if (await onboardingPage.isOnboardingVisible()) {
+      const probe = Wait.timeouts.short;
+      if (await loginPage.isLoginScreenVisible(probe)) return;
+      if (await onboardingPage.isOnboardingVisible(probe)) {
         await this.matchLanguage();
         await onboardingPage.clickOnSkipButton();
       }
-      if (await guestHomePage.isGuestHomeVisible()) {
+      if (await guestHomePage.isGuestHomeVisible(probe)) {
         await guestHomePage.bottomNav.goToMore();
         await morePage.clickOnLoginButton();
       }
-      if (!(await loginPage.isLoginScreenVisible())) throw new Error('login screen not reached from launch');
+      if (!(await loginPage.isLoginScreenVisible(Wait.timeouts.medium))) {
+        throw new Error('login screen not reached from launch');
+      }
     });
   }
 

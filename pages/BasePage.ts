@@ -4,6 +4,7 @@ import { isIos } from '@madark/config/capabilities';
 import { I18n } from '@madark/i18n/i18n';
 import { MissingLocator } from '@madark/utils/missing-locator';
 import { MobileGestures } from '@madark/utils/mobile-gestures';
+import { Timeouts } from '@madark/utils/timeouts';
 import { Wait } from '@madark/utils/wait';
 import { when, then } from '@madark/utils/report';
 
@@ -30,7 +31,11 @@ const IOS: Record<ElementKind, string> = {
 };
 
 export class BasePage {
-  protected timeouts = { short: 5000, medium: 15000, long: 30000 };
+  protected timeouts = {
+    short: Timeouts.short,
+    medium: Timeouts.medium,
+    long: Timeouts.long,
+  };
 
   protected byDesc(i18nKey: string): string {
     const attr = isIos() ? '@name' : '@content-desc';
@@ -103,11 +108,17 @@ export class BasePage {
 
   async tap(locator: string, timeout = this.timeouts.medium): Promise<void> {
     this.assertLocated(locator);
-    const found = await MobileGestures.scrollUntilVisible(locator, { timeout });
+    const found = await MobileGestures.scrollUntilVisible(locator, {
+      timeout,
+      probe: Timeouts.probe,
+      maxSwipes: Timeouts.maxSwipes,
+    });
     if (!found) throw new Error(`not visible after gestures: ${locator}`);
-    const el = await Wait.enabled(locator, timeout).catch(() => Wait.visible(locator, timeout));
+    const el = await Wait.enabled(locator, Math.min(timeout, Timeouts.short)).catch(() =>
+      Wait.visible(locator, Math.min(timeout, Timeouts.short))
+    );
     await el.click();
-    await Wait.loadingGone().catch(() => undefined);
+    await Wait.loadingGone(Timeouts.probe).catch(() => undefined);
   }
 
   private assertLocated(locator: string): void {
@@ -131,14 +142,15 @@ export class BasePage {
       message: `field ready ${locator}`,
     });
     await el.clearValue().catch(() => undefined);
-    await driver.keys([...String(value)]);
+    // Flutter EditTexts often ignore clear/keys; setValue then keys as fallback.
+    try {
+      await el.setValue(String(value));
+    } catch {
+      await driver.keys([...String(value)]);
+    }
     const wanted = normalize(value);
     await Wait.until(
-      async () => {
-        const fresh = await $(locator);
-        const shown = (await fresh.getAttribute(isIos() ? 'value' : 'text').catch(() => '')) || (await fresh.getText().catch(() => ''));
-        return normalize(shown || '').includes(wanted);
-      },
+      async () => normalize(await this.readFieldShown(locator)).includes(wanted),
       { message: `field shows ${value}` }
     );
     logger.debug(`typed into ${locator}`);
@@ -158,8 +170,26 @@ export class BasePage {
   }
 
   async getFieldValue(locator: string): Promise<string> {
-    const el = await this.waitForDisplayed(locator);
-    return (await el.getAttribute(isIos() ? 'value' : 'text').catch(() => '')) || (await el.getText().catch(() => '')) || '';
+    await this.waitForDisplayed(locator);
+    return this.readFieldShown(locator);
+  }
+
+  /** Flutter Android keeps typed value in content-desc more often than text. */
+  private async readFieldShown(locator: string): Promise<string> {
+    const el = await $(locator);
+    if (isIos()) {
+      return (
+        (await el.getAttribute('value').catch(() => '')) ||
+        (await el.getText().catch(() => '')) ||
+        ''
+      );
+    }
+    const text = (await el.getAttribute('text').catch(() => '')) || '';
+    const desc = (await el.getAttribute('content-desc').catch(() => '')) || '';
+    const hint = (await el.getAttribute('hint').catch(() => '')) || '';
+    const raw = (await el.getText().catch(() => '')) || '';
+    const candidates = [text, desc, raw].filter((v) => v && v !== hint);
+    return candidates.join(' ') || text || desc || raw || '';
   }
 
   async countOf(kind: ElementKind): Promise<number> {

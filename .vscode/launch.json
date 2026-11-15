@@ -1,0 +1,65 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "android-en",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wdio", "run", "wdio.conf.ts"],
+      "env": {
+        "PLATFORM": "android",
+        "E2E_LANG": "en",
+        "E2E_TARGET": "local"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "android-ar",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wdio", "run", "wdio.conf.ts"],
+      "env": {
+        "PLATFORM": "android",
+        "E2E_LANG": "ar",
+        "E2E_TARGET": "local"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ios-en",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wdio", "run", "wdio.conf.ts"],
+      "env": {
+        "PLATFORM": "ios",
+        "E2E_LANG": "en",
+        "E2E_TARGET": "local"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "ios-ar",
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["wdio", "run", "wdio.conf.ts"],
+      "env": {
+        "PLATFORM": "ios",
+        "E2E_LANG": "ar",
+        "E2E_TARGET": "local"
+      },
+      "console": "integratedTerminal",
+      "internalConsoleOptions": "neverOpen"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "android-en",
+      "type": "shell",
+      "command": "npx cross-env PLATFORM=android E2E_LANG=en E2E_TARGET=local wdio run wdio.conf.ts",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "android-ar",
+      "type": "shell",
+      "command": "npx cross-env PLATFORM=android E2E_LANG=ar E2E_TARGET=local wdio run wdio.conf.ts",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "ios-en",
+      "type": "shell",
+      "command": "npx cross-env PLATFORM=ios E2E_LANG=en E2E_TARGET=local wdio run wdio.conf.ts",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+    },
+    {
+      "label": "ios-ar",
+      "type": "shell",
+      "command": "npx cross-env PLATFORM=ios E2E_LANG=ar E2E_TARGET=local wdio run wdio.conf.ts",
+      "options": { "cwd": "${workspaceFolder}" },
+      "group": { "kind": "test", "isDefault": false },
+      "presentation": { "reveal": "always", "panel": "dedicated", "clear": true }
+    }
+  ]
+}

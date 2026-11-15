@@ -1,36 +1,55 @@
 name: Android WDIO tests (emulator on runner)
 
-# Runs the suite on the GitHub runner itself: Android emulator + local Appium + WDIO.
-# The QA-flavor APK (com.madark.institution.qa) is not built here. It comes from either:
-#   - an artifact of the mobile repo's build workflow (apk_run_id + apk_artifact), or
-#   - a direct download URL (apk_url), e.g. a GitHub Release asset or internal storage.
+# Local Appium + Android emulator on the GitHub runner.
+# QA APK (com.madark.institution.qa) via apk_run_id (mobile repo artifact) or apk_url.
 
 on:
   workflow_dispatch:
     inputs:
       apk_run_id:
-        description: Run ID of the mobile repo build workflow that uploaded the APK (leave empty to use apk_url)
+        description: Mobile-repo build run ID that uploaded the APK (leave empty to use apk_url)
         required: false
+        type: string
       apk_artifact:
         description: Artifact name in that run
+        required: false
         default: madark-apk-qa
+        type: string
       apk_url:
         description: Direct APK download URL (used when apk_run_id is empty)
         required: false
+        type: string
       lang:
-        description: en or ar
-        default: en
+        description: App language (en or ar)
+        required: false
+        default: ar
+        type: choice
+        options: [ar, en]
       tags:
-        description: E2E_TAGS filter (e.g. smoke, p0, signIn, 11874)
-        default: smoke
+        description: E2E_TAGS filter (e.g. 11874, smoke, signIn, p0)
+        required: false
+        default: '11874'
+        type: string
+      spec:
+        description: Optional WDIO --spec path (speeds up single-case runs)
+        required: false
+        default: './specs/sign-in/sign-in.spec.ts'
+        type: string
       api_level:
         description: Emulator Android API level
+        required: false
         default: '34'
+        type: string
+      skip_api_verify:
+        description: Skip encrypted Dev API pre-check (UI-only cases like 11874)
+        required: false
+        default: true
+        type: boolean
   repository_dispatch:
     types: [madark-apk-ready]
 
 concurrency:
-  group: android-wdio-${{ github.ref }}
+  group: android-wdio-${{ github.ref }}-${{ github.event.inputs.tags || github.event.client_payload.tags || 'default' }}
   cancel-in-progress: false
 
 env:
@@ -46,14 +65,19 @@ jobs:
       E2E_ENCRYPTION: 'true'
       E2E_TARGET: local
       PLATFORM: android
-      E2E_LANG: ${{ inputs.lang || github.event.client_payload.lang || 'en' }}
-      E2E_TAGS: ${{ inputs.tags || github.event.client_payload.tags || 'smoke' }}
+      E2E_LANG: ${{ inputs.lang || github.event.client_payload.lang || 'ar' }}
+      E2E_TAGS: ${{ inputs.tags || github.event.client_payload.tags || '11874' }}
       ANDROID_UDID: emulator-5554
       APPIUM_HOST: 127.0.0.1
       ANDROID_APP_PATH: ${{ github.workspace }}/app/madark-qa.apk
       E2E_CUSTOMER_PHONE: ${{ secrets.E2E_CUSTOMER_PHONE }}
       E2E_CUSTOMER_OTP: ${{ secrets.E2E_CUSTOMER_OTP }}
       E2E_SKIP_UNSUPPORTED_DEVICE_ACTIONS: '1'
+      E2E_FAST: '1'
+      WDIO_WALL_TIMEOUT: '480'
+      # Graceful emu kill often hangs on GHA — keep this tiny; script also force-kills qemu.
+      ANDROID_EMULATOR_WAIT_TIME_BEFORE_KILL: '1'
+      WDIO_SPEC: ${{ inputs.spec || github.event.client_payload.spec || './specs/sign-in/sign-in.spec.ts' }}
 
     steps:
       - name: Checkout automation
@@ -77,6 +101,7 @@ jobs:
           npm run verify:crypto
 
       - name: Encrypted Dev API check
+        if: ${{ inputs.skip_api_verify != true && github.event.client_payload.skip_api_verify != true }}
         run: npm run verify:api
 
       - name: Download APK from mobile repo build
@@ -92,25 +117,26 @@ jobs:
       - name: Download APK from URL
         if: ${{ inputs.apk_run_id == '' && github.event.client_payload.run_id == '' }}
         env:
-          APK_URL: ${{ inputs.apk_url || github.event.client_payload.apk_url }}
-          APK_URL_TOKEN: ${{ secrets.APK_URL_TOKEN }}
+          # Default: QA APK release asset in this repo (apk-qa-1.0.7-83)
+          APK_URL: ${{ inputs.apk_url || github.event.client_payload.apk_url || secrets.MADARK_QA_APK_URL || 'https://github.com/Mohammad-hamdy/Madark-Mobile-Automation/releases/download/apk-qa-1.0.7-83/madark-qa.apk' }}
+          APK_URL_TOKEN: ${{ secrets.APK_URL_TOKEN || github.token }}
         run: |
           set -euo pipefail
-          test -n "$APK_URL" || { echo "::error::Provide apk_run_id or apk_url"; exit 1; }
+          test -n "${APK_URL:-}" || { echo "::error::Provide apk_run_id, apk_url, or secret MADARK_QA_APK_URL"; exit 1; }
           mkdir -p app
           if [ -n "${APK_URL_TOKEN:-}" ]; then
-            curl -fsSL -H "Authorization: Bearer $APK_URL_TOKEN" -o "$ANDROID_APP_PATH" "$APK_URL"
+            curl -fsSL -H "Authorization: Bearer $APK_URL_TOKEN" -L -o "$ANDROID_APP_PATH" "$APK_URL"
           else
-            curl -fsSL -o "$ANDROID_APP_PATH" "$APK_URL"
+            curl -fsSL -L -o "$ANDROID_APP_PATH" "$APK_URL"
           fi
 
       - name: Normalise APK path
         run: |
           set -euo pipefail
           found="$(find app -name '*.apk' | head -1)"
-          test -n "$found" || { echo "::error::No APK found"; exit 1; }
+          test -n "$found" || { echo "::error::No APK found under app/"; exit 1; }
           [ "$found" = "app/madark-qa.apk" ] || mv "$found" "$ANDROID_APP_PATH"
-          ls -la app
+          ls -lah "$ANDROID_APP_PATH"
 
       - name: Enable KVM
         run: |
@@ -118,52 +144,39 @@ jobs:
           sudo udevadm control --reload-rules
           sudo udevadm trigger --name-match=kvm
 
-      - name: AVD cache
-        uses: actions/cache@v4
-        id: avd-cache
-        with:
-          path: |
-            ~/.android/avd/*
-            ~/.android/adb*
-          key: avd-${{ inputs.api_level || '34' }}-google_apis-x86_64
-
-      - name: Create AVD snapshot for caching
-        if: steps.avd-cache.outputs.cache-hit != 'true'
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ inputs.api_level || '34' }}
-          arch: x86_64
-          target: google_apis
-          force-avd-creation: false
-          emulator-options: -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          script: echo "AVD snapshot created"
+      # Emulator is managed directly: android-emulator-runner hung ~25 min in its
+      # "Terminate Emulator" cleanup even after the emulator had exited.
+      - name: Start emulator
+        timeout-minutes: 10
+        env:
+          API_LEVEL: ${{ inputs.api_level || '34' }}
+        run: bash scripts/ci-start-emulator.sh
 
       - name: Run WebdriverIO on emulator
-        uses: reactivecircus/android-emulator-runner@v2
-        with:
-          api-level: ${{ inputs.api_level || '34' }}
-          arch: x86_64
-          target: google_apis
-          force-avd-creation: false
-          emulator-options: -no-snapshot-save -no-window -gpu swiftshader_indirect -noaudio -no-boot-anim -camera-back none
-          disable-animations: true
-          script: |
-            set -euo pipefail
-            adb wait-for-device
-            adb emu geo fix 46.6753 24.7136
-            adb install -r -t -g "$ANDROID_APP_PATH"
-            mkdir -p logs
-            npx appium --address "$APPIUM_HOST" --port "$APPIUM_PORT" --relaxed-security --allow-insecure=uiautomator2:adb_shell --log logs/appium.log --log-timestamp &
-            for i in $(seq 1 60); do curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null && break; sleep 2; done
-            curl -fs "http://$APPIUM_HOST:$APPIUM_PORT/status" >/dev/null || { echo "::error::Appium did not start"; exit 1; }
-            npx wdio run wdio.conf.ts
+        id: wdio
+        timeout-minutes: 12
+        run: bash scripts/ci-android-wdio.sh
+
+      - name: Stop emulator
+        if: always()
+        timeout-minutes: 1
+        run: |
+          adb -s emulator-5554 emu kill >/dev/null 2>&1 || true
+          [ -f /tmp/emulator.pid ] && kill -9 "$(cat /tmp/emulator.pid)" 2>/dev/null || true
+          pkill -9 -f qemu-system >/dev/null 2>&1 || true
+          adb kill-server >/dev/null 2>&1 || true
 
       - name: Generate Allure single-file report
         if: always()
         run: |
-          npx allure generate --single-file allure-results -o allure-html --clean || true
-          [ -f allure-html/index.html ] && cp allure-html/index.html "allure-html/allure-report-${{ github.run_number }}.html" || true
+          set -euo pipefail
+          mkdir -p allure-html
+          if [ -d allure-results ] && ls allure-results/*-result.json >/dev/null 2>&1; then
+            npx allure generate --single-file allure-results -o allure-html --clean
+            cp allure-html/index.html "allure-html/allure-report-${{ github.run_number }}.html"
+          else
+            echo "::warning::No allure-results to generate"
+          fi
 
       - name: Upload Allure report
         if: always()
@@ -172,6 +185,16 @@ jobs:
           name: allure-report-${{ github.run_number }}
           path: allure-html/allure-report-${{ github.run_number }}.html
           if-no-files-found: ignore
+
+      - name: Notify Telegram
+        if: always()
+        timeout-minutes: 2
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          TELEGRAM_NOTIFY_ON_SUCCESS: ${{ vars.TELEGRAM_NOTIFY_ON_SUCCESS || 'true' }}
+          TELEGRAM_MAX_SCREENSHOTS: ${{ vars.TELEGRAM_MAX_SCREENSHOTS || '10' }}
+        run: npm run notify:telegram
 
       - name: Upload raw results and logs
         if: always()
@@ -190,13 +213,16 @@ jobs:
           {
             echo "### Android WDIO — ${E2E_ENV} / encryption=${E2E_ENCRYPTION} / ${E2E_LANG} / tags=${E2E_TAGS:-all}"
             echo ""
-            total=$(ls allure-results/*-result.json 2>/dev/null | wc -l)
-            passed=$(grep -l '"status":"passed"' allure-results/*-result.json 2>/dev/null | wc -l)
-            failed=$(grep -lE '"status":"(failed|broken)"' allure-results/*-result.json 2>/dev/null | wc -l)
-            skipped=$(grep -l '"status":"skipped"' allure-results/*-result.json 2>/dev/null | wc -l)
+            echo "- Spec: \`${WDIO_SPEC:-all}\`"
+            echo "- WDIO exit: \`${{ steps.wdio.outputs.wdio_exit || 'n/a' }}\`"
+            echo ""
+            total=$(ls allure-results/*-result.json 2>/dev/null | wc -l | tr -d ' ')
+            passed=$(grep -l '"status":"passed"' allure-results/*-result.json 2>/dev/null | wc -l | tr -d ' ')
+            failed=$(grep -lE '"status":"(failed|broken)"' allure-results/*-result.json 2>/dev/null | wc -l | tr -d ' ')
+            skipped=$(grep -l '"status":"skipped"' allure-results/*-result.json 2>/dev/null | wc -l | tr -d ' ')
             echo "| Total | Passed | Failed | Skipped |"
             echo "|---|---|---|---|"
-            echo "| $total | $passed | $failed | $skipped |"
+            echo "| ${total:-0} | ${passed:-0} | ${failed:-0} | ${skipped:-0} |"
             echo ""
-            echo "Report: artifact \`allure-report-${{ github.run_number }}\`"
+            echo "Report artifact: \`allure-report-${{ github.run_number }}\`"
           } >> "$GITHUB_STEP_SUMMARY"
