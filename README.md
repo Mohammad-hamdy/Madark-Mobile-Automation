@@ -20,25 +20,29 @@ Local Appium (requires Android SDK + emulator):
 
 ```bash
 npm run appium:install-drivers && npm run appium     # in one terminal
-npx cross-env E2E_TARGET=local ANDROID_APP_PATH=../madark-ai-runner/apps/madark-qa.apk npm run test:smoke
+npx cross-env E2E_TARGET=local ANDROID_APP_PATH=path/to/madark-qa.apk npm run test:smoke
 ```
 
-## Mobile repo is read-only
+## Reference repos are read-only
 
-The local clone `repos/Madarak-UserApp/Madarak-UserApp` is used only as a source to read, and it is locked:
+Everything under `Mobile runner/repos/` is reference material only: the user app, the 16 backend services, the institution portal and the dashboard. The WDIO guideline repo `webdriverIo-flutter-automation-framework-build` (skill and markdown files) is too. They are read to build the scripts and never changed. Each one is locked:
 
-- `.git/hooks/pre-commit`, `prepare-commit-msg`, `pre-merge-commit`, `pre-rebase`, `pre-applypatch` and `pre-push` all exit 1. `prepare-commit-msg` still runs under `git commit --no-verify`.
-- The push URL is set to `READ-ONLY-push-disabled`, so `git push` fails even with `--no-verify`.
-- `git fetch` still works, so `npm run snapshot` can export new commits with `git archive`. Nothing is ever checked out or written to the working tree.
+- **No commits:** `pre-commit`, `prepare-commit-msg`, `pre-merge-commit`, `pre-rebase`, `pre-applypatch` and `pre-push` hooks all exit 1. `prepare-commit-msg` still runs under `git commit --no-verify`.
+- **No push:** the push URL is `READ-ONLY-push-disabled`, so `git push` fails even with `--no-verify`. The real URL is saved in `git config readonly.pushurl`.
+- **No edits:** every tracked file has the read-only attribute.
+- **Still readable/updatable:** `.git` stays writable, so `git fetch` and `npm run snapshot` (`git archive`) keep working. Nothing is checked out into the working tree.
 
-To undo (only if you really need to commit from this clone):
+Manage the locks with `tools/reference-repos.sh` (Git Bash):
 
 ```bash
-cd repos/Madarak-UserApp/Madarak-UserApp
-rm .git/hooks/pre-commit .git/hooks/prepare-commit-msg .git/hooks/pre-merge-commit .git/hooks/pre-rebase .git/hooks/pre-applypatch .git/hooks/pre-push
-git remote set-url --push origin https://dev.azure.com/Madark/Madarak-UserApp/_git/Madarak-UserApp
-git config --unset readonly.reason
+tools/reference-repos.sh status                  # all reference repos: hooks, push, uncommitted changes
+tools/reference-repos.sh lock                    # lock all, e.g. after cloning a new reference repo
+tools/reference-repos.sh unlock ../repos/Madarak-UserApp/Madarak-UserApp   # unlock one repo only
 ```
+
+Updating a reference repo to the latest code still works while it's locked: `git fetch` updates the refs, and `npm run snapshot` exports them. To move the working tree itself (`git pull` or `git checkout`), unlock that repo, update it, and lock it again.
+
+The test cases come from `data/ado/mobile_regression_cases.json` (the Azure DevOps export). The old `madark-ai-runner` (an AI agent on BrowserStack) is no longer used by this framework.
 
 ## Run switches
 
@@ -111,6 +115,6 @@ Not yet run on a device. The first BrowserStack smoke run needs `.env.local`.
 
 1. **No accessibility ids.** 0 of 86 screens have a `ValueKey` or `Semantics(identifier:)`. Locators rely on i18n text, and the OTP input is located structurally. Ask for `Semantics(identifier: …)` on interactive widgets, starting with login, OTP, home, request financing and payment.
 2. **ADO expected text ≠ app text.** For example, the cases expect "Welcome Back", "Continue" and "Invalid phone number.", while the app shows "Welcome Back,", "Login" and "Mobile number must start with 5". Tests assert the app's i18n. Each difference is either a test-case update or an app bug.
-3. **Figma "matches design" cases** (about 92) need visual comparison, which isn't wired yet (`madark-ai-runner/src/visual.ts` can be reused).
+3. **Figma "matches design" cases** (about 92) need visual comparison (screenshot vs approved baseline), which isn't wired yet.
 4. **Dev OTP.** `User/GetUserOtpDev` is commented out in the app, so OTP comes from `E2E_CUSTOMER_OTP` (the fixed Dev OTP).
 5. **Build & upload pipeline** lives in the mobile repo and is not added. It must upload the QA-flavor APK as `madark-apk-qa` (and a simulator `.app` zip as `madark-simulator-qa` for iOS). The repository-dispatch step above is optional.

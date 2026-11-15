@@ -6,7 +6,7 @@ const ROOT = path.resolve(__dirname, '..');
 dotenv.config({ path: path.join(ROOT, '.env.local') });
 
 const SOURCE = path.resolve(
-  process.env.SUITE_SOURCE || path.join(ROOT, '..', 'madark-ai-runner', 'data', 'mobile_regression_cases.json')
+  process.env.SUITE_SOURCE || path.join(ROOT, 'data', 'ado', 'mobile_regression_cases.json')
 );
 const ADO_URL = process.env.ADO_WORKITEM_URL || 'https://dev.azure.com/Madark/Madarak-Backlog/_workitems/edit/';
 
